@@ -231,50 +231,8 @@ example.</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Load a demo dataset with four samples:</span>
 <span class='no'>dataset</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"dataset-demo"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"AlpsNMR"</span>)
-<span class='no'>nmr_dataset</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='nmr_read_samples.html'>nmr_read_samples_dir</a></span>(<span class='no'>dataset</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: unnest() has a new interface. See ?unnest for details.</span>
-#&gt; <span class='warning'>Try `df %&gt;% unnest(c(NMRExperiment, file_format, sample_path, dimension, </span>
-#&gt; <span class='warning'>    pulse_sequence, nuclei, acq_datetime))`, with `mutate()` if needed</span></div><div class='output co'>#&gt; <span class='warning'>Warning: unnest() has a new interface. See ?unnest for details.</span>
-#&gt; <span class='warning'>Try `df %&gt;% unnest(c(TITLE, JCAMPDX, DATATYPE, NPOINTS, ORIGIN, OWNER, ACQT0, </span>
-#&gt; <span class='warning'>    ANAVPT, AQSEQ, AQ_mod, AUNM, AUTOPOS, BF1, BF2, BF3, BF4, </span>
-#&gt; <span class='warning'>    BF5, BF6, BF7, BF8, BYTORDA, CHEMSTR, CPDPRG, DATE, DE, DECBNUC, </span>
-#&gt; <span class='warning'>    DECIM, DECNUC, DECSTAT, DIGMOD, DIGTYP, DQDMODE, DR, DS, </span>
-#&gt; <span class='warning'>    DSPFIRM, DSPFVS, DTYPA, EXP, FL1, FL2, FL3, FL4, FOV, FQ1LIST, </span>
-#&gt; <span class='warning'>    FQ2LIST, FQ3LIST, FQ4LIST, FQ5LIST, FQ6LIST, FQ7LIST, FQ8LIST, </span>
-#&gt; <span class='warning'>    FRQLO3, FRQLO3N, FTLPGN, FW, FnILOOP, FnMODE, FnTYPE, GPNAM, </span>
-#&gt; <span class='warning'>    GRDPROG, GRPDLY, HDDUTY, HDRATE, HL1, HL2, HL3, HL4, HOLDER, </span>
-#&gt; <span class='warning'>    HPPRGN, INSTRUM, LFILTER, LGAIN, LINPSTP, LOCKED, LOCKFLD, </span>
-#&gt; <span class='warning'>    LOCKGN, LOCKPOW, LOCKPPM, LOCNUC, LOCPHAS, LOCSHFT, LOCSW, </span>
-#&gt; <span class='warning'>    LTIME, MASR, MASRLST, NBL, NC, NLOGCH, NOVFLW, NS, NUC1, </span>
-#&gt; <span class='warning'>    NUC2, NUC3, NUC4, NUC5, NUC6, NUC7, NUC8, NUCLEUS, NUSLIST, </span>
-#&gt; <span class='warning'>    NusAMOUNT, NusFPNZ, NusJSP, NusSEED, NusSPTYPE, NusT2, NusTD, </span>
-#&gt; <span class='warning'>    O1, O2, O3, O4, O5, O6, O7, O8, OVERFLW, PAPS, PARMODE, PHLIST, </span>
-#&gt; <span class='warning'>    PHP, PH_ref, PLSTEP, PLSTRT, PQPHASE, PQSCALE, PR, PRGAIN, </span>
-#&gt; <span class='warning'>    PROBHD, PULPROG, PW, PYNM, ProjAngle, QNP, RD, RECPH, RG, </span>
-#&gt; <span class='warning'>    RO, SFO1, SFO2, SFO3, SFO4, SFO5, SFO6, SFO7, SFO8, SOLVENT, </span>
-#&gt; <span class='warning'>    SOLVOLD, SPECTR, SPINCNT, SPNAM, SUBNAM, SW, SW_h, SWfinal, </span>
-#&gt; <span class='warning'>    SigLockShift, TD, TD0, TDav, TE, TE1, TE2, TE3, TE4, TEG, </span>
-#&gt; <span class='warning'>    TE_MAGNET, TE_PIDX, TUBE_TYPE, USERA1, USERA2, USERA3, USERA4, </span>
-#&gt; <span class='warning'>    USERA5, V9, VALIDCODE, VALIST, VCLIST, VDLIST, VPLIST, VTLIST, </span>
-#&gt; <span class='warning'>    WBST, WBSW, XL, YL, YMAX_a, YMIN_a, ZGOPTNS, ZL1, ZL2, ZL3, </span>
-#&gt; <span class='warning'>    ZL4))`, with `mutate()` if needed</span></div><div class='output co'>#&gt; <span class='warning'>Warning: unnest() has a new interface. See ?unnest for details.</span>
-#&gt; <span class='warning'>Try `df %&gt;% unnest(c(TITLE, JCAMPDX, DATATYPE, NPOINTS, ORIGIN, OWNER, ABSF1, </span>
-#&gt; <span class='warning'>    ABSF2, ABSG, ABSL, ALPHA, AQORDER, ASSFAC, ASSFACI, ASSFACX, </span>
-#&gt; <span class='warning'>    ASSWID, AUNMP, AXLEFT, AXNAME, AXNUC, AXRIGHT, AXTYPE, AXUNIT, </span>
-#&gt; <span class='warning'>    AZFE, AZFW, BCFW, BC_mod, BYTORDP, COROFFS, CY, DATMOD, DC, </span>
-#&gt; <span class='warning'>    DFILT, DTYPP, ERETIC, F1P, F2P, FCOR, FTSIZE, FT_mod, GAMMA, </span>
-#&gt; <span class='warning'>    GB, INTBC, INTSCL, ISEN, LB, LEV0, LPBIN, MAXI, MC2, MEAN, </span>
-#&gt; <span class='warning'>    ME_mod, MI, MddCEXP, MddCT_SP, MddF180, MddLAMBDA, MddMEMORY, </span>
-#&gt; <span class='warning'>    MddMERGE, MddNCOMP, MddNITER, MddNOISE, MddPHASE, MddSEED, </span>
-#&gt; <span class='warning'>    MddSRSIZE, Mdd_CsALG, Mdd_CsLAMBDA, Mdd_CsNITER, Mdd_CsNORM, </span>
-#&gt; <span class='warning'>    Mdd_CsVE, Mdd_CsZF, Mdd_LrLAMBDA, Mdd_LrNITER, Mdd_LrRANK, </span>
-#&gt; <span class='warning'>    Mdd_LrZF, Mdd_mod, NCOEF, NC_proc, NLEV, NOISF1, NOISF2, </span>
-#&gt; <span class='warning'>    NSP, NTH_PI, NZP, OFFSET, PC, PHC0, PHC1, PH_mod, PKNL, PPARMOD, </span>
-#&gt; <span class='warning'>    PPDIAG, PPIPTYP, PPMPNUM, PPRESOL, PSCAL, PSIGN, PYNMP, RDF1, </span>
-#&gt; <span class='warning'>    RDF2, RDFWHM, RDINT, RDPOS, REVERSE, SF, SI, SIGF1, SIGF2, </span>
-#&gt; <span class='warning'>    SINO, SIOLD, SPECTYP, SREF_mod, SREGLST, SSB, STSI, STSR, </span>
-#&gt; <span class='warning'>    SW_p, SYMM, S_DEV, TDeff, TDoff, TI, TILT, TM1, TM2, TOPLEV, </span>
-#&gt; <span class='warning'>    USERP1, USERP2, USERP3, USERP4, USERP5, WDW, XDIM, YMAX_p, </span>
-#&gt; <span class='warning'>    YMIN_p))`, with `mutate()` if needed</span></div><div class='input'>
+<span class='no'>nmr_dataset</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='nmr_read_samples.html'>nmr_read_samples_dir</a></span>(<span class='no'>dataset</span>)
+
 <span class='co'># At first we just have the NMRExperiment column</span>
 <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='fu'><a href='nmr_meta_get.html'>nmr_meta_get</a></span>(<span class='no'>nmr_dataset</span>, <span class='kw'>groups</span> <span class='kw'>=</span> <span class='st'>"external"</span>))</div><div class='output co'>#&gt; # A tibble: 4 x 1
 #&gt;   NMRExperiment
@@ -319,50 +277,8 @@ example.</p></td>
 <span class='co'># Read a tidy excel file:</span>
 
 <span class='no'>dataset</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"dataset-demo"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"AlpsNMR"</span>)
-<span class='no'>nmr_dataset</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='nmr_read_samples.html'>nmr_read_samples_dir</a></span>(<span class='no'>dataset</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: unnest() has a new interface. See ?unnest for details.</span>
-#&gt; <span class='warning'>Try `df %&gt;% unnest(c(NMRExperiment, file_format, sample_path, dimension, </span>
-#&gt; <span class='warning'>    pulse_sequence, nuclei, acq_datetime))`, with `mutate()` if needed</span></div><div class='output co'>#&gt; <span class='warning'>Warning: unnest() has a new interface. See ?unnest for details.</span>
-#&gt; <span class='warning'>Try `df %&gt;% unnest(c(TITLE, JCAMPDX, DATATYPE, NPOINTS, ORIGIN, OWNER, ACQT0, </span>
-#&gt; <span class='warning'>    ANAVPT, AQSEQ, AQ_mod, AUNM, AUTOPOS, BF1, BF2, BF3, BF4, </span>
-#&gt; <span class='warning'>    BF5, BF6, BF7, BF8, BYTORDA, CHEMSTR, CPDPRG, DATE, DE, DECBNUC, </span>
-#&gt; <span class='warning'>    DECIM, DECNUC, DECSTAT, DIGMOD, DIGTYP, DQDMODE, DR, DS, </span>
-#&gt; <span class='warning'>    DSPFIRM, DSPFVS, DTYPA, EXP, FL1, FL2, FL3, FL4, FOV, FQ1LIST, </span>
-#&gt; <span class='warning'>    FQ2LIST, FQ3LIST, FQ4LIST, FQ5LIST, FQ6LIST, FQ7LIST, FQ8LIST, </span>
-#&gt; <span class='warning'>    FRQLO3, FRQLO3N, FTLPGN, FW, FnILOOP, FnMODE, FnTYPE, GPNAM, </span>
-#&gt; <span class='warning'>    GRDPROG, GRPDLY, HDDUTY, HDRATE, HL1, HL2, HL3, HL4, HOLDER, </span>
-#&gt; <span class='warning'>    HPPRGN, INSTRUM, LFILTER, LGAIN, LINPSTP, LOCKED, LOCKFLD, </span>
-#&gt; <span class='warning'>    LOCKGN, LOCKPOW, LOCKPPM, LOCNUC, LOCPHAS, LOCSHFT, LOCSW, </span>
-#&gt; <span class='warning'>    LTIME, MASR, MASRLST, NBL, NC, NLOGCH, NOVFLW, NS, NUC1, </span>
-#&gt; <span class='warning'>    NUC2, NUC3, NUC4, NUC5, NUC6, NUC7, NUC8, NUCLEUS, NUSLIST, </span>
-#&gt; <span class='warning'>    NusAMOUNT, NusFPNZ, NusJSP, NusSEED, NusSPTYPE, NusT2, NusTD, </span>
-#&gt; <span class='warning'>    O1, O2, O3, O4, O5, O6, O7, O8, OVERFLW, PAPS, PARMODE, PHLIST, </span>
-#&gt; <span class='warning'>    PHP, PH_ref, PLSTEP, PLSTRT, PQPHASE, PQSCALE, PR, PRGAIN, </span>
-#&gt; <span class='warning'>    PROBHD, PULPROG, PW, PYNM, ProjAngle, QNP, RD, RECPH, RG, </span>
-#&gt; <span class='warning'>    RO, SFO1, SFO2, SFO3, SFO4, SFO5, SFO6, SFO7, SFO8, SOLVENT, </span>
-#&gt; <span class='warning'>    SOLVOLD, SPECTR, SPINCNT, SPNAM, SUBNAM, SW, SW_h, SWfinal, </span>
-#&gt; <span class='warning'>    SigLockShift, TD, TD0, TDav, TE, TE1, TE2, TE3, TE4, TEG, </span>
-#&gt; <span class='warning'>    TE_MAGNET, TE_PIDX, TUBE_TYPE, USERA1, USERA2, USERA3, USERA4, </span>
-#&gt; <span class='warning'>    USERA5, V9, VALIDCODE, VALIST, VCLIST, VDLIST, VPLIST, VTLIST, </span>
-#&gt; <span class='warning'>    WBST, WBSW, XL, YL, YMAX_a, YMIN_a, ZGOPTNS, ZL1, ZL2, ZL3, </span>
-#&gt; <span class='warning'>    ZL4))`, with `mutate()` if needed</span></div><div class='output co'>#&gt; <span class='warning'>Warning: unnest() has a new interface. See ?unnest for details.</span>
-#&gt; <span class='warning'>Try `df %&gt;% unnest(c(TITLE, JCAMPDX, DATATYPE, NPOINTS, ORIGIN, OWNER, ABSF1, </span>
-#&gt; <span class='warning'>    ABSF2, ABSG, ABSL, ALPHA, AQORDER, ASSFAC, ASSFACI, ASSFACX, </span>
-#&gt; <span class='warning'>    ASSWID, AUNMP, AXLEFT, AXNAME, AXNUC, AXRIGHT, AXTYPE, AXUNIT, </span>
-#&gt; <span class='warning'>    AZFE, AZFW, BCFW, BC_mod, BYTORDP, COROFFS, CY, DATMOD, DC, </span>
-#&gt; <span class='warning'>    DFILT, DTYPP, ERETIC, F1P, F2P, FCOR, FTSIZE, FT_mod, GAMMA, </span>
-#&gt; <span class='warning'>    GB, INTBC, INTSCL, ISEN, LB, LEV0, LPBIN, MAXI, MC2, MEAN, </span>
-#&gt; <span class='warning'>    ME_mod, MI, MddCEXP, MddCT_SP, MddF180, MddLAMBDA, MddMEMORY, </span>
-#&gt; <span class='warning'>    MddMERGE, MddNCOMP, MddNITER, MddNOISE, MddPHASE, MddSEED, </span>
-#&gt; <span class='warning'>    MddSRSIZE, Mdd_CsALG, Mdd_CsLAMBDA, Mdd_CsNITER, Mdd_CsNORM, </span>
-#&gt; <span class='warning'>    Mdd_CsVE, Mdd_CsZF, Mdd_LrLAMBDA, Mdd_LrNITER, Mdd_LrRANK, </span>
-#&gt; <span class='warning'>    Mdd_LrZF, Mdd_mod, NCOEF, NC_proc, NLEV, NOISF1, NOISF2, </span>
-#&gt; <span class='warning'>    NSP, NTH_PI, NZP, OFFSET, PC, PHC0, PHC1, PH_mod, PKNL, PPARMOD, </span>
-#&gt; <span class='warning'>    PPDIAG, PPIPTYP, PPMPNUM, PPRESOL, PSCAL, PSIGN, PYNMP, RDF1, </span>
-#&gt; <span class='warning'>    RDF2, RDFWHM, RDINT, RDPOS, REVERSE, SF, SI, SIGF1, SIGF2, </span>
-#&gt; <span class='warning'>    SINO, SIOLD, SPECTYP, SREF_mod, SREGLST, SSB, STSI, STSR, </span>
-#&gt; <span class='warning'>    SW_p, SYMM, S_DEV, TDeff, TDoff, TI, TILT, TM1, TM2, TOPLEV, </span>
-#&gt; <span class='warning'>    USERP1, USERP2, USERP3, USERP4, USERP5, WDW, XDIM, YMAX_p, </span>
-#&gt; <span class='warning'>    YMIN_p))`, with `mutate()` if needed</span></div><div class='input'>
+<span class='no'>nmr_dataset</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='nmr_read_samples.html'>nmr_read_samples_dir</a></span>(<span class='no'>dataset</span>)
+
 <span class='co'># At first we just have the NMRExperiment column</span>
 <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='fu'><a href='nmr_meta_get.html'>nmr_meta_get</a></span>(<span class='no'>nmr_dataset</span>, <span class='kw'>groups</span> <span class='kw'>=</span> <span class='st'>"external"</span>))</div><div class='output co'>#&gt; # A tibble: 4 x 1
 #&gt;   NMRExperiment
