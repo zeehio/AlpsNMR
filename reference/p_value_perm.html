@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Permutation test plot — permutation_test_plot • AlpsNMR</title>
+<title>p-Value from permutation test — p_value_perm • AlpsNMR</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,9 @@
 
 
 
-<meta property="og:title" content="Permutation test plot — permutation_test_plot" />
-<meta property="og:description" content="Plot permutation test using actual model and permutated models" />
+<meta property="og:title" content="p-Value from permutation test — p_value_perm" />
+<meta property="og:description" content="The fucntion calculates the cumulative (1-tailed) probability of 'actual'
+belonging to 'h0' (permutation_object from the permutation_test_model function)." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -115,72 +116,42 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Permutation test plot</h1>
+    <h1>p-Value from permutation test</h1>
     
-    <div class="hidden name"><code>permutation_test_plot.Rd</code></div>
+    <div class="hidden name"><code>p_value_perm.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Plot permutation test using actual model and permutated models</p>
+    <p>The fucntion calculates the cumulative (1-tailed) probability of 'actual'
+belonging to 'h0' (<code>permutation_object</code> from the <code>permutation_test_model</code> function).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>permutation_test_plot</span>(<span class='no'>MVObj</span>, <span class='no'>permMatrix</span>, <span class='kw'>model</span> <span class='kw'>=</span> <span class='st'>"mid"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='no'>type</span>,
-  <span class='no'>pos</span>, <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>xlim</span>, <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='st'>"Sturges"</span>,
-  <span class='kw'>main</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>p_value_perm</span>(<span class='no'>model_actual</span>, <span class='no'>permutation_object</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>MVObj</th>
-      <td><p>A MUVR object</p></td>
+      <th>model_actual</th>
+      <td><p>The actual model performance  (e.g. misclassifications or Q2)</p></td>
     </tr>
     <tr>
-      <th>permMatrix</th>
-      <td><p>A permutation fitness outcome from MUVR::permutations()</p></td>
-    </tr>
-    <tr>
-      <th>model</th>
-      <td><p>'Min', 'Mid', or 'Max'</p></td>
-    </tr>
-    <tr>
-      <th>type</th>
-      <td><p>'t' (default; for Student's t) or 'non' for "non-parametric" (i.e. rank) studen'ts</p></td>
-    </tr>
-    <tr>
-      <th>pos</th>
-      <td><p>which side of actual to put p-value on</p></td>
-    </tr>
-    <tr>
-      <th>xlab</th>
-      <td><p>optional xlabel</p></td>
-    </tr>
-    <tr>
-      <th>xlim</th>
-      <td><p>optional x-range</p></td>
-    </tr>
-    <tr>
-      <th>ylim</th>
-      <td><p>otional y-range</p></td>
-    </tr>
-    <tr>
-      <th>breaks</th>
-      <td><p>optional custom histogram breaks (defaults to 'sturges')</p></td>
-    </tr>
-    <tr>
-      <th>main</th>
-      <td><p>optional plot title (or TRUE for autoname)</p></td>
+      <th>permutation_object</th>
+      <td><p>Null hypothesis distribution from permutation test
+from <code>permutation_test_model</code> function</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A plot with the comparison between the actual model versus the permuted models</p>
+    <p>The p-value indicating if there is significant differences between
+the model performance and the null hypothesis distribution from permutation
+test test</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='no'>P</span> <span class='kw'>=</span> <span class='fu'><a href='permutation_test_model.html'>permutation_test_model</a></span>(<span class='no'>model</span>)
-<span class='fu'>permutation_test_plot</span> (<span class='no'>model</span>, <span class='no'>P</span>)
+<span class='no'>p.value</span> <span class='kw'>=</span> <span class='fu'>p_value_perm</span>(<span class='no'>model</span>$<span class='no'>miss</span><span class='kw'>[[</span><span class='fl'>2</span>]], <span class='no'>P</span>[,<span class='fl'>2</span>])
 }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
