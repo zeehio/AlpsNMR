@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">AlpsNMR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.3.3.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.3.3.9002</span>
       </span>
     </div>
 
@@ -156,13 +156,13 @@ its components for further analysis.</p>
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>AlpsNMR</span>)
 <span class='no'>sample_names</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"dataset/10/"</span>, <span class='st'>"dataset/20/"</span>, <span class='st'>"dataset/30/"</span>)
 <span class='no'>nmrdata</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='nmr_read_samples.html'>nmr_read_samples</a></span>(<span class='no'>sample_names</span>, <span class='kw'>metadata_only</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-<span class='no'>irods_metadata</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='nmr_get_irods_meta.html'>nmr_get_irods_meta</a></span>(<span class='no'>nmrdata</span>)
+<span class='no'>irods_metadata</span> <span class='kw'>&lt;-</span> <span class='fu'>nmr_get_irods_meta</span>(<span class='no'>nmrdata</span>)
 <span class='co'># explore and confirm everything is in irods_metadata</span>
 <span class='co'># Now, let's compress the samples to zip files for irods</span>
-<span class='no'>irods_metadata</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='nmr_prepare_zip_files.html'>nmr_prepare_zip_files</a></span>(<span class='kw'>meta_irods</span> <span class='kw'>=</span> <span class='no'>irods_metadata</span>,
+<span class='no'>irods_metadata</span> <span class='kw'>&lt;-</span> <span class='fu'>nmr_prepare_zip_files</span>(<span class='kw'>meta_irods</span> <span class='kw'>=</span> <span class='no'>irods_metadata</span>,
                                         <span class='kw'>workdir</span> <span class='kw'>=</span> <span class='st'>'my_dataset_zip_files'</span>)
 <span class='co'># Finally push the data to the irods directory</span>
-<span class='fu'><a href='nmr_push_to_irods.html'>nmr_push_to_irods</a></span>(<span class='no'>irods_metadata</span>, <span class='st'>"/NIHSData/DUND-XXXXXX/study/Metabolomics"</span>)
+<span class='fu'>nmr_push_to_irods</span>(<span class='no'>irods_metadata</span>, <span class='st'>"/NIHSData/DUND-XXXXXX/study/Metabolomics"</span>)
 }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
