@@ -36,7 +36,13 @@
 
 
 <meta property="og:title" content="Files to rDoplhin (blood) — files_to_rDolphin_blood" />
-<meta property="og:description" content="The function generates the files required by to_rDolphin function." />
+<meta property="og:description" content="The rDolphin family functions are introduced to perform automatic targeted
+metabolite profiling. Therefore, ensure that you interpolated from -0.1 ppm
+in order to consider the TSP/DSS signal at 0.0 ppm. The function generates a
+list with the files required by to_rDolphin function. Then, it is required
+to save them with the save_files_to_rDolphin. to_rDolphin function will
+read the generated &quot;parameters.csv&quot; file.
+function." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -121,7 +127,13 @@
     </div>
 
     <div class="ref-description">
-    <p>The function generates the files required by <a href='to_rDolphin.html'>to_rDolphin</a> function.</p>
+    <p>The rDolphin family functions are introduced to perform automatic targeted
+metabolite profiling. Therefore, ensure that you interpolated from -0.1 ppm
+in order to consider the TSP/DSS signal at 0.0 ppm. The function generates a
+list with the files required by <code>to_rDolphin</code> function. Then, it is required
+to save them with the <code>save_files_to_rDolphin</code>. <code>to_rDolphin</code> function will
+read the generated "parameters.csv" file.
+function.</p>
     </div>
 
     <pre class="usage"><span class='fu'>files_to_rDolphin_blood</span>(<span class='no'>nmr_dataset</span>)</pre>
@@ -200,10 +212,7 @@
   <code><a href='save_profiling_output.html'>save_profiling_output</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='co'>## library(AlpsNMR)</span>
-<span class='fu'>files_to_rDolphin_blood</span>(<span class='no'>nmr_dataset</span>)
-}</div></pre>
+    <pre class="examples"></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

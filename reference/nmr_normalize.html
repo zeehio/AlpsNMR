@@ -196,6 +196,20 @@
   <code><a href='to_rDolphin.html'>to_rDolphin</a></code>,
   <code><a href='validate_nmr_dataset_1D.html'>validate_nmr_dataset_1D</a></code></p></div>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>nmr_dataset</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='load_and_save_functions.html'>nmr_dataset_load</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"extdata"</span>, <span class='st'>"nmr_dataset.rds"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"AlpsNMR"</span>))
+<span class='no'>nmr_dataset</span> <span class='kw'>&lt;-</span> <span class='fu'>nmr_normalize</span>(<span class='no'>nmr_dataset</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"area"</span>)
+<span class='fu'><a href='nmr_diagnose.html'>nmr_diagnose</a></span>(<span class='no'>nmr_dataset</span>)</div><div class='output co'>#&gt; $name
+#&gt; [1] "Normalization"
+#&gt; 
+#&gt; $norm_factor
+#&gt;   NMRExperiment norm_factor norm_factor_norm
+#&gt; 1            10    12820430        0.8015368
+#&gt; 2            20    14728526        0.9208315
+#&gt; 3            30    26365103        1.6483535
+#&gt; 4            40    17261097        1.0791685
+#&gt; 
+#&gt; $plot</div><div class='img'><img src='nmr_normalize-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -203,6 +217,7 @@
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
       <li><a href="#see-also">See also</a></li>
+      <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>

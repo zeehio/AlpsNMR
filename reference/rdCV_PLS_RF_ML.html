@@ -254,7 +254,10 @@ requires 2 samples of the same observation).</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='co'># Creating the model</span>
 <span class='no'>model</span> <span class='kw'>=</span> <span class='fu'>rdCV_PLS_RF_ML</span>(<span class='no'>nmr_peak_table</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"Timepoint"</span>, <span class='kw'>ML</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='co'># Model performance</span>
 <span class='fu'><a href='MUVR_model_plot.html'>MUVR_model_plot</a></span>(<span class='no'>model</span>)
 }</div></pre>
   </div>
