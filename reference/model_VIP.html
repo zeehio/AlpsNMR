@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>model VIP values — model_VIP • AlpsNMR</title>
+<title>Model VIP values — model_VIP • AlpsNMR</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,9 @@
 
 
 
-<meta property="og:title" content="model VIP values — model_VIP" />
-<meta property="og:description" content="The function extracts autoselected ranked variables from the model (MUVR object)" />
+<meta property="og:title" content="Model VIP values — model_VIP" />
+<meta property="og:description" content="Once, the MVObj is created and validated, this function extracts autoselected
+ranked variables from the model (MUVR object). See rdCV_PLS_RF function." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -115,13 +116,14 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>model VIP values</h1>
+    <h1>Model VIP values</h1>
     
     <div class="hidden name"><code>model_VIP.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>The function extracts autoselected ranked variables from the model (MUVR object)</p>
+    <p>Once, the MVObj is created and validated, this function extracts autoselected
+ranked variables from the model (MUVR object). See <code>rdCV_PLS_RF</code> function.</p>
     </div>
 
     <pre class="usage"><span class='fu'>model_VIP</span>(<span class='no'>MVObj</span>, <span class='kw'>model</span> <span class='kw'>=</span> <span class='st'>"mid"</span>)</pre>
@@ -145,7 +147,30 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='no'>VIPs</span> <span class='kw'>=</span> <span class='fu'>model_VIP</span>(<span class='no'>MVObj</span>)
+
+<span class='co'># 1.Build a model with the X data from your nmr object and your class:</span>
+<span class='no'>MVObj</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='rdCV_PLS_RF.html'>rdCV_PLS_RF</a></span>(<span class='fu'><a href='nmr_data.html'>nmr_data</a></span>(<span class='no'>nmr_peak_table</span>),
+<span class='kw'>Y</span> <span class='kw'>=</span> <span class='no'>nmr_peak_table_completed</span>$<span class='no'>Timepoint</span>)
+
+
+<span class='co'># 2.Model performance</span>
+<span class='fu'><a href='confusion_matrix.html'>confusion_matrix</a></span>(<span class='no'>MVObj</span>)
+
+<span class='co'># 3.Plotting the model</span>
+<span class='fu'><a href='MUVR_model_plot.html'>MUVR_model_plot</a></span>(<span class='no'>MVObj</span>)
+
+<span class='co'># 4.Permutation test</span>
+<span class='no'>permutations</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='permutation_test_model.html'>permutation_test_model</a></span>(<span class='no'>MVObj</span>, <span class='kw'>nPerm</span> <span class='kw'>=</span> <span class='fl'>50</span>)
+
+<span class='co'># 5.Plotting permutation test results</span>
+<span class='fu'><a href='permutation_test_plot.html'>permutation_test_plot</a></span>(<span class='no'>MVObj</span>, <span class='no'>permutations</span>, <span class='kw'>model</span> <span class='kw'>=</span> <span class='st'>"Mid"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"t"</span>)
+
+<span class='co'># 6.p-Value</span>
+<span class='no'>p.value</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='p_value_perm.html'>p_value_perm</a></span>(<span class='no'>MVObj</span>$<span class='no'>miss</span><span class='kw'>[[</span><span class='st'>"mid"</span>]], <span class='no'>permutations</span>[, <span class='st'>"Mid"</span>])
+
+<span class='co'># 7.Significant variables</span>
+<span class='no'>VIPs</span> <span class='kw'>&lt;-</span> <span class='fu'>model_VIP</span>(<span class='no'>MVObj</span>)
+
 }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

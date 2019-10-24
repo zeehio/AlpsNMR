@@ -37,10 +37,13 @@
 
 <meta property="og:title" content="Feature selection and validation in multivariate analysis — rdCV_PLS_RF" />
 <meta property="og:description" content="Statistical analysis and feature selection in a repeated double
-cross-validation frame based on the partial least squares
-(PLS) or random forest (RF) analyses using an algorithm
-for multivariate modelling with minimally biased variable
-selection (MUVR) from the MUVR package." />
+cross-validation frame based on the partial least squares (PLS) or random
+forest (RF) analyses using an algorithm for multivariate modelling with
+minimally biased variable selection (MUVR) from the MUVR package. If your
+work with a nmr_peak_table object from AlpsNMR, first you need to extract
+the X data from the main nmr_dataset object (e.g. your peak table) with the
+nmr_data function, otherwise you would try to set a list on the X. You also
+need to set the class from this object, or just set it from another Y vector." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -126,10 +129,13 @@ selection (MUVR) from the MUVR package." />
 
     <div class="ref-description">
     <p>Statistical analysis and feature selection in a repeated double
-cross-validation frame based on the partial least squares
-(PLS) or random forest (RF) analyses using an algorithm
-for multivariate modelling with minimally biased variable
-selection (MUVR) from the <code>MUVR</code> package.</p>
+cross-validation frame based on the partial least squares (PLS) or random
+forest (RF) analyses using an algorithm for multivariate modelling with
+minimally biased variable selection (MUVR) from the <code>MUVR</code> package. If your
+work with a <code>nmr_peak_table</code> object from AlpsNMR, first you need to extract
+the X data from the main nmr_dataset object (e.g. your peak table) with the
+<code>nmr_data</code> function, otherwise you would try to set a list on the X. You also
+need to set the class from this object, or just set it from another Y vector.</p>
     </div>
 
     <pre class="usage"><span class='fu'>rdCV_PLS_RF</span>(<span class='no'>X</span>, <span class='no'>Y</span>, <span class='no'>ID</span>, <span class='kw'>scale</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>nRep</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>nOuter</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='no'>nInner</span>,
@@ -258,14 +264,30 @@ selection (MUVR) from the <code>MUVR</code> package.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='no'>model</span> <span class='kw'>=</span> <span class='fu'>rdCV_PLS_RF</span>(<span class='kw'>X</span> <span class='kw'>=</span> <span class='fu'><a href='nmr_data.html'>nmr_data</a></span>(<span class='no'>nmr_peak_table</span>),
+
+<span class='co'># 1.Build a model with the X data from your nmr object and your class (Y):</span>
+<span class='no'>MVObj</span> <span class='kw'>=</span> <span class='fu'>rdCV_PLS_RF</span>(<span class='kw'>X</span> <span class='kw'>=</span> <span class='fu'><a href='nmr_data.html'>nmr_data</a></span>(<span class='no'>nmr_peak_table</span>),
                     <span class='kw'>Y</span> <span class='kw'>=</span> <span class='fu'><a href='nmr_meta_get.html'>nmr_meta_get</a></span>(<span class='no'>nmr_peak_table</span>, <span class='kw'>groups</span> <span class='kw'>=</span> <span class='st'>"external"</span>)$<span class='no'>Timepoint</span>,
-                    <span class='kw'>ML</span> <span class='kw'>=</span> <span class='no'>F</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"PLS"</span>,
-                    <span class='kw'>fitness</span> <span class='kw'>=</span> <span class='st'>"AUROC"</span>,
-                    <span class='kw'>nRep</span> <span class='kw'>=</span> <span class='fl'>12</span>,
-                    <span class='kw'>nOuter</span> <span class='kw'>=</span> <span class='fl'>4</span>,
-                    <span class='kw'>varRatio</span> <span class='kw'>=</span> <span class='fl'>0.8</span>,
-                    <span class='kw'>scale</span> <span class='kw'>=</span> <span class='no'>T</span>)
+                    <span class='kw'>ML</span> <span class='kw'>=</span> <span class='no'>F</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"PLS"</span>)
+
+<span class='co'># 2.Model performance</span>
+<span class='fu'><a href='confusion_matrix.html'>confusion_matrix</a></span>(<span class='no'>MVObj</span>)
+
+<span class='co'># 3.Plotting the model</span>
+<span class='fu'><a href='MUVR_model_plot.html'>MUVR_model_plot</a></span>(<span class='no'>MVObj</span>)
+
+<span class='co'># 4.Permutation test</span>
+<span class='no'>permutations</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='permutation_test_model.html'>permutation_test_model</a></span>(<span class='no'>MVObj</span>, <span class='kw'>nPerm</span> <span class='kw'>=</span> <span class='fl'>50</span>)
+
+<span class='co'># 5.Plotting permutation test results</span>
+<span class='fu'><a href='permutation_test_plot.html'>permutation_test_plot</a></span>(<span class='no'>MVObj</span>, <span class='no'>permutations</span>, <span class='kw'>model</span> <span class='kw'>=</span> <span class='st'>"Mid"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"t"</span>)
+
+<span class='co'># 6.p-Value</span>
+<span class='no'>p.value</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='p_value_perm.html'>p_value_perm</a></span>(<span class='no'>MVObj</span>$<span class='no'>miss</span><span class='kw'>[[</span><span class='st'>"mid"</span>]], <span class='no'>permutations</span>[, <span class='st'>"Mid"</span>])
+
+<span class='co'># 7.Significant variables</span>
+<span class='no'>VIPs</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='model_VIP.html'>model_VIP</a></span>(<span class='no'>MVObj</span>)
+
 }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

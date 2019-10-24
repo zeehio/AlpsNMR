@@ -36,7 +36,9 @@
 
 
 <meta property="og:title" content="Confusion matrix of the MUVR model — confusion_matrix" />
-<meta property="og:description" content="The function makes a confusion matrix from a MUVR model" />
+<meta property="og:description" content="After creating a model with the rdCV_PLS_RF function, you can run
+confusion_matrix on the model to make a confusion matrix from MUVR. This
+gives information about the model performance (e.g. classification rate)." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -121,7 +123,9 @@
     </div>
 
     <div class="ref-description">
-    <p>The function makes a confusion matrix from a MUVR model</p>
+    <p>After creating a model with the <code>rdCV_PLS_RF</code> function, you can run
+<code>confusion_matrix</code> on the model to make a confusion matrix from MUVR. This
+gives information about the model performance (e.g. classification rate).</p>
     </div>
 
     <pre class="usage"><span class='fu'>confusion_matrix</span>(<span class='no'>MVObj</span>, <span class='kw'>model</span> <span class='kw'>=</span> <span class='st'>"mid"</span>)</pre>
@@ -145,12 +149,30 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='co'># Build a model with the X data from your nmr object and your class</span>
+
+<span class='co'># 1.Build a model with the X data from your nmr object and your class:</span>
 <span class='no'>MVObj</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='rdCV_PLS_RF.html'>rdCV_PLS_RF</a></span>(<span class='fu'><a href='nmr_data.html'>nmr_data</a></span>(<span class='no'>nmr_peak_table</span>),
 <span class='kw'>Y</span> <span class='kw'>=</span> <span class='no'>nmr_peak_table_completed</span>$<span class='no'>Timepoint</span>)
 
-<span class='co'># Model performance</span>
+
+<span class='co'># 2.Model performance</span>
 <span class='fu'>confusion_matrix</span>(<span class='no'>MVObj</span>)
+
+<span class='co'># 3.Plotting the model</span>
+<span class='fu'><a href='MUVR_model_plot.html'>MUVR_model_plot</a></span>(<span class='no'>MVObj</span>)
+
+<span class='co'># 4.Permutation test</span>
+<span class='no'>permutations</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='permutation_test_model.html'>permutation_test_model</a></span>(<span class='no'>MVObj</span>, <span class='kw'>nPerm</span> <span class='kw'>=</span> <span class='fl'>50</span>)
+
+<span class='co'># 5.Plotting permutation test results</span>
+<span class='fu'><a href='permutation_test_plot.html'>permutation_test_plot</a></span>(<span class='no'>MVObj</span>, <span class='no'>permutations</span>, <span class='kw'>model</span> <span class='kw'>=</span> <span class='st'>"Mid"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"t"</span>)
+
+<span class='co'># 6.p-Value</span>
+<span class='no'>p.value</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='p_value_perm.html'>p_value_perm</a></span>(<span class='no'>MVObj</span>$<span class='no'>miss</span><span class='kw'>[[</span><span class='st'>"mid"</span>]], <span class='no'>permutations</span>[, <span class='st'>"Mid"</span>])
+
+<span class='co'># 7.Significant variables</span>
+<span class='no'>VIPs</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='model_VIP.html'>model_VIP</a></span>(<span class='no'>MVObj</span>)
+
 }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

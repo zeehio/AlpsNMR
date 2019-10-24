@@ -198,6 +198,46 @@
   <code><a href='to_rDolphin.html'>to_rDolphin</a></code>,
   <code><a href='validate_nmr_dataset_1D.html'>validate_nmr_dataset_1D</a></code></p></div>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+
+<span class='co'># 0. Multiprocess (parallelization) to set the number of cores working in your PC</span>
+<span class='fu'><a href='https://rdrr.io/pkg/future/man/plan.html'>plan</a></span>(<span class='no'>multiprocess</span>, <span class='kw'>workers</span> <span class='kw'>=</span> <span class='fl'>12</span>)
+
+<span class='co'># 1.Peak detection in the dataset.</span>
+<span class='no'>peak_data</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='nmr_detect_peaks.html'>nmr_detect_peaks</a></span>(<span class='no'>nmr_dataset</span>,
+                              <span class='kw'>nDivRange_ppm</span> <span class='kw'>=</span> <span class='fl'>0.1</span>, <span class='co'># Size of detection segments</span>
+                              <span class='kw'>scales</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>1</span>, <span class='fl'>16</span>, <span class='fl'>2</span>),
+                              <span class='kw'>baselineThresh</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='co'># Minimum peak intensity</span>
+                              <span class='kw'>SNR.Th</span> <span class='kw'>=</span> <span class='fl'>4</span>) <span class='co'># Signal to noise ratio</span>
+
+<span class='co'># 2.Find the reference spectrum to align with.</span>
+<span class='no'>NMRExp_ref</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='nmr_align_find_ref.html'>nmr_align_find_ref</a></span>(<span class='no'>nmr_dataset</span>, <span class='no'>peak_data</span>)
+
+<span class='co'># 3.Spectra alignment using the ref spectrum and a maximum alignment shift</span>
+<span class='no'>nmr_dataset</span> <span class='kw'>&lt;-</span> <span class='fu'>nmr_align</span>(<span class='no'>nmr_dataset</span>, <span class='co'># the dataset</span>
+                         <span class='no'>peak_data</span>, <span class='co'># detected peaks</span>
+                         <span class='kw'>NMRExp_ref</span> <span class='kw'>=</span> <span class='no'>NMRExp_ref</span>, <span class='co'># ref spectrum</span>
+                         <span class='kw'>maxShift_ppm</span> <span class='kw'>=</span> <span class='fl'>0.0015</span>, <span class='co'># max alignment shift</span>
+                         <span class='kw'>acceptLostPeak</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>) <span class='co'># lost peaks</span>
+
+<span class='co'># 4.Set sequential working to finish parallelization</span>
+<span class='fu'><a href='https://rdrr.io/pkg/future/man/plan.html'>plan</a></span>(<span class='no'>sequential</span>)
+
+<span class='co'># 5.Peak integration (please, consider previous normalization step).</span>
+<span class='co'># First we take the peak table from the reference spectrum</span>
+<span class='no'>peak_data_ref</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>peak_data</span>, <span class='no'>NMRExperiment</span> <span class='kw'>==</span> <span class='no'>NMRExp_ref</span>)
+
+<span class='co'># Then we integrate spectra considering the peaks from the ref spectrum</span>
+<span class='no'>nmr_peak_table</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='nmr_integrate_peak_positions.html'>nmr_integrate_peak_positions</a></span>(
+<span class='kw'>samples</span> <span class='kw'>=</span> <span class='no'>nmr_dataset</span>,
+<span class='kw'>peak_pos_ppm</span> <span class='kw'>=</span> <span class='no'>peak_data_ref</span>$<span class='no'>ppm</span>,
+<span class='kw'>peak_width_ppm</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+
+<span class='co'>#If you wanted the final peak table before machine learning you can run</span>
+<span class='no'>nmr_peak_table_completed</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='get_integration_with_metadata.html'>get_integration_with_metadata</a></span>(<span class='no'>nmr_peak_table</span>)
+
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -205,6 +245,7 @@
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
       <li><a href="#see-also">See also</a></li>
+      <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>

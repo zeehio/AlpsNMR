@@ -137,7 +137,8 @@
     </tr>
     <tr>
       <th>nDivRange_ppm</th>
-      <td><p>Segment size, in ppms, to divide the spectra and search for peaks.</p></td>
+      <td><p>Segment size, in ppms, to divide the spectra and search
+for peaks.</p></td>
     </tr>
     <tr>
       <th>scales</th>
@@ -145,7 +146,11 @@
     </tr>
     <tr>
       <th>baselineThresh</th>
-      <td><p>It will remove all peaks under an intensity set by baselineThresh. If you set it to 'NULL', nmr_detect_peaks will automatically compute an aproximate value</p></td>
+      <td><p>It will remove all peaks under an intensity set by
+baselineThresh. If you set it to 'NULL', nmr_detect_peaks will
+automatically compute an aproximate value considering baseline between 9.5
+and 10.0 ppm (automatically calculation using <code>baselineThresh = NULL</code> will
+not work if spectra were not interpolated up to 10.0 ppm)</p></td>
     </tr>
     <tr>
       <th>SNR.Th</th>
