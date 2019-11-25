@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get integrals with metadata from <code>integrate peak positions</code> — get_integration_with_metadata • AlpsNMR</title>
+<title>NMR file lister — file_lister • AlpsNMR</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,10 @@
 
 
 
-<meta property="og:title" content="Get integrals with metadata from <code>integrate peak positions</code> — get_integration_with_metadata" />
-<meta property="og:description" content="Get integrals with metadata from integrate peak positions" />
+<meta property="og:title" content="NMR file lister — file_lister" />
+<meta property="og:description" content="The function lists samples from the chosen folder required to import and
+create a nmr_dataset_1D object. The function is based on the fs::dir_ls
+function." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -115,42 +117,44 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get integrals with metadata from <code>integrate peak positions</code></h1>
+    <h1>NMR file lister</h1>
     
-    <div class="hidden name"><code>get_integration_with_metadata.Rd</code></div>
+    <div class="hidden name"><code>file_lister.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Get integrals with metadata from <code>integrate peak positions</code></p>
+    <p>The function lists samples from the chosen folder required to import and
+create a <a href='nmr_dataset_1D.html'>nmr_dataset_1D</a> object. The function is based on the <code><a href='http://fs.r-lib.org/reference/dir_ls.html'>fs::dir_ls</a></code>
+function.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_integration_with_metadata</span>(<span class='no'>integration_object</span>)</pre>
+    <pre class="usage"><span class='fu'>file_lister</span>(<span class='no'>dataset_path_nmr</span>, <span class='no'>glob</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>integration_object</th>
-      <td><p>A <a href='nmr_dataset.html'>nmr_dataset</a> object</p></td>
+      <th>dataset_path_nmr</th>
+      <td><p>A character vector of the path where samples are.</p></td>
+    </tr>
+    <tr>
+      <th>glob</th>
+      <td><p>A wildcard or globbing pattern common for the samples to be read,
+for example ending with *0 (spectra acquired by a NOESY sequence often end
+by 0: 10, 20, 30...) or *s (for example, samples from the tutorial in this
+package) passed on to <code><a href='https://rdrr.io/r/base/grep.html'>grep()</a></code> to filter paths.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other peak integration functions: <code><a href='computes_peak_width_ppm.html'>computes_peak_width_ppm</a></code>,
-  <code><a href='nmr_identify_regions_blood.html'>nmr_identify_regions_blood</a></code>,
-  <code><a href='nmr_identify_regions_cell.html'>nmr_identify_regions_cell</a></code>,
-  <code><a href='nmr_identify_regions_urine.html'>nmr_identify_regions_urine</a></code>,
-  <code><a href='nmr_integrate_peak_positions.html'>nmr_integrate_peak_positions</a></code>,
-  <code><a href='nmr_integrate_regions.html'>nmr_integrate_regions</a></code>,
-  <code><a href='pipe_peak_integration.html'>pipe_peak_integration</a></code></p>
-<p>Other nmr_dataset_1D functions: <code><a href='Automatic_targeted_profiling.html'>Automatic_targeted_profiling</a></code>,
+    <div class='dont-index'><p>Other nmr_dataset_1D functions: <code><a href='Automatic_targeted_profiling.html'>Automatic_targeted_profiling</a></code>,
   <code><a href='sub-.nmr_dataset_1D.html'>[.nmr_dataset_1D</a></code>,
   <code><a href='computes_peak_width_ppm.html'>computes_peak_width_ppm</a></code>,
-  <code><a href='file_lister.html'>file_lister</a></code>,
   <code><a href='files_to_rDolphin_blood.html'>files_to_rDolphin_blood</a></code>,
   <code><a href='files_to_rDolphin_cell.html'>files_to_rDolphin_cell</a></code>,
   <code><a href='files_to_rDolphin_urine.html'>files_to_rDolphin_urine</a></code>,
+  <code><a href='get_integration_with_metadata.html'>get_integration_with_metadata</a></code>,
   <code><a href='is.nmr_dataset_1D.html'>is.nmr_dataset_1D</a></code>,
   <code><a href='load_and_save_functions.html'>load_and_save_functions</a></code>,
   <code><a href='new_nmr_dataset_1D.html'>new_nmr_dataset_1D</a></code>,
@@ -185,13 +189,8 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='no'>peak_table_integration</span> <span class='kw'>=</span> <span class='fu'><a href='nmr_integrate_peak_positions.html'>nmr_integrate_peak_positions</a></span>(
-<span class='kw'>samples</span> <span class='kw'>=</span> <span class='no'>dataset_norm</span>,
-<span class='kw'>peak_pos_ppm</span> <span class='kw'>=</span> <span class='no'>peak_table</span>$<span class='no'>ppm</span>,
-<span class='kw'>peak_width_ppm</span> <span class='kw'>=</span> <span class='fl'>0.006</span>)
 
-<span class='no'>peak_table_integration</span> <span class='kw'>=</span> <span class='fu'>get_integration_with_metadata</span>(<span class='no'>peak_table_integration</span>)
-}<span class='co'>#' </span></div></pre>
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
