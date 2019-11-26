@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PPM resolution of the spectra — nmr_ppm_resolution • AlpsNMR</title>
+<title>Unlisted PPM resolution — ppm_resolution • AlpsNMR</title>
 
 
 <!-- jquery -->
@@ -35,9 +35,9 @@
 
 
 
-<meta property="og:title" content="PPM resolution of the spectra — nmr_ppm_resolution" />
-<meta property="og:description" content="The function gets the ppm resolution of the dataset using the median of the
-difference of data points." />
+<meta property="og:title" content="Unlisted PPM resolution — ppm_resolution" />
+<meta property="og:description" content="A wrapper to unlist the output from the function
+nmr_ppm_resolution(nmr_dataset) when no interpolation has been applied." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -116,23 +116,17 @@ difference of data points." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>PPM resolution of the spectra</h1>
+    <h1>Unlisted PPM resolution</h1>
     
-    <div class="hidden name"><code>nmr_ppm_resolution.Rd</code></div>
+    <div class="hidden name"><code>ppm_resolution.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>The function gets the ppm resolution of the dataset using the median of the
-difference of data points.</p>
+    <p>A wrapper to unlist the output from the function
+<code><a href='nmr_ppm_resolution.html'>nmr_ppm_resolution(nmr_dataset)</a></code> when no interpolation has been applied.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>nmr_ppm_resolution</span>(<span class='no'>nmr_dataset</span>)
-
-<span class='co'># S3 method for nmr_dataset</span>
-<span class='fu'>nmr_ppm_resolution</span>(<span class='no'>nmr_dataset</span>)
-
-<span class='co'># S3 method for nmr_dataset_1D</span>
-<span class='fu'>nmr_ppm_resolution</span>(<span class='no'>nmr_dataset</span>)</pre>
+    <pre class="usage"><span class='fu'>ppm_resolution</span>(<span class='no'>nmr_dataset</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -145,69 +139,18 @@ difference of data points.</p>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Numeric (the ppm resolution, measured in ppms)</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p>Other nmr_dataset functions: <code><a href='sub-.nmr_dataset.html'>[.nmr_dataset</a></code>,
-  <code><a href='load_and_save_functions.html'>load_and_save_functions</a></code>,
-  <code><a href='new_nmr_dataset.html'>new_nmr_dataset</a></code>,
-  <code><a href='nmr_interpolate_1D.html'>nmr_interpolate_1D</a></code>,
-  <code><a href='nmr_meta_add.html'>nmr_meta_add</a></code>,
-  <code><a href='nmr_meta_export.html'>nmr_meta_export</a></code>,
-  <code><a href='nmr_meta_get_column.html'>nmr_meta_get_column</a></code>,
-  <code><a href='nmr_meta_get.html'>nmr_meta_get</a></code>,
-  <code><a href='nmr_read_samples.html'>nmr_read_samples</a></code>,
-  <code><a href='validate_nmr_dataset.html'>validate_nmr_dataset</a></code></p>
-<p>Other nmr_dataset_1D functions: <code><a href='Automatic_targeted_profiling.html'>Automatic_targeted_profiling</a></code>,
-  <code><a href='sub-.nmr_dataset_1D.html'>[.nmr_dataset_1D</a></code>,
-  <code><a href='computes_peak_width_ppm.html'>computes_peak_width_ppm</a></code>,
-  <code><a href='file_lister.html'>file_lister</a></code>,
-  <code><a href='files_to_rDolphin_blood.html'>files_to_rDolphin_blood</a></code>,
-  <code><a href='files_to_rDolphin_cell.html'>files_to_rDolphin_cell</a></code>,
-  <code><a href='files_to_rDolphin_urine.html'>files_to_rDolphin_urine</a></code>,
-  <code><a href='get_integration_with_metadata.html'>get_integration_with_metadata</a></code>,
-  <code><a href='is.nmr_dataset_1D.html'>is.nmr_dataset_1D</a></code>,
-  <code><a href='load_and_save_functions.html'>load_and_save_functions</a></code>,
-  <code><a href='new_nmr_dataset_1D.html'>new_nmr_dataset_1D</a></code>,
-  <code><a href='nmr_align_find_ref.html'>nmr_align_find_ref</a></code>,
-  <code><a href='nmr_align.html'>nmr_align</a></code>,
-  <code><a href='nmr_baseline_removal.html'>nmr_baseline_removal</a></code>,
-  <code><a href='nmr_baseline_threshold.html'>nmr_baseline_threshold</a></code>,
-  <code><a href='nmr_detect_peaks_plot.html'>nmr_detect_peaks_plot</a></code>,
-  <code><a href='nmr_detect_peaks_tune_snr.html'>nmr_detect_peaks_tune_snr</a></code>,
-  <code><a href='nmr_detect_peaks.html'>nmr_detect_peaks</a></code>,
-  <code><a href='nmr_exclude_region.html'>nmr_exclude_region</a></code>,
-  <code><a href='nmr_integrate_peak_positions.html'>nmr_integrate_peak_positions</a></code>,
-  <code><a href='nmr_integrate_regions.html'>nmr_integrate_regions</a></code>,
-  <code><a href='nmr_interpolate_1D.html'>nmr_interpolate_1D</a></code>,
-  <code><a href='nmr_meta_add.html'>nmr_meta_add</a></code>,
-  <code><a href='nmr_meta_export.html'>nmr_meta_export</a></code>,
-  <code><a href='nmr_meta_get_column.html'>nmr_meta_get_column</a></code>,
-  <code><a href='nmr_meta_get.html'>nmr_meta_get</a></code>, <code><a href='nmr_normalize.html'>nmr_normalize</a></code>,
-  <code><a href='nmr_pca_build_model.html'>nmr_pca_build_model</a></code>,
-  <code><a href='nmr_pca_outliers_filter.html'>nmr_pca_outliers_filter</a></code>,
-  <code><a href='nmr_pca_outliers_plot.html'>nmr_pca_outliers_plot</a></code>,
-  <code><a href='nmr_pca_outliers_robust.html'>nmr_pca_outliers_robust</a></code>,
-  <code><a href='nmr_pca_outliers.html'>nmr_pca_outliers</a></code>,
-  <code><a href='plot.nmr_dataset_1D.html'>plot.nmr_dataset_1D</a></code>,
-  <code><a href='plot_webgl.html'>plot_webgl</a></code>, <code><a href='rdCV_PLS_RF_ML.html'>rdCV_PLS_RF_ML</a></code>,
-  <code><a href='rdCV_PLS_RF.html'>rdCV_PLS_RF</a></code>,
-  <code><a href='save_files_to_rDolphin.html'>save_files_to_rDolphin</a></code>,
-  <code><a href='to_ASICS.html'>to_ASICS</a></code>, <code><a href='to_ChemoSpec.html'>to_ChemoSpec</a></code>,
-  <code><a href='to_rDolphin.html'>to_rDolphin</a></code>,
-  <code><a href='validate_nmr_dataset_1D.html'>validate_nmr_dataset_1D</a></code></p></div>
+    <p>A number (the ppm resolution, measured in ppms)</p>
+<p>Numeric (the ppm resolution, measured in ppms)</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>nmr_dataset</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='load_and_save_functions.html'>nmr_dataset_load</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"extdata"</span>, <span class='st'>"nmr_dataset.rds"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"AlpsNMR"</span>))
-<span class='fu'>nmr_ppm_resolution</span>(<span class='no'>nmr_dataset</span>)</div><div class='output co'>#&gt; [1] 0.02</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/message.html'>message</a></span>(<span class='st'>"the ppm resolution of this dataset is "</span>, <span class='fu'>nmr_ppm_resolution</span>(<span class='no'>nmr_dataset</span>), <span class='st'>" ppm"</span>)</div><div class='output co'>#&gt; <span class='message'>the ppm resolution of this dataset is 0.02 ppm</span></div><div class='input'>
-</div></pre>
+<span class='fu'><a href='nmr_ppm_resolution.html'>nmr_ppm_resolution</a></span>(<span class='no'>nmr_dataset</span>)</div><div class='output co'>#&gt; [1] 0.02</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
-      <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 
