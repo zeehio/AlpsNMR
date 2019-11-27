@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Model plot — MUVR_model_plot • AlpsNMR</title>
+<title>Extracts AUC value — AUC_model • AlpsNMR</title>
 
 
 <!-- jquery -->
@@ -35,11 +35,8 @@
 
 
 
-<meta property="og:title" content="Model plot — MUVR_model_plot" />
-<meta property="og:description" content="Plot the model (a MUVR object) obtained from rdCV_PLS_RF function. For
-more information about the multivariate modelling with minimally biased
-variable selection (MUVR) from the MUVR package, see Shi et al., 2018 (DOI:
-10.1093/bioinformatics/bty710)." />
+<meta property="og:title" content="Extracts AUC value — AUC_model" />
+<meta property="og:description" content="The function extracts the AUC value from the middle MUVR model" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -118,78 +115,36 @@ variable selection (MUVR) from the MUVR package, see Shi et al., 2018 (DOI:
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Model plot</h1>
+    <h1>Extracts AUC value</h1>
     
-    <div class="hidden name"><code>MUVR_model_plot.Rd</code></div>
+    <div class="hidden name"><code>AUC_model.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Plot the model (a <code>MUVR</code> object) obtained from <code>rdCV_PLS_RF</code> function. For
-more information about the multivariate modelling with minimally biased
-variable selection (MUVR) from the <code>MUVR</code> package, see Shi et al., 2018 (DOI:
-10.1093/bioinformatics/bty710).</p>
+    <p>The function extracts the AUC value from the middle <code>MUVR</code> model</p>
     </div>
 
-    <pre class="usage"><span class='fu'>MUVR_model_plot</span>(<span class='no'>MVObj</span>, <span class='kw'>model</span> <span class='kw'>=</span> <span class='st'>"mid"</span>, <span class='no'>factCols</span>, <span class='no'>sampLabels</span>,
-  <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>AUC_model</span>(<span class='no'>MVObj</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>MVObj</th>
-      <td><p>An `MVobject` obtained from the MVWrap function</p></td>
-    </tr>
-    <tr>
-      <th>model</th>
-      <td><p>What type of model to plot ('min', 'mid' or 'max'). Defaults to 'mid'.</p></td>
-    </tr>
-    <tr>
-      <th>factCols</th>
-      <td><p>An optional vector with colors for the factor levels (in the same order as the levels)</p></td>
-    </tr>
-    <tr>
-      <th>sampLabels</th>
-      <td><p>Sample labels (optional; implemented for classification)</p></td>
-    </tr>
-    <tr>
-      <th>ylim</th>
-      <td><p>Optional for imposing y-limits for regression and classification analysis</p></td>
+      <td><p>a MUVR model</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A plot with the model performance</p>
+    <p>the AUC value of the middle model</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='no'>model</span> <span class='kw'>=</span> <span class='fu'><a href='rdCV_PLS_RF.html'>rdCV_PLS_RF</a></span>(<span class='no'>nmr_peak_table</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"Timepoint"</span>)
 
-<span class='co'># 1.Build a model with the X data from your nmr object and your class:</span>
-<span class='no'>MVObj</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='rdCV_PLS_RF.html'>rdCV_PLS_RF</a></span>(<span class='fu'><a href='nmr_data.html'>nmr_data</a></span>(<span class='no'>nmr_peak_table</span>),
-<span class='kw'>Y</span> <span class='kw'>=</span> <span class='no'>nmr_peak_table_completed</span>$<span class='no'>Timepoint</span>)
+<span class='fu'>AUC_model</span>(<span class='no'>model</span>)
 
-
-<span class='co'># 2.Model performance</span>
-<span class='fu'><a href='confusion_matrix.html'>confusion_matrix</a></span>(<span class='no'>MVObj</span>)
-
-<span class='co'># 3.Plotting the model</span>
-<span class='fu'>MUVR_model_plot</span>(<span class='no'>MVObj</span>)
-
-<span class='co'># 4.Permutation test</span>
-<span class='no'>permutations</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='permutation_test_model.html'>permutation_test_model</a></span>(<span class='no'>MVObj</span>, <span class='kw'>nPerm</span> <span class='kw'>=</span> <span class='fl'>50</span>)
-
-<span class='co'># 5.Plotting permutation test results</span>
-<span class='fu'><a href='permutation_test_plot.html'>permutation_test_plot</a></span>(<span class='no'>MVObj</span>, <span class='no'>permutations</span>, <span class='kw'>model</span> <span class='kw'>=</span> <span class='st'>"Mid"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"t"</span>)
-
-<span class='co'># 6.p-Value</span>
-<span class='no'>p.value</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='p_value_perm.html'>p_value_perm</a></span>(<span class='no'>MVObj</span>$<span class='no'>miss</span><span class='kw'>[[</span><span class='st'>"mid"</span>]], <span class='no'>permutations</span>[, <span class='st'>"Mid"</span>])
-
-<span class='co'># 7.Significant variables</span>
-<span class='no'>VIPs</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='model_VIP.html'>model_VIP</a></span>(<span class='no'>MVObj</span>)
-
-<span class='co'># 8.Identification</span>
-<span class='no'>results</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='nmr_identify_regions_blood.html'>nmr_identify_regions_blood</a></span>(<span class='fu'><a href='ppm_VIP_vector.html'>ppm_VIP_vector</a></span>(<span class='no'>VIPs</span>))
 }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
