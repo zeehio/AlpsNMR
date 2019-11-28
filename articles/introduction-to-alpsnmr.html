@@ -414,20 +414,7 @@ plot_interactive(plt, "plot_region.html")</code></pre>
 <a href="#identification" class="anchor"></a>Identification</h1>
 <p>After applying any feature selection or machine learning, Alps allows the identification of features of interest through <code>nmr_identify_regions_blood</code>. The function gives 3 posibilities sorted by the most probable metabolite (see <code>nmr_identify_regions_blood</code> for details).</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1">ppm_to_assign &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4.060960203</span>, <span class="fl">3.048970634</span>,<span class="fl">2.405935596</span>,<span class="fl">0.990616851</span>,<span class="fl">0.986520147</span>, <span class="fl">1.044258467</span>)</a>
-<a class="sourceLine" id="cb32-2" data-line-number="2">identification &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_identify_regions_blood.html">nmr_identify_regions_blood</a></span> (ppm_to_assign)</a>
-<a class="sourceLine" id="cb32-3" data-line-number="3"><span class="co">#&gt; [1] 4.06096</span></a>
-<a class="sourceLine" id="cb32-4" data-line-number="4"><span class="co">#&gt; your peak at 4.060960203 probably corresponds to Choline, Creatinine or Myoinositol</span></a>
-<a class="sourceLine" id="cb32-5" data-line-number="5"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb32-6" data-line-number="6"><span class="co">#&gt; [1] 3.048971</span></a>
-<a class="sourceLine" id="cb32-7" data-line-number="7"><span class="co">#&gt; your peak at 3.048970634 probably corresponds to Creatine, Creatinine or L-Lysine</span></a>
-<a class="sourceLine" id="cb32-8" data-line-number="8"><span class="co">#&gt; [1] 2.405936</span></a>
-<a class="sourceLine" id="cb32-9" data-line-number="9"><span class="co">#&gt; your peak at 2.405935596 probably corresponds to Pyroglutamic acid, Succinic acid or NA</span></a>
-<a class="sourceLine" id="cb32-10" data-line-number="10"><span class="co">#&gt; [1] 0.9906169</span></a>
-<a class="sourceLine" id="cb32-11" data-line-number="11"><span class="co">#&gt; your peak at 0.990616851 probably corresponds to L-Alpha-aminobutyric acid, L-Valine or NA</span></a>
-<a class="sourceLine" id="cb32-12" data-line-number="12"><span class="co">#&gt; [1] 0.9865201</span></a>
-<a class="sourceLine" id="cb32-13" data-line-number="13"><span class="co">#&gt; your peak at 0.986520147 probably corresponds to L-Alpha-aminobutyric acid, L-Valine or NA</span></a>
-<a class="sourceLine" id="cb32-14" data-line-number="14"><span class="co">#&gt; [1] 1.044258</span></a>
-<a class="sourceLine" id="cb32-15" data-line-number="15"><span class="co">#&gt; your peak at 1.044258467 probably corresponds to L-Valine, NA or NA</span></a></code></pre></div>
+<a class="sourceLine" id="cb32-2" data-line-number="2">identification &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_identify_regions_blood.html">nmr_identify_regions_blood</a></span> (ppm_to_assign)</a></code></pre></div>
 </div>
 <div id="free-experimentation" class="section level1">
 <h1 class="hasAnchor">

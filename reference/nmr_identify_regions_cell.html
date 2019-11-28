@@ -126,7 +126,8 @@ in cell samples." />
 in cell samples.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>nmr_identify_regions_cell</span>(<span class='no'>ppm_to_assign</span>, <span class='kw'>num_proposed_compounds</span> <span class='kw'>=</span> <span class='fl'>3</span>)</pre>
+    <pre class="usage"><span class='fu'>nmr_identify_regions_cell</span>(<span class='no'>ppm_to_assign</span>, <span class='kw'>num_proposed_compounds</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -138,6 +139,10 @@ in cell samples.</p>
     <tr>
       <th>num_proposed_compounds</th>
       <td><p>set the number of proposed metabolites in <code>HMDB_cell</code>.</p></td>
+    </tr>
+    <tr>
+      <th>verbose</th>
+      <td><p>Logical value. Set it to TRUE to print additional information</p></td>
     </tr>
     </table>
 
@@ -168,7 +173,7 @@ in cell samples.</p>
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>AlpsNMR</span>)
 <span class='no'>ppm_to_assign</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>4.060960203</span>, <span class='fl'>3.048970634</span>,<span class='fl'>2.405935596</span>,
 <span class='fl'>3.24146865</span>,<span class='fl'>0.990616851</span>,<span class='fl'>1.002075066</span>,<span class='fl'>0.955325548</span>)
-<span class='no'>identification</span> <span class='kw'>&lt;-</span> <span class='fu'>nmr_identify_regions_cell</span> (<span class='no'>ppm_to_assign</span>, <span class='kw'>num_proposed_compounds</span> <span class='kw'>=</span> <span class='fl'>3</span>)</div><div class='output co'>#&gt; [1] 4.06096</div><div class='output co'>#&gt; <span class='message'>your peak at 4.060960203 probably corresponds to Choline, Creatinine, Myoinositol</span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; [1] 3.048971</div><div class='output co'>#&gt; <span class='message'>your peak at 3.048970634 probably corresponds to Creatine, Creatinine, L-Lysine</span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; [1] 2.405936</div><div class='output co'>#&gt; <span class='message'>your peak at 2.405935596 probably corresponds to Succinic acid, Oxalacetic acid, NA</span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; [1] 3.241469</div><div class='output co'>#&gt; <span class='message'>your peak at 3.24146865 probably corresponds to D-Glucose, L-Arginine, L-Histidine</span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; [1] 0.9906169</div><div class='output co'>#&gt; <span class='message'>your peak at 0.990616851 probably corresponds to L-Valine, NA, NA</span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; [1] 1.002075</div><div class='output co'>#&gt; <span class='message'>your peak at 1.002075066 probably corresponds to L-Isoleucine, L-Valine, NA</span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; [1] 0.9553255</div><div class='output co'>#&gt; <span class='message'>your peak at 0.955325548 probably corresponds to L-Isoleucine, L-Leucine, NA</span></div><div class='output co'>#&gt; </div></pre>
+<span class='no'>identification</span> <span class='kw'>&lt;-</span> <span class='fu'>nmr_identify_regions_cell</span> (<span class='no'>ppm_to_assign</span>, <span class='kw'>num_proposed_compounds</span> <span class='kw'>=</span> <span class='fl'>3</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
