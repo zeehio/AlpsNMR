@@ -36,7 +36,8 @@
 
 
 <meta property="og:title" content="Normalize nmr_dataset_1D samples — nmr_normalize" />
-<meta property="og:description" content="Normalize nmr_dataset_1D samples" />
+<meta property="og:description" content="The nmr_normalize function is used to normalize all the samples according
+to a given criteria." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -121,11 +122,14 @@
     </div>
 
     <div class="ref-description">
-    <p>Normalize nmr_dataset_1D samples</p>
+    <p>The <code>nmr_normalize</code> function is used to normalize all the samples according
+to a given criteria.</p>
     </div>
 
     <pre class="usage"><span class='fu'>nmr_normalize</span>(<span class='no'>samples</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"area"</span>, <span class='st'>"max"</span>, <span class='st'>"value"</span>, <span class='st'>"region"</span>,
-  <span class='st'>"pqn"</span>, <span class='st'>"none"</span>), <span class='no'>...</span>)</pre>
+  <span class='st'>"pqn"</span>, <span class='st'>"none"</span>), <span class='no'>...</span>)
+
+<span class='fu'>nmr_normalize_extra_info</span>(<span class='no'>samples</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -136,7 +140,14 @@
     </tr>
     <tr>
       <th>method</th>
-      <td><p>The criteria to be used for normalization</p></td>
+      <td><p>The criteria to be used for normalization</p><ul>
+<li><p>area: Normalize to the total area</p></li>
+<li><p>max: Normalize to the maximum intensity</p></li>
+<li><p>value: Normalize each sample to a user defined value</p></li>
+<li><p>region: Integrate a region and normalize each sample to that region</p></li>
+<li><p>pqn: Use Probabalistic Quotient Normalization for normalization</p></li>
+<li><p>none: Do not normalize at all</p></li>
+</ul></td>
     </tr>
     <tr>
       <th>...</th>
@@ -154,7 +165,15 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The <a href='nmr_dataset_1D.html'>nmr_dataset_1D</a> object, with the samples normalized</p>
+    <p>The <a href='nmr_dataset_1D.html'>nmr_dataset_1D</a> object, with the samples normalized.
+Further information for diagnostic of the normalization process is also saved
+and can be extracted by calling <code>nmr_normalize_extra_info()</code> afterwards.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The <code>nmr_normalize_extra_info</code> function is used to extract additional information
+after the normalization. Typically, we want to know what was the actual normalization
+factor applied to each sample. The extra information includes a plot, representing
+the dispersion of the normalization factor for each sample.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other nmr_dataset_1D functions: <code><a href='Automatic_targeted_profiling.html'>Automatic_targeted_profiling</a></code>,
@@ -200,23 +219,15 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>nmr_dataset</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='load_and_save_functions.html'>nmr_dataset_load</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"extdata"</span>, <span class='st'>"nmr_dataset.rds"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"AlpsNMR"</span>))
 <span class='no'>nmr_dataset</span> <span class='kw'>&lt;-</span> <span class='fu'>nmr_normalize</span>(<span class='no'>nmr_dataset</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"area"</span>)
-<span class='fu'><a href='nmr_diagnose.html'>nmr_diagnose</a></span>(<span class='no'>nmr_dataset</span>)</div><div class='output co'>#&gt; $name
-#&gt; [1] "Normalization"
-#&gt; 
-#&gt; $norm_factor
-#&gt;   NMRExperiment norm_factor norm_factor_norm
-#&gt; 1            10    12820430        0.8015368
-#&gt; 2            20    14728526        0.9208315
-#&gt; 3            30    26365103        1.6483535
-#&gt; 4            40    17261097        1.0791685
-#&gt; 
-#&gt; $plot</div><div class='img'><img src='nmr_normalize-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; </div></pre>
+<span class='no'>norm_extra_info</span> <span class='kw'>&lt;-</span> <span class='fu'>nmr_normalize_extra_info</span>(<span class='no'>nmr_dataset</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>norm_extra_info</span>$<span class='no'>plot</span>)</div><div class='img'><img src='nmr_normalize-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
+      <li><a href="#details">Details</a></li>
       <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
