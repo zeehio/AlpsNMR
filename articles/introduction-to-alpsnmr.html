@@ -78,7 +78,7 @@
       <h1>Introduction to AlpsNMR</h1>
                         <h4 class="author">Sergio Oller, Institute for Bioengineering of Catalonia</h4>
             
-            <h4 class="date">2019-12-12</h4>
+            <h4 class="date">2019-12-21</h4>
       
       
       <div class="hidden name"><code>introduction-to-alpsnmr.Rmd</code></div>
@@ -96,117 +96,117 @@
 <p>This vignette is written for the first group. It assumes some prior basic knowledge of NMR and data analysis, as well as some basic R programming. In case you are interested in building pipelines with this package, you may want to open the file saved in this directory (run it on your computer):</p>
 <pre><code>pipeline_example &lt;- system.file("pipeline-rmd", "pipeline_example.R", package = "AlpsNMR")
 print(pipeline_example)</code></pre>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(AlpsNMR)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">#&gt; Registered S3 method overwritten by 'seriation':</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt;   method         from </span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt;   reorder.hclust gclus</span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt; Warning: replacing previous import 'ggplot2::last_plot' by 'plotly::last_plot'</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt; when loading 'rDolphin'</span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt; Attaching package: 'AlpsNMR'</span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt; The following object is masked from 'package:stats':</span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt;     filter</span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ggplot2)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(AlpsNMR)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co">#&gt; Registered S3 method overwritten by 'seriation':</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co">#&gt;   method         from </span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co">#&gt;   reorder.hclust gclus</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co">#&gt; Warning: replacing previous import 'ggplot2::last_plot' by 'plotly::last_plot'</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="co">#&gt; when loading 'rDolphin'</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co">#&gt; </span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co">#&gt; Attaching package: 'AlpsNMR'</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="co">#&gt; The following object is masked from 'package:stats':</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="co">#&gt; </span></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="co">#&gt;     filter</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ggplot2)</span></code></pre></div>
 <div id="enable-parallellization" class="section level1">
 <h1 class="hasAnchor">
 <a href="#enable-parallellization" class="anchor"></a>Enable parallellization</h1>
 <p>This package is able to parallellize several functions through the use of the <code>future</code> and <code>furrr</code> packages. Whether to parallelize or not is left to the user that can control the parallellization by setting “plans”.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">#plan(sequential()) # disable parallellization (default)</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/pkg/future/man/plan.html">plan</a></span>(<span class="kw"><a href="https://rdrr.io/pkg/future/man/multiprocess.html">multiprocess</a></span>(<span class="dt">workers =</span> <span class="dv">4</span>)) <span class="co"># enable parallellization with 4 workers</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">#plan(sequential()) # disable parallellization (default)</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="kw"><a href="https://rdrr.io/pkg/future/man/plan.html">plan</a></span>(<span class="kw"><a href="https://rdrr.io/pkg/future/man/multiprocess.html">multiprocess</a></span>(<span class="dt">workers =</span> <span class="dv">4</span>)) <span class="co"># enable parallellization with 4 workers</span></span></code></pre></div>
 </div>
 <div id="data-the-meoh_plasma_extraction-dataset" class="section level1">
 <h1 class="hasAnchor">
 <a href="#data-the-meoh_plasma_extraction-dataset" class="anchor"></a>Data: The <code>MeOH_plasma_extraction</code> dataset</h1>
 <p>To explore the basics of the AlpsNMR package, we have included four NMR samples acquired in a 600 MHz Bruker instrument bundled with the package. The samples are pooled quality control plasma samples, that were extracted with methanol, and therefore only contain small molecules.</p>
 <p>If you have installed this package, you can obtain the directory where the four samples are with the command</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">MeOH_plasma_extraction_dir &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"dataset-demo"</span>, <span class="dt">package =</span> <span class="st">"AlpsNMR"</span>)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(MeOH_plasma_extraction_dir)</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt; [1] "/home/travis/R/Library/AlpsNMR/dataset-demo"</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>MeOH_plasma_extraction_dir &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"dataset-demo"</span>, <span class="dt">package =</span> <span class="st">"AlpsNMR"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(MeOH_plasma_extraction_dir)</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co">#&gt; [1] "/Users/runner/runners/2.163.1/work/_temp/Library/AlpsNMR/dataset-demo"</span></span></code></pre></div>
 <p>The demo directory includes four samples (zipped) and a dummy Excel metadata file.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">fs<span class="op">::</span><span class="kw"><a href="http://fs.r-lib.org/reference/dir_ls.html">dir_ls</a></span>(MeOH_plasma_extraction_dir)</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; /home/travis/R/Library/AlpsNMR/dataset-demo/10.zip</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt; /home/travis/R/Library/AlpsNMR/dataset-demo/20.zip</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt; /home/travis/R/Library/AlpsNMR/dataset-demo/30.zip</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt; /home/travis/R/Library/AlpsNMR/dataset-demo/40.zip</span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt; /home/travis/R/Library/AlpsNMR/dataset-demo/README.txt</span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt; /home/travis/R/Library/AlpsNMR/dataset-demo/dummy_metadata.xlsx</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>fs<span class="op">::</span><span class="kw"><a href="http://fs.r-lib.org/reference/dir_ls.html">dir_ls</a></span>(MeOH_plasma_extraction_dir)</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co">#&gt; /Users/runner/runners/2.163.1/work/_temp/Library/AlpsNMR/dataset-demo/10.zip</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co">#&gt; /Users/runner/runners/2.163.1/work/_temp/Library/AlpsNMR/dataset-demo/20.zip</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#&gt; /Users/runner/runners/2.163.1/work/_temp/Library/AlpsNMR/dataset-demo/30.zip</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="co">#&gt; /Users/runner/runners/2.163.1/work/_temp/Library/AlpsNMR/dataset-demo/40.zip</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co">#&gt; /Users/runner/runners/2.163.1/work/_temp/Library/AlpsNMR/dataset-demo/README.txt</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co">#&gt; /Users/runner/runners/2.163.1/work/_temp/Library/AlpsNMR/dataset-demo/dummy_metadata.xlsx</span></span></code></pre></div>
 <p>Given the name of the dataset, one may guess that the dataset was used to check the Methanol extraction in serum samples. The dummy metadata consists of dummy information, just for the sake of showing how this package can integrate external metadata. The excel file consists of two tidy tables, in two sheets.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">MeOH_plasma_extraction_xlsx &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span>(MeOH_plasma_extraction_dir, <span class="st">"dummy_metadata.xlsx"</span>)</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">exp_subj_id &lt;-<span class="st"> </span>readxl<span class="op">::</span><span class="kw"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span>(MeOH_plasma_extraction_xlsx, <span class="dt">sheet =</span> <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">subj_id_age &lt;-<span class="st"> </span>readxl<span class="op">::</span><span class="kw"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span>(MeOH_plasma_extraction_xlsx, <span class="dt">sheet =</span> <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(exp_subj_id)</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt; # A tibble: 4 x 3</span></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt;   NMRExperiment SubjectID TimePoint</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;    </span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#&gt; 1 10            Ana       baseline </span></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#&gt; 2 20            Ana       3 months </span></a>
-<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">#&gt; 3 30            Elia      baseline </span></a>
-<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">#&gt; 4 40            Elia      3 months</span></a>
-<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(subj_id_age)</a>
-<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">#&gt; # A tibble: 2 x 2</span></a>
-<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">#&gt;   SubjectID   Age</span></a>
-<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">#&gt;   &lt;chr&gt;     &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb6-16" data-line-number="16"><span class="co">#&gt; 1 Ana          29</span></a>
-<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="co">#&gt; 2 Elia          0</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>MeOH_plasma_extraction_xlsx &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span>(MeOH_plasma_extraction_dir, <span class="st">"dummy_metadata.xlsx"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a>exp_subj_id &lt;-<span class="st"> </span>readxl<span class="op">::</span><span class="kw"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span>(MeOH_plasma_extraction_xlsx, <span class="dt">sheet =</span> <span class="dv">1</span>)</span>
+<span id="cb6-3"><a href="#cb6-3"></a>subj_id_age &lt;-<span class="st"> </span>readxl<span class="op">::</span><span class="kw"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span>(MeOH_plasma_extraction_xlsx, <span class="dt">sheet =</span> <span class="dv">2</span>)</span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(exp_subj_id)</span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="co">#&gt; # A tibble: 4 x 3</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="co">#&gt;   NMRExperiment SubjectID TimePoint</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;    </span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="co">#&gt; 1 10            Ana       baseline </span></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="co">#&gt; 2 20            Ana       3 months </span></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="co">#&gt; 3 30            Elia      baseline </span></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="co">#&gt; 4 40            Elia      3 months</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(subj_id_age)</span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="co">#&gt; # A tibble: 2 x 2</span></span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="co">#&gt;   SubjectID   Age</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a><span class="co">#&gt;   &lt;chr&gt;     &lt;dbl&gt;</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="co">#&gt; 1 Ana          29</span></span>
+<span id="cb6-17"><a href="#cb6-17"></a><span class="co">#&gt; 2 Elia          0</span></span></code></pre></div>
 </div>
 <div id="loading-samples" class="section level1">
 <h1 class="hasAnchor">
 <a href="#loading-samples" class="anchor"></a>Loading samples</h1>
 <p>The function to read samples is called <code>nmr_read_samples</code>. It expects a character vector with the samples to load that can be paths to directories of Bruker format samples or paths to JDX files.</p>
 <p>Additionally, this function can filter by pulse sequences (e.g. load only NOESY samples) or loading only metadata.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">zip_files &lt;-<span class="st"> </span>fs<span class="op">::</span><span class="kw"><a href="http://fs.r-lib.org/reference/dir_ls.html">dir_ls</a></span>(MeOH_plasma_extraction_dir, <span class="dt">glob =</span> <span class="st">"*.zip"</span>)</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(zip_files)</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt; /home/travis/R/Library/AlpsNMR/dataset-demo/10.zip</span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt; /home/travis/R/Library/AlpsNMR/dataset-demo/20.zip</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt; /home/travis/R/Library/AlpsNMR/dataset-demo/30.zip</span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt; /home/travis/R/Library/AlpsNMR/dataset-demo/40.zip</span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7">dataset &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_read_samples.html">nmr_read_samples</a></span>(<span class="dt">sample_names =</span> zip_files)</a>
-<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(dataset)</a>
-<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">#&gt; An nmr_dataset (4 samples)</span></a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>zip_files &lt;-<span class="st"> </span>fs<span class="op">::</span><span class="kw"><a href="http://fs.r-lib.org/reference/dir_ls.html">dir_ls</a></span>(MeOH_plasma_extraction_dir, <span class="dt">glob =</span> <span class="st">"*.zip"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(zip_files)</span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co">#&gt; /Users/runner/runners/2.163.1/work/_temp/Library/AlpsNMR/dataset-demo/10.zip</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co">#&gt; /Users/runner/runners/2.163.1/work/_temp/Library/AlpsNMR/dataset-demo/20.zip</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co">#&gt; /Users/runner/runners/2.163.1/work/_temp/Library/AlpsNMR/dataset-demo/30.zip</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co">#&gt; /Users/runner/runners/2.163.1/work/_temp/Library/AlpsNMR/dataset-demo/40.zip</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a>dataset &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_read_samples.html">nmr_read_samples</a></span>(<span class="dt">sample_names =</span> zip_files)</span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(dataset)</span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="co">#&gt; An nmr_dataset (4 samples)</span></span></code></pre></div>
 <p>As we have not added any metadata to this dataset, the only column we see is the <code>NMRExperiment</code>:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="../reference/nmr_meta_get.html">nmr_meta_get</a></span>(dataset, <span class="dt">groups =</span> <span class="st">"external"</span>)</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">#&gt; # A tibble: 4 x 1</span></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">#&gt;   NMRExperiment</span></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt;   &lt;chr&gt;        </span></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt; 1 10           </span></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">#&gt; 2 20           </span></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">#&gt; 3 30           </span></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co">#&gt; 4 40</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw"><a href="../reference/nmr_meta_get.html">nmr_meta_get</a></span>(dataset, <span class="dt">groups =</span> <span class="st">"external"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="co">#&gt; # A tibble: 4 x 1</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="co">#&gt;   NMRExperiment</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co">#&gt;   &lt;chr&gt;        </span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="co">#&gt; 1 10           </span></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="co">#&gt; 2 20           </span></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co">#&gt; 3 30           </span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="co">#&gt; 4 40</span></span></code></pre></div>
 </div>
 <div id="adding-metadata" class="section level1">
 <h1 class="hasAnchor">
 <a href="#adding-metadata" class="anchor"></a>Adding metadata</h1>
 <p>Initally our dataset only has the <code>NMRExperiment</code> column:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw"><a href="../reference/nmr_meta_get.html">nmr_meta_get</a></span>(dataset, <span class="dt">groups =</span> <span class="st">"external"</span>)</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="co">#&gt; # A tibble: 4 x 1</span></a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="co">#&gt;   NMRExperiment</span></a>
-<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="co">#&gt;   &lt;chr&gt;        </span></a>
-<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="co">#&gt; 1 10           </span></a>
-<a class="sourceLine" id="cb9-6" data-line-number="6"><span class="co">#&gt; 2 20           </span></a>
-<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="co">#&gt; 3 30           </span></a>
-<a class="sourceLine" id="cb9-8" data-line-number="8"><span class="co">#&gt; 4 40</span></a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw"><a href="../reference/nmr_meta_get.html">nmr_meta_get</a></span>(dataset, <span class="dt">groups =</span> <span class="st">"external"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="co">#&gt; # A tibble: 4 x 1</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="co">#&gt;   NMRExperiment</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co">#&gt;   &lt;chr&gt;        </span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="co">#&gt; 1 10           </span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="co">#&gt; 2 20           </span></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="co">#&gt; 3 30           </span></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="co">#&gt; 4 40</span></span></code></pre></div>
 <p>The <code>exp_subj_id</code> table we loaded links the <code>NMRExperiment</code> to the <code>SubjectID</code>.</p>
 <p>As we already have the <code>NMRExperiment</code> column, we can use it as the merging column (note that both columns have the same column name to match the metadata such as group class, age, BMI…):</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">dataset &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_meta_add.html">nmr_meta_add</a></span>(dataset, <span class="dt">metadata =</span> exp_subj_id, <span class="dt">by =</span> <span class="st">"NMRExperiment"</span>)</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw"><a href="../reference/nmr_meta_get.html">nmr_meta_get</a></span>(dataset, <span class="dt">groups =</span> <span class="st">"external"</span>)</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="co">#&gt; # A tibble: 4 x 3</span></a>
-<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="co">#&gt;   NMRExperiment SubjectID TimePoint</span></a>
-<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;    </span></a>
-<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="co">#&gt; 1 10            Ana       baseline </span></a>
-<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="co">#&gt; 2 20            Ana       3 months </span></a>
-<a class="sourceLine" id="cb10-8" data-line-number="8"><span class="co">#&gt; 3 30            Elia      baseline </span></a>
-<a class="sourceLine" id="cb10-9" data-line-number="9"><span class="co">#&gt; 4 40            Elia      3 months</span></a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>dataset &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_meta_add.html">nmr_meta_add</a></span>(dataset, <span class="dt">metadata =</span> exp_subj_id, <span class="dt">by =</span> <span class="st">"NMRExperiment"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="kw"><a href="../reference/nmr_meta_get.html">nmr_meta_get</a></span>(dataset, <span class="dt">groups =</span> <span class="st">"external"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="co">#&gt; # A tibble: 4 x 3</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="co">#&gt;   NMRExperiment SubjectID TimePoint</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;    </span></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="co">#&gt; 1 10            Ana       baseline </span></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="co">#&gt; 2 20            Ana       3 months </span></span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="co">#&gt; 3 30            Elia      baseline </span></span>
+<span id="cb10-9"><a href="#cb10-9"></a><span class="co">#&gt; 4 40            Elia      3 months</span></span></code></pre></div>
 <p>If we have info from different files we can match them. For instance, now we have the <code>SubjectID</code> information so we can add the table that adds the <code>SubjectID</code> to the <code>Age</code>.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">dataset &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_meta_add.html">nmr_meta_add</a></span>(dataset, <span class="dt">metadata =</span> subj_id_age, <span class="dt">by =</span> <span class="st">"SubjectID"</span>)</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw"><a href="../reference/nmr_meta_get.html">nmr_meta_get</a></span>(dataset, <span class="dt">groups =</span> <span class="st">"external"</span>)</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="co">#&gt; # A tibble: 4 x 4</span></a>
-<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="co">#&gt;   NMRExperiment SubjectID TimePoint   Age</span></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="co">#&gt; 1 10            Ana       baseline     29</span></a>
-<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="co">#&gt; 2 20            Ana       3 months     29</span></a>
-<a class="sourceLine" id="cb11-8" data-line-number="8"><span class="co">#&gt; 3 30            Elia      baseline      0</span></a>
-<a class="sourceLine" id="cb11-9" data-line-number="9"><span class="co">#&gt; 4 40            Elia      3 months      0</span></a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>dataset &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_meta_add.html">nmr_meta_add</a></span>(dataset, <span class="dt">metadata =</span> subj_id_age, <span class="dt">by =</span> <span class="st">"SubjectID"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="kw"><a href="../reference/nmr_meta_get.html">nmr_meta_get</a></span>(dataset, <span class="dt">groups =</span> <span class="st">"external"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="co">#&gt; # A tibble: 4 x 4</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="co">#&gt;   NMRExperiment SubjectID TimePoint   Age</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt;</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="co">#&gt; 1 10            Ana       baseline     29</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a><span class="co">#&gt; 2 20            Ana       3 months     29</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a><span class="co">#&gt; 3 30            Elia      baseline      0</span></span>
+<span id="cb11-9"><a href="#cb11-9"></a><span class="co">#&gt; 4 40            Elia      3 months      0</span></span></code></pre></div>
 <p>Now we have our metadata integrated in the dataset and we can make use of it in further data analysis steps.</p>
 </div>
 <div id="interpolation" class="section level1">
@@ -214,11 +214,11 @@ print(pipeline_example)</code></pre>
 <a href="#interpolation" class="anchor"></a>Interpolation</h1>
 <p>1D NMR samples can be interpolated together, in order to arrange all the spectra into a matrix, with one row per sample. The main parameters we would need is the range of ppm values that we want to interpolate and the resolution.</p>
 <p>We can see the ppm resolution by looking at the ppm axis of one sample:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">ppm_res &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_ppm_resolution.html">nmr_ppm_resolution</a></span>(dataset)[[<span class="dv">1</span>]]</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/message.html">message</a></span>(<span class="st">"The ppm resolution is: "</span>, <span class="kw"><a href="https://rdrr.io/r/base/format.html">format</a></span>(ppm_res, <span class="dt">digits =</span> <span class="dv">2</span>), <span class="st">" ppm"</span>)</a>
-<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="co">#&gt; The ppm resolution is: 0.00023 ppm</span></a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>ppm_res &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_ppm_resolution.html">nmr_ppm_resolution</a></span>(dataset)[[<span class="dv">1</span>]]</span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="kw"><a href="https://rdrr.io/r/base/message.html">message</a></span>(<span class="st">"The ppm resolution is: "</span>, <span class="kw"><a href="https://rdrr.io/r/base/format.html">format</a></span>(ppm_res, <span class="dt">digits =</span> <span class="dv">2</span>), <span class="st">" ppm"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="co">#&gt; The ppm resolution is: 0.00023 ppm</span></span></code></pre></div>
 <p>We can interpolate the dataset, obtaining an <code>nmr_dataset_1D</code> object:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">dataset &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_interpolate_1D.html">nmr_interpolate_1D</a></span>(dataset, <span class="dt">axis =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dt">min =</span> <span class="fl">-0.5</span>, <span class="dt">max =</span> <span class="dv">10</span>, <span class="dt">by =</span> <span class="fl">2.3E-4</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>dataset &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_interpolate_1D.html">nmr_interpolate_1D</a></span>(dataset, <span class="dt">axis =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dt">min =</span> <span class="fl">-0.5</span>, <span class="dt">max =</span> <span class="dv">10</span>, <span class="dt">by =</span> <span class="fl">2.3E-4</span>))</span></code></pre></div>
 <p>This operation changes the class of the object, as now the data is on a matrix. The dataset is now of class <code>nmr_dataset_1D</code>. The <code>axis</code> element is now a numeric vector and the <code>data_1r</code> element is a matrix.</p>
 </div>
 <div id="plotting-samples" class="section level1">
@@ -234,7 +234,7 @@ print(pipeline_example)</code></pre>
 <li>
 <code>interactive</code>: To make the plot interactive - <code>...</code>: Can be used to pass additional parameters such as <code>color = "SubjectID"</code> that are passed as aesthetics to ggplot.</li>
 </ul>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(dataset, <span class="dt">NMRExperiment =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"10"</span>, <span class="st">"30"</span>), <span class="dt">chemshift_range =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">2.2</span>, <span class="fl">2.8</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(dataset, <span class="dt">NMRExperiment =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"10"</span>, <span class="st">"30"</span>), <span class="dt">chemshift_range =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">2.2</span>, <span class="fl">2.8</span>))</span></code></pre></div>
 <p><img src="introduction-to-alpsnmr_files/figure-html/unnamed-chunk-12-1.png" width="672"></p>
 <div id="creating-interactive-plots" class="section level2">
 <h2 class="hasAnchor">
@@ -250,29 +250,29 @@ plot_interactive(plt, "plot_region.html")</code></pre>
 <h1 class="hasAnchor">
 <a href="#exclude-regions" class="anchor"></a>Exclude regions</h1>
 <p>Some regions can easily be excluded from the spectra with <code>nmr_exclude_region</code>. Note that the regions are fully removed and not zeroed, as using zeros complicates a lot the implementation<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> and has little advantages.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">regions_to_exclude &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">water =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4.6</span>, <span class="dv">5</span>), <span class="dt">methanol =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3.33</span>, <span class="fl">3.39</span>))</a>
-<a class="sourceLine" id="cb16-2" data-line-number="2">dataset &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_exclude_region.html">nmr_exclude_region</a></span>(dataset, <span class="dt">exclude =</span> regions_to_exclude)</a>
-<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(dataset, <span class="dt">chemshift_range =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4.2</span>, <span class="fl">5.5</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>regions_to_exclude &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">water =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4.6</span>, <span class="dv">5</span>), <span class="dt">methanol =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3.33</span>, <span class="fl">3.39</span>))</span>
+<span id="cb16-2"><a href="#cb16-2"></a>dataset &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_exclude_region.html">nmr_exclude_region</a></span>(dataset, <span class="dt">exclude =</span> regions_to_exclude)</span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(dataset, <span class="dt">chemshift_range =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4.2</span>, <span class="fl">5.5</span>))</span></code></pre></div>
 <p><img src="introduction-to-alpsnmr_files/figure-html/unnamed-chunk-13-1.png" width="672"></p>
 </div>
 <div id="filter-samples" class="section level1">
 <h1 class="hasAnchor">
 <a href="#filter-samples" class="anchor"></a>Filter samples</h1>
 <p>Maybe we just want to analyze a subset of the data, e.g., only a class group or a particular gender. We can filter some samples according to their metadata as follows:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">samples_<span class="dv">10</span>_<span class="dv">20</span> &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(dataset, SubjectID <span class="op">==</span><span class="st"> "Ana"</span>)</a>
-<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="kw"><a href="../reference/nmr_meta_get.html">nmr_meta_get</a></span>(samples_<span class="dv">10</span>_<span class="dv">20</span>, <span class="dt">groups =</span> <span class="st">"external"</span>)</a>
-<a class="sourceLine" id="cb17-3" data-line-number="3"><span class="co">#&gt; # A tibble: 2 x 4</span></a>
-<a class="sourceLine" id="cb17-4" data-line-number="4"><span class="co">#&gt;   NMRExperiment SubjectID TimePoint   Age</span></a>
-<a class="sourceLine" id="cb17-5" data-line-number="5"><span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb17-6" data-line-number="6"><span class="co">#&gt; 1 10            Ana       baseline     29</span></a>
-<a class="sourceLine" id="cb17-7" data-line-number="7"><span class="co">#&gt; 2 20            Ana       3 months     29</span></a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>samples_<span class="dv">10</span>_<span class="dv">20</span> &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(dataset, SubjectID <span class="op">==</span><span class="st"> "Ana"</span>)</span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="kw"><a href="../reference/nmr_meta_get.html">nmr_meta_get</a></span>(samples_<span class="dv">10</span>_<span class="dv">20</span>, <span class="dt">groups =</span> <span class="st">"external"</span>)</span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="co">#&gt; # A tibble: 2 x 4</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a><span class="co">#&gt;   NMRExperiment SubjectID TimePoint   Age</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a><span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt;</span></span>
+<span id="cb17-6"><a href="#cb17-6"></a><span class="co">#&gt; 1 10            Ana       baseline     29</span></span>
+<span id="cb17-7"><a href="#cb17-7"></a><span class="co">#&gt; 2 20            Ana       3 months     29</span></span></code></pre></div>
 </div>
 <div id="robust-pca-for-outlier-detection" class="section level1">
 <h1 class="hasAnchor">
 <a href="#robust-pca-for-outlier-detection" class="anchor"></a>Robust PCA for outlier detection</h1>
 <p>The AlpsNMR package includes robust PCA analysis for outlier detection. With such a small demo dataset, it is not practical to use, but check out the documentation of <code>nmr_pca_outliers_*</code> functions.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">pca_outliers_rob &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_pca_outliers_robust.html">nmr_pca_outliers_robust</a></span>(dataset, <span class="dt">ncomp =</span> <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="kw"><a href="../reference/nmr_pca_outliers_plot.html">nmr_pca_outliers_plot</a></span>(dataset, pca_outliers_rob)</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>pca_outliers_rob &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_pca_outliers_robust.html">nmr_pca_outliers_robust</a></span>(dataset, <span class="dt">ncomp =</span> <span class="dv">3</span>)</span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="kw"><a href="../reference/nmr_pca_outliers_plot.html">nmr_pca_outliers_plot</a></span>(dataset, pca_outliers_rob)</span></code></pre></div>
 <p><img src="introduction-to-alpsnmr_files/figure-html/unnamed-chunk-15-1.png" width="672"></p>
 </div>
 <div id="baseline-removal" class="section level1">
@@ -280,11 +280,11 @@ plot_interactive(plt, "plot_region.html")</code></pre>
 <a href="#baseline-removal" class="anchor"></a>Baseline removal</h1>
 <p>Spectra may display an unstable baseline, specially when processing blood/fecal blood/fecal samples. If so, <code>nmr_baseline_removal</code> subtract the baseline by means of Asymmetric Least Squares method.</p>
 <p>See before:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(dataset, <span class="dt">chemshift_range =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3.5</span>,<span class="fl">3.8</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(dataset, <span class="dt">chemshift_range =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3.5</span>,<span class="fl">3.8</span>))</span></code></pre></div>
 <p><img src="introduction-to-alpsnmr_files/figure-html/unnamed-chunk-16-1.png" width="672"></p>
 <p>And after:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">dataset =<span class="st"> </span><span class="kw"><a href="../reference/nmr_baseline_removal.html">nmr_baseline_removal</a></span>(dataset, <span class="dt">lambda =</span> <span class="dv">6</span>, <span class="dt">p =</span> <span class="fl">0.01</span>)</a>
-<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(dataset, <span class="dt">chemshift_range =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3.5</span>,<span class="fl">3.8</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>dataset =<span class="st"> </span><span class="kw"><a href="../reference/nmr_baseline_removal.html">nmr_baseline_removal</a></span>(dataset, <span class="dt">lambda =</span> <span class="dv">6</span>, <span class="dt">p =</span> <span class="fl">0.01</span>)</span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(dataset, <span class="dt">chemshift_range =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3.5</span>,<span class="fl">3.8</span>))</span></code></pre></div>
 <p><img src="introduction-to-alpsnmr_files/figure-html/unnamed-chunk-17-1.png" width="672"></p>
 </div>
 <div id="peak-detection" class="section level1">
@@ -294,14 +294,14 @@ plot_interactive(plt, "plot_region.html")</code></pre>
 <p>Our current approach relies on the use of the baseline threshold (<code>baselineThresh</code>) automatic calculated (see <code><a href="../reference/nmr_baseline_threshold.html">?nmr_baseline_threshold</a></code>) and the Signal to Noise Threshold (<code>SNR.Th</code>) to discriminate valid peaks from noise.</p>
 <p>The combination of the <code>baselineThresh</code> and the <code>SNR.Th</code> optimizes the number of actual peaks from noise.</p>
 <p>The advantage of the <code>SNR.Th</code> method is that it estimates the noise level on each spectra region independently, so in practice it can be used as a dynamic baseline threshold level.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1">peak_table &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_detect_peaks.html">nmr_detect_peaks</a></span>(dataset,</a>
-<a class="sourceLine" id="cb21-2" data-line-number="2">                               <span class="dt">nDivRange_ppm =</span> <span class="fl">0.1</span>,</a>
-<a class="sourceLine" id="cb21-3" data-line-number="3">                               <span class="dt">scales =</span> <span class="kw"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>(<span class="dv">1</span>, <span class="dv">16</span>, <span class="dv">2</span>),</a>
-<a class="sourceLine" id="cb21-4" data-line-number="4">                               <span class="dt">baselineThresh =</span> <span class="ot">NULL</span>, <span class="dt">SNR.Th =</span> <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb21-5" data-line-number="5">NMRExp_ref &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_align_find_ref.html">nmr_align_find_ref</a></span>(dataset, peak_table)</a>
-<a class="sourceLine" id="cb21-6" data-line-number="6"><span class="kw"><a href="https://rdrr.io/r/base/message.html">message</a></span>(<span class="st">"Your reference is NMRExperiment "</span>, NMRExp_ref)</a>
-<a class="sourceLine" id="cb21-7" data-line-number="7"><span class="co">#&gt; Your reference is NMRExperiment 20</span></a>
-<a class="sourceLine" id="cb21-8" data-line-number="8"><span class="kw"><a href="../reference/nmr_detect_peaks_plot.html">nmr_detect_peaks_plot</a></span>(dataset, peak_table, <span class="dt">NMRExperiment =</span> <span class="st">"20"</span>, <span class="dt">chemshift_range =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3.5</span>,<span class="fl">3.8</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>peak_table &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_detect_peaks.html">nmr_detect_peaks</a></span>(dataset,</span>
+<span id="cb21-2"><a href="#cb21-2"></a>                               <span class="dt">nDivRange_ppm =</span> <span class="fl">0.1</span>,</span>
+<span id="cb21-3"><a href="#cb21-3"></a>                               <span class="dt">scales =</span> <span class="kw"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>(<span class="dv">1</span>, <span class="dv">16</span>, <span class="dv">2</span>),</span>
+<span id="cb21-4"><a href="#cb21-4"></a>                               <span class="dt">baselineThresh =</span> <span class="ot">NULL</span>, <span class="dt">SNR.Th =</span> <span class="dv">3</span>)</span>
+<span id="cb21-5"><a href="#cb21-5"></a>NMRExp_ref &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_align_find_ref.html">nmr_align_find_ref</a></span>(dataset, peak_table)</span>
+<span id="cb21-6"><a href="#cb21-6"></a><span class="kw"><a href="https://rdrr.io/r/base/message.html">message</a></span>(<span class="st">"Your reference is NMRExperiment "</span>, NMRExp_ref)</span>
+<span id="cb21-7"><a href="#cb21-7"></a><span class="co">#&gt; Your reference is NMRExperiment 20</span></span>
+<span id="cb21-8"><a href="#cb21-8"></a><span class="kw"><a href="../reference/nmr_detect_peaks_plot.html">nmr_detect_peaks_plot</a></span>(dataset, peak_table, <span class="dt">NMRExperiment =</span> <span class="st">"20"</span>, <span class="dt">chemshift_range =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3.5</span>,<span class="fl">3.8</span>))</span></code></pre></div>
 <p><img src="introduction-to-alpsnmr_files/figure-html/unnamed-chunk-18-1.png" width="672"></p>
 </div>
 <div id="spectra-alignment" class="section level1">
@@ -309,31 +309,31 @@ plot_interactive(plt, "plot_region.html")</code></pre>
 <a href="#spectra-alignment" class="anchor"></a>Spectra alignment</h1>
 <p>To align the sample, we use the <code>nmr_align</code> function, which in turn uses a hierarchical clustering method (see <code><a href="../reference/nmr_align.html">?nmr_align</a></code> for further details).</p>
 <p>The <code>maxShift_ppm</code> limits the maximum shift allowed for the spectra.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">nmr_exp_ref &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_align_find_ref.html">nmr_align_find_ref</a></span>(dataset, peak_table)</a>
-<a class="sourceLine" id="cb22-2" data-line-number="2">dataset_align &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_align.html">nmr_align</a></span>(dataset, peak_table, nmr_exp_ref, <span class="dt">maxShift_ppm =</span> <span class="fl">0.0015</span>, <span class="dt">acceptLostPeak =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(dataset, <span class="dt">chemshift_range =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3.025</span>, <span class="fl">3.063</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>nmr_exp_ref &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_align_find_ref.html">nmr_align_find_ref</a></span>(dataset, peak_table)</span>
+<span id="cb22-2"><a href="#cb22-2"></a>dataset_align &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_align.html">nmr_align</a></span>(dataset, peak_table, nmr_exp_ref, <span class="dt">maxShift_ppm =</span> <span class="fl">0.0015</span>, <span class="dt">acceptLostPeak =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(dataset, <span class="dt">chemshift_range =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3.025</span>, <span class="fl">3.063</span>))</span></code></pre></div>
 <p><img src="introduction-to-alpsnmr_files/figure-html/unnamed-chunk-20-1.png" width="672"></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(dataset_align, <span class="dt">chemshift_range =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3.025</span>, <span class="fl">3.063</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(dataset_align, <span class="dt">chemshift_range =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3.025</span>, <span class="fl">3.063</span>))</span></code></pre></div>
 <p><img src="introduction-to-alpsnmr_files/figure-html/unnamed-chunk-20-2.png" width="672"></p>
 </div>
 <div id="normalization" class="section level1">
 <h1 class="hasAnchor">
 <a href="#normalization" class="anchor"></a>Normalization</h1>
 <p>There are multiple normalization techniques available. The most strongly recommended is the <code>pqn</code> normalization, but it may not be fully reliable when the number of samples is small, as it needs a computation of the median spectra. Nevertheless, it is possible to compute it:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1">dataset_norm &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_normalize.html">nmr_normalize</a></span>(dataset_align, <span class="dt">method =</span> <span class="st">"pqn"</span>)</a>
-<a class="sourceLine" id="cb25-2" data-line-number="2"><span class="co">#&gt; Warning in norm_pqn(samples[["data_1r"]]): The Probabalistic Quotient</span></a>
-<a class="sourceLine" id="cb25-3" data-line-number="3"><span class="co">#&gt; Normalization requires several samples to compute the median spectra. Your</span></a>
-<a class="sourceLine" id="cb25-4" data-line-number="4"><span class="co">#&gt; number of samples is low</span></a></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>dataset_norm &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_normalize.html">nmr_normalize</a></span>(dataset_align, <span class="dt">method =</span> <span class="st">"pqn"</span>)</span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="co">#&gt; Warning in norm_pqn(samples[["data_1r"]]): The Probabalistic Quotient</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="co">#&gt; Normalization requires several samples to compute the median spectra. Your</span></span>
+<span id="cb25-4"><a href="#cb25-4"></a><span class="co">#&gt; number of samples is low</span></span></code></pre></div>
 <p>The <code>AlpsNMR</code> package offers the possibility to extract additional normalization information with <code><a href="../reference/nmr_normalize.html">nmr_normalize_extra_info(dataset)</a></code>, to explore the normalization factors applied to each sample:</p>
 <p>The plot shows the dispersion with respect to the median of the normalization factors, and can highlight samples with abnormaly large or small normalization factors.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1">diagnostic &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_normalize.html">nmr_normalize_extra_info</a></span>(dataset_norm)</a>
-<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(diagnostic<span class="op">$</span>norm_factor)</a>
-<a class="sourceLine" id="cb26-3" data-line-number="3"><span class="co">#&gt;   NMRExperiment norm_factor norm_factor_norm</span></a>
-<a class="sourceLine" id="cb26-4" data-line-number="4"><span class="co">#&gt; 1            10   522485930        0.8705915</span></a>
-<a class="sourceLine" id="cb26-5" data-line-number="5"><span class="co">#&gt; 2            20   688575310        1.1473377</span></a>
-<a class="sourceLine" id="cb26-6" data-line-number="6"><span class="co">#&gt; 3            30   598587425        0.9973955</span></a>
-<a class="sourceLine" id="cb26-7" data-line-number="7"><span class="co">#&gt; 4            40   601713644        1.0026045</span></a>
-<a class="sourceLine" id="cb26-8" data-line-number="8"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(diagnostic<span class="op">$</span>plot)</a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>diagnostic &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_normalize.html">nmr_normalize_extra_info</a></span>(dataset_norm)</span>
+<span id="cb26-2"><a href="#cb26-2"></a><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(diagnostic<span class="op">$</span>norm_factor)</span>
+<span id="cb26-3"><a href="#cb26-3"></a><span class="co">#&gt;   NMRExperiment norm_factor norm_factor_norm</span></span>
+<span id="cb26-4"><a href="#cb26-4"></a><span class="co">#&gt; 1            10   522485930        0.8705915</span></span>
+<span id="cb26-5"><a href="#cb26-5"></a><span class="co">#&gt; 2            20   688575310        1.1473377</span></span>
+<span id="cb26-6"><a href="#cb26-6"></a><span class="co">#&gt; 3            30   598587425        0.9973955</span></span>
+<span id="cb26-7"><a href="#cb26-7"></a><span class="co">#&gt; 4            40   601713644        1.0026045</span></span>
+<span id="cb26-8"><a href="#cb26-8"></a><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(diagnostic<span class="op">$</span>plot)</span></code></pre></div>
 <p><img src="introduction-to-alpsnmr_files/figure-html/unnamed-chunk-22-1.png" width="672"></p>
 </div>
 <div id="peak-integration" class="section level1">
@@ -343,69 +343,69 @@ plot_interactive(plt, "plot_region.html")</code></pre>
 <h2 class="hasAnchor">
 <a href="#integration-based-on-peak-center-and-width" class="anchor"></a>1. Integration based on peak center and width</h2>
 <p>If we want to integrate the whole spectra, we need ppm from the <code>peak_table</code>. See <code>Peak detection</code> section. The function <code>nmr_integrate_peak_positions</code> generates a new <code>nmr_dataset_1D</code> object containing the integrals from the <code>peak_table</code> (ppm values corresponding to detected peaks).</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1">peak_table_integration =<span class="st"> </span><span class="kw"><a href="../reference/nmr_integrate_peak_positions.html">nmr_integrate_peak_positions</a></span>(</a>
-<a class="sourceLine" id="cb27-2" data-line-number="2">  <span class="dt">samples =</span> dataset_norm,</a>
-<a class="sourceLine" id="cb27-3" data-line-number="3">  <span class="dt">peak_pos_ppm =</span> peak_table<span class="op">$</span>ppm,</a>
-<a class="sourceLine" id="cb27-4" data-line-number="4">  <span class="dt">peak_width_ppm =</span> <span class="fl">0.006</span>)</a>
-<a class="sourceLine" id="cb27-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb27-6" data-line-number="6">peak_table_integration =<span class="st"> </span><span class="kw"><a href="../reference/get_integration_with_metadata.html">get_integration_with_metadata</a></span>(peak_table_integration)</a></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>peak_table_integration =<span class="st"> </span><span class="kw"><a href="../reference/nmr_integrate_peak_positions.html">nmr_integrate_peak_positions</a></span>(</span>
+<span id="cb27-2"><a href="#cb27-2"></a>  <span class="dt">samples =</span> dataset_norm,</span>
+<span id="cb27-3"><a href="#cb27-3"></a>  <span class="dt">peak_pos_ppm =</span> peak_table<span class="op">$</span>ppm,</span>
+<span id="cb27-4"><a href="#cb27-4"></a>  <span class="dt">peak_width_ppm =</span> <span class="fl">0.006</span>)</span>
+<span id="cb27-5"><a href="#cb27-5"></a></span>
+<span id="cb27-6"><a href="#cb27-6"></a>peak_table_integration =<span class="st"> </span><span class="kw"><a href="../reference/get_integration_with_metadata.html">get_integration_with_metadata</a></span>(peak_table_integration)</span></code></pre></div>
 <p>We can also integrate with a specific peak position and some arbitrary width:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="kw"><a href="../reference/nmr_data.html">nmr_data</a></span>(</a>
-<a class="sourceLine" id="cb28-2" data-line-number="2">  <span class="kw"><a href="../reference/nmr_integrate_peak_positions.html">nmr_integrate_peak_positions</a></span>(<span class="dt">samples =</span> dataset_norm,</a>
-<a class="sourceLine" id="cb28-3" data-line-number="3">                            <span class="dt">peak_pos_ppm =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4.1925</span>, <span class="fl">4.183</span>, <span class="fl">4.1775</span>, <span class="fl">4.17</span>),</a>
-<a class="sourceLine" id="cb28-4" data-line-number="4">                            <span class="dt">peak_width_ppm =</span> <span class="fl">0.006</span>)</a>
-<a class="sourceLine" id="cb28-5" data-line-number="5">)</a>
-<a class="sourceLine" id="cb28-6" data-line-number="6"><span class="co">#&gt;      ppm_4.1925   ppm_4.1830   ppm_4.1775   ppm_4.1700</span></a>
-<a class="sourceLine" id="cb28-7" data-line-number="7"><span class="co">#&gt; 10 3.190189e-08 3.298304e-08 2.313092e-08 1.339955e-08</span></a>
-<a class="sourceLine" id="cb28-8" data-line-number="8"><span class="co">#&gt; 20 2.549221e-08 1.779341e-08 1.812701e-08 9.971924e-09</span></a>
-<a class="sourceLine" id="cb28-9" data-line-number="9"><span class="co">#&gt; 30 2.570141e-08 2.548584e-08 1.910047e-08 8.212517e-09</span></a>
-<a class="sourceLine" id="cb28-10" data-line-number="10"><span class="co">#&gt; 40 2.655425e-08 3.020573e-08 2.637977e-08 1.838752e-08</span></a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="kw"><a href="../reference/nmr_data.html">nmr_data</a></span>(</span>
+<span id="cb28-2"><a href="#cb28-2"></a>  <span class="kw"><a href="../reference/nmr_integrate_peak_positions.html">nmr_integrate_peak_positions</a></span>(<span class="dt">samples =</span> dataset_norm,</span>
+<span id="cb28-3"><a href="#cb28-3"></a>                            <span class="dt">peak_pos_ppm =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4.1925</span>, <span class="fl">4.183</span>, <span class="fl">4.1775</span>, <span class="fl">4.17</span>),</span>
+<span id="cb28-4"><a href="#cb28-4"></a>                            <span class="dt">peak_width_ppm =</span> <span class="fl">0.006</span>)</span>
+<span id="cb28-5"><a href="#cb28-5"></a>)</span>
+<span id="cb28-6"><a href="#cb28-6"></a><span class="co">#&gt;      ppm_4.1925   ppm_4.1830   ppm_4.1775   ppm_4.1700</span></span>
+<span id="cb28-7"><a href="#cb28-7"></a><span class="co">#&gt; 10 3.190189e-08 3.298304e-08 2.313092e-08 1.339955e-08</span></span>
+<span id="cb28-8"><a href="#cb28-8"></a><span class="co">#&gt; 20 2.549221e-08 1.779341e-08 1.812701e-08 9.971924e-09</span></span>
+<span id="cb28-9"><a href="#cb28-9"></a><span class="co">#&gt; 30 2.570141e-08 2.548584e-08 1.910047e-08 8.212517e-09</span></span>
+<span id="cb28-10"><a href="#cb28-10"></a><span class="co">#&gt; 40 2.655425e-08 3.020573e-08 2.637977e-08 1.838752e-08</span></span></code></pre></div>
 </div>
 <div id="integration-based-on-peak-boundaries" class="section level2">
 <h2 class="hasAnchor">
 <a href="#integration-based-on-peak-boundaries" class="anchor"></a>2. Integration based on peak boundaries</h2>
 <p>Imagine we only want to integrate the four peaks corresponding to the pyroglutamic acid:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1">pyroglutamic_acid_region &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4.15</span>, <span class="fl">4.20</span>)</a>
-<a class="sourceLine" id="cb29-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(dataset_norm, <span class="dt">chemshift_range =</span> pyroglutamic_acid_region) <span class="op">+</span></a>
-<a class="sourceLine" id="cb29-3" data-line-number="3"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span>(<span class="st">"Pyroglutamic acid region"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>pyroglutamic_acid_region &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4.15</span>, <span class="fl">4.20</span>)</span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(dataset_norm, <span class="dt">chemshift_range =</span> pyroglutamic_acid_region) <span class="op">+</span></span>
+<span id="cb29-3"><a href="#cb29-3"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span>(<span class="st">"Pyroglutamic acid region"</span>)</span></code></pre></div>
 <p><img src="introduction-to-alpsnmr_files/figure-html/unnamed-chunk-25-1.png" width="672"></p>
 <p>We define the peak regions and integrate them. Note how we can correct the baseline or not. If we correct the baseline, the limits of the integration will be connected with a straight line and that line will be used as the baseline, that will be subtracted.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1">pyroglutamic_acid &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">pyroglutamic_acid1 =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4.19</span>, <span class="fl">4.195</span>),</a>
-<a class="sourceLine" id="cb30-2" data-line-number="2">                          <span class="dt">pyroglutamic_acid2 =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4.18</span>, <span class="fl">4.186</span>),</a>
-<a class="sourceLine" id="cb30-3" data-line-number="3">                          <span class="dt">pyroglutamic_acid3 =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4.175</span>, <span class="fl">4.18</span>),</a>
-<a class="sourceLine" id="cb30-4" data-line-number="4">                          <span class="dt">pyroglutamic_acid4 =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4.165</span>, <span class="fl">4.172</span>))</a>
-<a class="sourceLine" id="cb30-5" data-line-number="5">regions_basel_corr_ds &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_integrate_regions.html">nmr_integrate_regions</a></span>(dataset_norm, pyroglutamic_acid, <span class="dt">fix_baseline =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb30-6" data-line-number="6">regions_basel_corr_matrix &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_data.html">nmr_data</a></span>(regions_basel_corr_ds)</a>
-<a class="sourceLine" id="cb30-7" data-line-number="7"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(regions_basel_corr_matrix)</a>
-<a class="sourceLine" id="cb30-8" data-line-number="8"><span class="co">#&gt;    pyroglutamic_acid1 pyroglutamic_acid2 pyroglutamic_acid3 pyroglutamic_acid4</span></a>
-<a class="sourceLine" id="cb30-9" data-line-number="9"><span class="co">#&gt; 10       2.672184e-08       3.298304e-08       2.434264e-08       5.572668e-08</span></a>
-<a class="sourceLine" id="cb30-10" data-line-number="10"><span class="co">#&gt; 20       2.157743e-08       1.779341e-08       1.204387e-08       5.144560e-08</span></a>
-<a class="sourceLine" id="cb30-11" data-line-number="11"><span class="co">#&gt; 30       2.297715e-08       2.548584e-08       1.821153e-08       5.183817e-08</span></a>
-<a class="sourceLine" id="cb30-12" data-line-number="12"><span class="co">#&gt; 40       2.093958e-08       3.020573e-08       2.259284e-08       4.803844e-08</span></a>
-<a class="sourceLine" id="cb30-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb30-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb30-15" data-line-number="15">regions_basel_not_corr_ds &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_integrate_regions.html">nmr_integrate_regions</a></span>(dataset_norm, pyroglutamic_acid, <span class="dt">fix_baseline =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb30-16" data-line-number="16">regions_basel_not_corr_matrix &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_data.html">nmr_data</a></span>(regions_basel_not_corr_ds)</a>
-<a class="sourceLine" id="cb30-17" data-line-number="17"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(regions_basel_not_corr_matrix)</a>
-<a class="sourceLine" id="cb30-18" data-line-number="18"><span class="co">#&gt;    pyroglutamic_acid1 pyroglutamic_acid2 pyroglutamic_acid3 pyroglutamic_acid4</span></a>
-<a class="sourceLine" id="cb30-19" data-line-number="19"><span class="co">#&gt; 10       2.775960e-07       3.327432e-07       2.683463e-07       3.765365e-07</span></a>
-<a class="sourceLine" id="cb30-20" data-line-number="20"><span class="co">#&gt; 20       2.727197e-07       3.294237e-07       2.673306e-07       3.796868e-07</span></a>
-<a class="sourceLine" id="cb30-21" data-line-number="21"><span class="co">#&gt; 30       2.697318e-07       3.246928e-07       2.622664e-07       3.669548e-07</span></a>
-<a class="sourceLine" id="cb30-22" data-line-number="22"><span class="co">#&gt; 40       2.707183e-07       3.289879e-07       2.607063e-07       3.705510e-07</span></a></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>pyroglutamic_acid &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">pyroglutamic_acid1 =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4.19</span>, <span class="fl">4.195</span>),</span>
+<span id="cb30-2"><a href="#cb30-2"></a>                          <span class="dt">pyroglutamic_acid2 =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4.18</span>, <span class="fl">4.186</span>),</span>
+<span id="cb30-3"><a href="#cb30-3"></a>                          <span class="dt">pyroglutamic_acid3 =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4.175</span>, <span class="fl">4.18</span>),</span>
+<span id="cb30-4"><a href="#cb30-4"></a>                          <span class="dt">pyroglutamic_acid4 =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4.165</span>, <span class="fl">4.172</span>))</span>
+<span id="cb30-5"><a href="#cb30-5"></a>regions_basel_corr_ds &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_integrate_regions.html">nmr_integrate_regions</a></span>(dataset_norm, pyroglutamic_acid, <span class="dt">fix_baseline =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb30-6"><a href="#cb30-6"></a>regions_basel_corr_matrix &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_data.html">nmr_data</a></span>(regions_basel_corr_ds)</span>
+<span id="cb30-7"><a href="#cb30-7"></a><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(regions_basel_corr_matrix)</span>
+<span id="cb30-8"><a href="#cb30-8"></a><span class="co">#&gt;    pyroglutamic_acid1 pyroglutamic_acid2 pyroglutamic_acid3 pyroglutamic_acid4</span></span>
+<span id="cb30-9"><a href="#cb30-9"></a><span class="co">#&gt; 10       2.672184e-08       3.298304e-08       2.434264e-08       5.572668e-08</span></span>
+<span id="cb30-10"><a href="#cb30-10"></a><span class="co">#&gt; 20       2.157743e-08       1.779341e-08       1.204387e-08       5.144560e-08</span></span>
+<span id="cb30-11"><a href="#cb30-11"></a><span class="co">#&gt; 30       2.297715e-08       2.548584e-08       1.821153e-08       5.183817e-08</span></span>
+<span id="cb30-12"><a href="#cb30-12"></a><span class="co">#&gt; 40       2.093958e-08       3.020573e-08       2.259284e-08       4.803844e-08</span></span>
+<span id="cb30-13"><a href="#cb30-13"></a></span>
+<span id="cb30-14"><a href="#cb30-14"></a></span>
+<span id="cb30-15"><a href="#cb30-15"></a>regions_basel_not_corr_ds &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_integrate_regions.html">nmr_integrate_regions</a></span>(dataset_norm, pyroglutamic_acid, <span class="dt">fix_baseline =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb30-16"><a href="#cb30-16"></a>regions_basel_not_corr_matrix &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_data.html">nmr_data</a></span>(regions_basel_not_corr_ds)</span>
+<span id="cb30-17"><a href="#cb30-17"></a><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(regions_basel_not_corr_matrix)</span>
+<span id="cb30-18"><a href="#cb30-18"></a><span class="co">#&gt;    pyroglutamic_acid1 pyroglutamic_acid2 pyroglutamic_acid3 pyroglutamic_acid4</span></span>
+<span id="cb30-19"><a href="#cb30-19"></a><span class="co">#&gt; 10       2.775960e-07       3.327432e-07       2.683463e-07       3.765365e-07</span></span>
+<span id="cb30-20"><a href="#cb30-20"></a><span class="co">#&gt; 20       2.727197e-07       3.294237e-07       2.673306e-07       3.796868e-07</span></span>
+<span id="cb30-21"><a href="#cb30-21"></a><span class="co">#&gt; 30       2.697318e-07       3.246928e-07       2.622664e-07       3.669548e-07</span></span>
+<span id="cb30-22"><a href="#cb30-22"></a><span class="co">#&gt; 40       2.707183e-07       3.289879e-07       2.607063e-07       3.705510e-07</span></span></code></pre></div>
 <p>We may plot the integral values to explore variation based on the baseline subtraction.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1">dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span>(</a>
-<a class="sourceLine" id="cb31-2" data-line-number="2">  regions_basel_corr_matrix <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb31-3" data-line-number="3"><span class="st">    </span><span class="kw"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb31-4" data-line-number="4"><span class="st">    </span>tibble<span class="op">::</span><span class="kw"><a href="https://tibble.tidyverse.org/reference/rownames.html">rownames_to_column</a></span>(<span class="st">"NMRExperiment"</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb31-5" data-line-number="5"><span class="st">    </span>tidyr<span class="op">::</span><span class="kw"><a href="https://tidyr.tidyverse.org/reference/gather.html">gather</a></span>(<span class="st">"metabolite_peak"</span>, <span class="st">"area"</span>, <span class="op">-</span>NMRExperiment) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb31-6" data-line-number="6"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="dt">BaselineCorrected =</span> <span class="ot">TRUE</span>),</a>
-<a class="sourceLine" id="cb31-7" data-line-number="7">  regions_basel_not_corr_matrix <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb31-8" data-line-number="8"><span class="st">    </span><span class="kw"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb31-9" data-line-number="9"><span class="st">    </span>tibble<span class="op">::</span><span class="kw"><a href="https://tibble.tidyverse.org/reference/rownames.html">rownames_to_column</a></span>(<span class="st">"NMRExperiment"</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb31-10" data-line-number="10"><span class="st">    </span>tidyr<span class="op">::</span><span class="kw"><a href="https://tidyr.tidyverse.org/reference/gather.html">gather</a></span>(<span class="st">"metabolite_peak"</span>, <span class="st">"area"</span>, <span class="op">-</span>NMRExperiment) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb31-11" data-line-number="11"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="dt">BaselineCorrected =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb31-12" data-line-number="12">) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>() <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> NMRExperiment, <span class="dt">y =</span> area, <span class="dt">color =</span> metabolite_peak)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb31-13" data-line-number="13"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span>(<span class="op">~</span>BaselineCorrected)</a></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span>(</span>
+<span id="cb31-2"><a href="#cb31-2"></a>  regions_basel_corr_matrix <span class="op">%&gt;%</span></span>
+<span id="cb31-3"><a href="#cb31-3"></a><span class="st">    </span><span class="kw"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span>() <span class="op">%&gt;%</span></span>
+<span id="cb31-4"><a href="#cb31-4"></a><span class="st">    </span>tibble<span class="op">::</span><span class="kw"><a href="https://tibble.tidyverse.org/reference/rownames.html">rownames_to_column</a></span>(<span class="st">"NMRExperiment"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb31-5"><a href="#cb31-5"></a><span class="st">    </span>tidyr<span class="op">::</span><span class="kw"><a href="https://tidyr.tidyverse.org/reference/gather.html">gather</a></span>(<span class="st">"metabolite_peak"</span>, <span class="st">"area"</span>, <span class="op">-</span>NMRExperiment) <span class="op">%&gt;%</span></span>
+<span id="cb31-6"><a href="#cb31-6"></a><span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="dt">BaselineCorrected =</span> <span class="ot">TRUE</span>),</span>
+<span id="cb31-7"><a href="#cb31-7"></a>  regions_basel_not_corr_matrix <span class="op">%&gt;%</span></span>
+<span id="cb31-8"><a href="#cb31-8"></a><span class="st">    </span><span class="kw"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span>() <span class="op">%&gt;%</span></span>
+<span id="cb31-9"><a href="#cb31-9"></a><span class="st">    </span>tibble<span class="op">::</span><span class="kw"><a href="https://tibble.tidyverse.org/reference/rownames.html">rownames_to_column</a></span>(<span class="st">"NMRExperiment"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb31-10"><a href="#cb31-10"></a><span class="st">    </span>tidyr<span class="op">::</span><span class="kw"><a href="https://tidyr.tidyverse.org/reference/gather.html">gather</a></span>(<span class="st">"metabolite_peak"</span>, <span class="st">"area"</span>, <span class="op">-</span>NMRExperiment) <span class="op">%&gt;%</span></span>
+<span id="cb31-11"><a href="#cb31-11"></a><span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="dt">BaselineCorrected =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb31-12"><a href="#cb31-12"></a>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>() <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> NMRExperiment, <span class="dt">y =</span> area, <span class="dt">color =</span> metabolite_peak)) <span class="op">+</span></span>
+<span id="cb31-13"><a href="#cb31-13"></a><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span>(<span class="op">~</span>BaselineCorrected)</span></code></pre></div>
 <p><img src="introduction-to-alpsnmr_files/figure-html/unnamed-chunk-27-1.png" width="672"></p>
 </div>
 </div>
@@ -413,8 +413,8 @@ plot_interactive(plt, "plot_region.html")</code></pre>
 <h1 class="hasAnchor">
 <a href="#identification" class="anchor"></a>Identification</h1>
 <p>After applying any feature selection or machine learning, Alps allows the identification of features of interest through <code>nmr_identify_regions_blood</code>. The function gives 3 posibilities sorted by the most probable metabolite (see <code>nmr_identify_regions_blood</code> for details).</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1">ppm_to_assign &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4.060960203</span>, <span class="fl">3.048970634</span>,<span class="fl">2.405935596</span>,<span class="fl">0.990616851</span>,<span class="fl">0.986520147</span>, <span class="fl">1.044258467</span>)</a>
-<a class="sourceLine" id="cb32-2" data-line-number="2">identification &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_identify_regions_blood.html">nmr_identify_regions_blood</a></span> (ppm_to_assign)</a></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>ppm_to_assign &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">4.060960203</span>, <span class="fl">3.048970634</span>,<span class="fl">2.405935596</span>,<span class="fl">0.990616851</span>,<span class="fl">0.986520147</span>, <span class="fl">1.044258467</span>)</span>
+<span id="cb32-2"><a href="#cb32-2"></a>identification &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_identify_regions_blood.html">nmr_identify_regions_blood</a></span> (ppm_to_assign)</span></code></pre></div>
 </div>
 <div id="free-experimentation" class="section level1">
 <h1 class="hasAnchor">
@@ -423,34 +423,34 @@ plot_interactive(plt, "plot_region.html")</code></pre>
 <h2 class="hasAnchor">
 <a href="#getting-the-spectra-and-manipulating-it-manually" class="anchor"></a>Getting the spectra and manipulating it manually</h2>
 <p>Besides all those techniques, you can easily implement your own. You can extract the raw matrix and manipulate it at will. As long as you don’t permute the rows, you can always replace the raw matrix of the <code>nmr_dataset_1D</code> object through the <code>nmr_data</code> function:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1">full_spectra_matrix &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_data.html">nmr_data</a></span>(dataset)</a>
-<a class="sourceLine" id="cb33-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(full_spectra_matrix[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>]) <span class="co"># change it as you wish</span></a>
-<a class="sourceLine" id="cb33-3" data-line-number="3"><span class="co">#&gt;         -0.5  -0.49977   -0.49954  -0.49931  -0.49908  -0.49885</span></a>
-<a class="sourceLine" id="cb33-4" data-line-number="4"><span class="co">#&gt; 10 1672.0444 1433.8976 1072.32940 1401.1787 1634.7485 1344.6377</span></a>
-<a class="sourceLine" id="cb33-5" data-line-number="5"><span class="co">#&gt; 20 1927.6172 2056.4906 1848.73786 1584.5820 1970.5705 2469.3993</span></a>
-<a class="sourceLine" id="cb33-6" data-line-number="6"><span class="co">#&gt; 30 1337.0010 1029.6625  645.62476  641.0098  825.0757  799.6986</span></a>
-<a class="sourceLine" id="cb33-7" data-line-number="7"><span class="co">#&gt; 40  992.9131  307.3925  -42.01287  185.1322  319.2994  152.4777</span></a>
-<a class="sourceLine" id="cb33-8" data-line-number="8"><span class="kw"><a href="../reference/nmr_data.html">nmr_data</a></span>(dataset) &lt;-<span class="st"> </span>full_spectra_matrix <span class="co"># Rewrite the matrix</span></a></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>full_spectra_matrix &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_data.html">nmr_data</a></span>(dataset)</span>
+<span id="cb33-2"><a href="#cb33-2"></a><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(full_spectra_matrix[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>]) <span class="co"># change it as you wish</span></span>
+<span id="cb33-3"><a href="#cb33-3"></a><span class="co">#&gt;         -0.5  -0.49977   -0.49954  -0.49931  -0.49908  -0.49885</span></span>
+<span id="cb33-4"><a href="#cb33-4"></a><span class="co">#&gt; 10 1672.0444 1433.8976 1072.32940 1401.1787 1634.7485 1344.6377</span></span>
+<span id="cb33-5"><a href="#cb33-5"></a><span class="co">#&gt; 20 1927.6172 2056.4906 1848.73786 1584.5820 1970.5705 2469.3993</span></span>
+<span id="cb33-6"><a href="#cb33-6"></a><span class="co">#&gt; 30 1337.0010 1029.6625  645.62476  641.0098  825.0757  799.6986</span></span>
+<span id="cb33-7"><a href="#cb33-7"></a><span class="co">#&gt; 40  992.9131  307.3925  -42.01287  185.1322  319.2994  152.4777</span></span>
+<span id="cb33-8"><a href="#cb33-8"></a><span class="kw"><a href="../reference/nmr_data.html">nmr_data</a></span>(dataset) &lt;-<span class="st"> </span>full_spectra_matrix <span class="co"># Rewrite the matrix</span></span></code></pre></div>
 </div>
 <div id="creating-an-nmr_dataset_1d-object-from-a-matrix" class="section level2">
 <h2 class="hasAnchor">
 <a href="#creating-an-nmr_dataset_1d-object-from-a-matrix" class="anchor"></a>Creating an <code>nmr_dataset_1D</code> object from a matrix</h2>
 <p>You can also create an <code>nmr_dataset_1D</code> object from scratch with the <code>new_nmr_dataset_1D</code> function:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1">nsamp &lt;-<span class="st"> </span><span class="dv">12</span></a>
-<a class="sourceLine" id="cb34-2" data-line-number="2">npoints &lt;-<span class="st"> </span><span class="dv">20</span></a>
-<a class="sourceLine" id="cb34-3" data-line-number="3"><span class="co"># Create a random spectra matrix</span></a>
-<a class="sourceLine" id="cb34-4" data-line-number="4">dummy_ppm_axis &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>(<span class="dt">from =</span> <span class="fl">0.2</span>, <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">length.out =</span> npoints)</a>
-<a class="sourceLine" id="cb34-5" data-line-number="5">dummy_spectra_matrix &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span>(<span class="kw"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span>(nsamp<span class="op">*</span>npoints), <span class="dt">nrow =</span> nsamp, <span class="dt">ncol =</span> npoints)</a>
-<a class="sourceLine" id="cb34-6" data-line-number="6">metadata &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">external =</span> <span class="kw"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(<span class="dt">NMRExperiment =</span> <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="st">"Sample"</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>),</a>
-<a class="sourceLine" id="cb34-7" data-line-number="7">                                       <span class="dt">DummyClass =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"a"</span>, <span class="st">"b"</span>),</a>
-<a class="sourceLine" id="cb34-8" data-line-number="8">                                       <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>))</a>
-<a class="sourceLine" id="cb34-9" data-line-number="9">your_custom_nmr_dataset_1D &lt;-<span class="st"> </span><span class="kw"><a href="../reference/new_nmr_dataset_1D.html">new_nmr_dataset_1D</a></span>(<span class="dt">ppm_axis =</span> dummy_ppm_axis,</a>
-<a class="sourceLine" id="cb34-10" data-line-number="10">                                                 <span class="dt">data_1r =</span> dummy_spectra_matrix,</a>
-<a class="sourceLine" id="cb34-11" data-line-number="11">                                                 <span class="dt">metadata =</span> metadata)</a>
-<a class="sourceLine" id="cb34-12" data-line-number="12"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(your_custom_nmr_dataset_1D)</a>
-<a class="sourceLine" id="cb34-13" data-line-number="13"><span class="co">#&gt; An nmr_dataset_1D (12 samples)</span></a>
-<a class="sourceLine" id="cb34-14" data-line-number="14"><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(your_custom_nmr_dataset_1D) <span class="op">+</span></a>
-<a class="sourceLine" id="cb34-15" data-line-number="15"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span>(<span class="st">"Of course those random values don't make much sense..."</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>nsamp &lt;-<span class="st"> </span><span class="dv">12</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a>npoints &lt;-<span class="st"> </span><span class="dv">20</span></span>
+<span id="cb34-3"><a href="#cb34-3"></a><span class="co"># Create a random spectra matrix</span></span>
+<span id="cb34-4"><a href="#cb34-4"></a>dummy_ppm_axis &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>(<span class="dt">from =</span> <span class="fl">0.2</span>, <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">length.out =</span> npoints)</span>
+<span id="cb34-5"><a href="#cb34-5"></a>dummy_spectra_matrix &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span>(<span class="kw"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span>(nsamp<span class="op">*</span>npoints), <span class="dt">nrow =</span> nsamp, <span class="dt">ncol =</span> npoints)</span>
+<span id="cb34-6"><a href="#cb34-6"></a>metadata &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">external =</span> <span class="kw"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(<span class="dt">NMRExperiment =</span> <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="st">"Sample"</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>),</span>
+<span id="cb34-7"><a href="#cb34-7"></a>                                       <span class="dt">DummyClass =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"a"</span>, <span class="st">"b"</span>),</span>
+<span id="cb34-8"><a href="#cb34-8"></a>                                       <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>))</span>
+<span id="cb34-9"><a href="#cb34-9"></a>your_custom_nmr_dataset_1D &lt;-<span class="st"> </span><span class="kw"><a href="../reference/new_nmr_dataset_1D.html">new_nmr_dataset_1D</a></span>(<span class="dt">ppm_axis =</span> dummy_ppm_axis,</span>
+<span id="cb34-10"><a href="#cb34-10"></a>                                                 <span class="dt">data_1r =</span> dummy_spectra_matrix,</span>
+<span id="cb34-11"><a href="#cb34-11"></a>                                                 <span class="dt">metadata =</span> metadata)</span>
+<span id="cb34-12"><a href="#cb34-12"></a><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(your_custom_nmr_dataset_1D)</span>
+<span id="cb34-13"><a href="#cb34-13"></a><span class="co">#&gt; An nmr_dataset_1D (12 samples)</span></span>
+<span id="cb34-14"><a href="#cb34-14"></a><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(your_custom_nmr_dataset_1D) <span class="op">+</span></span>
+<span id="cb34-15"><a href="#cb34-15"></a><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span>(<span class="st">"Of course those random values don't make much sense..."</span>)</span></code></pre></div>
 <p><img src="introduction-to-alpsnmr_files/figure-html/unnamed-chunk-30-1.png" width="672"></p>
 </div>
 </div>
@@ -462,7 +462,7 @@ plot_interactive(plt, "plot_region.html")</code></pre>
 <div class="footnotes">
 <hr>
 <ol>
-<li id="fn1"><p>e.g. it can inadvertedly distort the PQN normalization results<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn1"><p>e.g. it can inadvertedly distort the PQN normalization results<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
   </div>
@@ -517,7 +517,7 @@ plot_interactive(plt, "plot_region.html")</code></pre>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.9000.</p>
 </div>
 
       </footer>
