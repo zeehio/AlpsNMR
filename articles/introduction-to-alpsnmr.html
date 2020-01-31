@@ -78,7 +78,7 @@
       <h1>Introduction to AlpsNMR</h1>
                         <h4 class="author">Sergio Oller, Institute for Bioengineering of Catalonia</h4>
             
-            <h4 class="date">2019-12-21</h4>
+            <h4 class="date">2020-01-31</h4>
       
       
       <div class="hidden name"><code>introduction-to-alpsnmr.Rmd</code></div>
@@ -122,15 +122,15 @@ print(pipeline_example)</code></pre>
 <p>If you have installed this package, you can obtain the directory where the four samples are with the command</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>MeOH_plasma_extraction_dir &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"dataset-demo"</span>, <span class="dt">package =</span> <span class="st">"AlpsNMR"</span>)</span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(MeOH_plasma_extraction_dir)</span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="co">#&gt; [1] "/Users/runner/runners/2.163.1/work/_temp/Library/AlpsNMR/dataset-demo"</span></span></code></pre></div>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co">#&gt; [1] "/Users/runner/runners/2.164.0/work/_temp/Library/AlpsNMR/dataset-demo"</span></span></code></pre></div>
 <p>The demo directory includes four samples (zipped) and a dummy Excel metadata file.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>fs<span class="op">::</span><span class="kw"><a href="http://fs.r-lib.org/reference/dir_ls.html">dir_ls</a></span>(MeOH_plasma_extraction_dir)</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="co">#&gt; /Users/runner/runners/2.163.1/work/_temp/Library/AlpsNMR/dataset-demo/10.zip</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="co">#&gt; /Users/runner/runners/2.163.1/work/_temp/Library/AlpsNMR/dataset-demo/20.zip</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#&gt; /Users/runner/runners/2.163.1/work/_temp/Library/AlpsNMR/dataset-demo/30.zip</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="co">#&gt; /Users/runner/runners/2.163.1/work/_temp/Library/AlpsNMR/dataset-demo/40.zip</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="co">#&gt; /Users/runner/runners/2.163.1/work/_temp/Library/AlpsNMR/dataset-demo/README.txt</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="co">#&gt; /Users/runner/runners/2.163.1/work/_temp/Library/AlpsNMR/dataset-demo/dummy_metadata.xlsx</span></span></code></pre></div>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co">#&gt; /Users/runner/runners/2.164.0/work/_temp/Library/AlpsNMR/dataset-demo/10.zip</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co">#&gt; /Users/runner/runners/2.164.0/work/_temp/Library/AlpsNMR/dataset-demo/20.zip</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#&gt; /Users/runner/runners/2.164.0/work/_temp/Library/AlpsNMR/dataset-demo/30.zip</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="co">#&gt; /Users/runner/runners/2.164.0/work/_temp/Library/AlpsNMR/dataset-demo/40.zip</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co">#&gt; /Users/runner/runners/2.164.0/work/_temp/Library/AlpsNMR/dataset-demo/README.txt</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co">#&gt; /Users/runner/runners/2.164.0/work/_temp/Library/AlpsNMR/dataset-demo/dummy_metadata.xlsx</span></span></code></pre></div>
 <p>Given the name of the dataset, one may guess that the dataset was used to check the Methanol extraction in serum samples. The dummy metadata consists of dummy information, just for the sake of showing how this package can integrate external metadata. The excel file consists of two tidy tables, in two sheets.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>MeOH_plasma_extraction_xlsx &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span>(MeOH_plasma_extraction_dir, <span class="st">"dummy_metadata.xlsx"</span>)</span>
 <span id="cb6-2"><a href="#cb6-2"></a>exp_subj_id &lt;-<span class="st"> </span>readxl<span class="op">::</span><span class="kw"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span>(MeOH_plasma_extraction_xlsx, <span class="dt">sheet =</span> <span class="dv">1</span>)</span>
@@ -157,10 +157,10 @@ print(pipeline_example)</code></pre>
 <p>Additionally, this function can filter by pulse sequences (e.g. load only NOESY samples) or loading only metadata.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>zip_files &lt;-<span class="st"> </span>fs<span class="op">::</span><span class="kw"><a href="http://fs.r-lib.org/reference/dir_ls.html">dir_ls</a></span>(MeOH_plasma_extraction_dir, <span class="dt">glob =</span> <span class="st">"*.zip"</span>)</span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(zip_files)</span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="co">#&gt; /Users/runner/runners/2.163.1/work/_temp/Library/AlpsNMR/dataset-demo/10.zip</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="co">#&gt; /Users/runner/runners/2.163.1/work/_temp/Library/AlpsNMR/dataset-demo/20.zip</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="co">#&gt; /Users/runner/runners/2.163.1/work/_temp/Library/AlpsNMR/dataset-demo/30.zip</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="co">#&gt; /Users/runner/runners/2.163.1/work/_temp/Library/AlpsNMR/dataset-demo/40.zip</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co">#&gt; /Users/runner/runners/2.164.0/work/_temp/Library/AlpsNMR/dataset-demo/10.zip</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co">#&gt; /Users/runner/runners/2.164.0/work/_temp/Library/AlpsNMR/dataset-demo/20.zip</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co">#&gt; /Users/runner/runners/2.164.0/work/_temp/Library/AlpsNMR/dataset-demo/30.zip</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co">#&gt; /Users/runner/runners/2.164.0/work/_temp/Library/AlpsNMR/dataset-demo/40.zip</span></span>
 <span id="cb7-7"><a href="#cb7-7"></a>dataset &lt;-<span class="st"> </span><span class="kw"><a href="../reference/nmr_read_samples.html">nmr_read_samples</a></span>(<span class="dt">sample_names =</span> zip_files)</span>
 <span id="cb7-8"><a href="#cb7-8"></a><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(dataset)</span>
 <span id="cb7-9"><a href="#cb7-9"></a><span class="co">#&gt; An nmr_dataset (4 samples)</span></span></code></pre></div>
