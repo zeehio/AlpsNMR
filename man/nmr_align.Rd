@@ -4,8 +4,13 @@
 \alias{nmr_align}
 \title{Align NMR spectra}
 \usage{
-nmr_align(nmr_dataset, peak_data, NMRExp_ref = NULL,
-  maxShift_ppm = 0.0015, acceptLostPeak = FALSE)
+nmr_align(
+  nmr_dataset,
+  peak_data,
+  NMRExp_ref = NULL,
+  maxShift_ppm = 0.0015,
+  acceptLostPeak = FALSE
+)
 }
 \arguments{
 \item{nmr_dataset}{An \link{nmr_dataset_1D}}
@@ -26,7 +31,6 @@ This function is based on \link[speaq:dohCluster]{speaq::dohCluster}.
 }
 \examples{
 \dontrun{
-
 # 0. Multiprocess (parallelization) to set the number of cores working in your PC
 plan(multiprocess, workers = 12)
 
@@ -36,7 +40,7 @@ peak_data <- nmr_detect_peaks(nmr_dataset,
                               scales = seq(1, 16, 2),
                               baselineThresh = 0, # Minimum peak intensity
                               SNR.Th = 4) # Signal to noise ratio
-                              
+
 # 2.Find the reference spectrum to align with.
 NMRExp_ref <- nmr_align_find_ref(nmr_dataset, peak_data)
 
@@ -46,7 +50,7 @@ nmr_dataset <- nmr_align(nmr_dataset, # the dataset
                          NMRExp_ref = NMRExp_ref, # ref spectrum
                          maxShift_ppm = 0.0015, # max alignment shift
                          acceptLostPeak = FALSE) # lost peaks
-                         
+
 # 4.Set sequential working to finish parallelization
 plan(sequential)
 
@@ -58,57 +62,62 @@ peak_data_ref <- filter(peak_data, NMRExperiment == NMRExp_ref)
 nmr_peak_table <- nmr_integrate_peak_positions(
 samples = nmr_dataset,
 peak_pos_ppm = peak_data_ref$ppm,
-peak_width_ppm = NULL) 
+peak_width_ppm = NULL)
 
 #If you wanted the final peak table before machine learning you can run
 nmr_peak_table_completed <- get_integration_with_metadata(nmr_peak_table)
-
 }
 }
 \seealso{
-Other alignment functions: \code{\link{nmr_align_find_ref}},
-  \code{\link{pipe_peakdet_align}}
+Other alignment functions: 
+\code{\link{nmr_align_find_ref}()},
+\code{\link{pipe_peakdet_align}()}
 
-Other peak alignment functions: \code{\link{nmr_align_find_ref}}
+Other peak alignment functions: 
+\code{\link{nmr_align_find_ref}()}
 
-Other nmr_dataset_1D functions: \code{\link{Automatic_targeted_profiling}},
-  \code{\link{[.nmr_dataset_1D}},
-  \code{\link{computes_peak_width_ppm}},
-  \code{\link{file_lister}},
-  \code{\link{files_to_rDolphin_blood}},
-  \code{\link{files_to_rDolphin_cell}},
-  \code{\link{files_to_rDolphin_urine}},
-  \code{\link{get_integration_with_metadata}},
-  \code{\link{is.nmr_dataset_1D}},
-  \code{\link{load_and_save_functions}},
-  \code{\link{new_nmr_dataset_1D}},
-  \code{\link{nmr_align_find_ref}},
-  \code{\link{nmr_baseline_removal}},
-  \code{\link{nmr_baseline_threshold}},
-  \code{\link{nmr_detect_peaks_plot}},
-  \code{\link{nmr_detect_peaks_tune_snr}},
-  \code{\link{nmr_detect_peaks}},
-  \code{\link{nmr_exclude_region}},
-  \code{\link{nmr_integrate_peak_positions}},
-  \code{\link{nmr_integrate_regions}},
-  \code{\link{nmr_interpolate_1D}},
-  \code{\link{nmr_meta_add}},
-  \code{\link{nmr_meta_export}},
-  \code{\link{nmr_meta_get_column}},
-  \code{\link{nmr_meta_get}}, \code{\link{nmr_normalize}},
-  \code{\link{nmr_pca_build_model}},
-  \code{\link{nmr_pca_outliers_filter}},
-  \code{\link{nmr_pca_outliers_plot}},
-  \code{\link{nmr_pca_outliers_robust}},
-  \code{\link{nmr_pca_outliers}},
-  \code{\link{nmr_ppm_resolution}},
-  \code{\link{plot.nmr_dataset_1D}},
-  \code{\link{plot_webgl}}, \code{\link{rdCV_PLS_RF_ML}},
-  \code{\link{rdCV_PLS_RF}},
-  \code{\link{save_files_to_rDolphin}},
-  \code{\link{to_ASICS}}, \code{\link{to_ChemoSpec}},
-  \code{\link{to_rDolphin}},
-  \code{\link{validate_nmr_dataset_1D}}
+Other nmr_dataset_1D functions: 
+\code{\link{Automatic_targeted_profiling}()},
+\code{\link{[.nmr_dataset_1D}()},
+\code{\link{computes_peak_width_ppm}()},
+\code{\link{file_lister}()},
+\code{\link{files_to_rDolphin_blood}()},
+\code{\link{files_to_rDolphin_cell}()},
+\code{\link{files_to_rDolphin_urine}()},
+\code{\link{get_integration_with_metadata}()},
+\code{\link{is.nmr_dataset_1D}()},
+\code{\link{load_and_save_functions}},
+\code{\link{new_nmr_dataset_1D}()},
+\code{\link{nmr_align_find_ref}()},
+\code{\link{nmr_baseline_removal}()},
+\code{\link{nmr_baseline_threshold}()},
+\code{\link{nmr_detect_peaks_plot}()},
+\code{\link{nmr_detect_peaks_tune_snr}()},
+\code{\link{nmr_detect_peaks}()},
+\code{\link{nmr_exclude_region}()},
+\code{\link{nmr_integrate_peak_positions}()},
+\code{\link{nmr_integrate_regions}()},
+\code{\link{nmr_interpolate_1D}()},
+\code{\link{nmr_meta_add}()},
+\code{\link{nmr_meta_export}()},
+\code{\link{nmr_meta_get_column}()},
+\code{\link{nmr_meta_get}()},
+\code{\link{nmr_normalize}()},
+\code{\link{nmr_pca_build_model}()},
+\code{\link{nmr_pca_outliers_filter}()},
+\code{\link{nmr_pca_outliers_plot}()},
+\code{\link{nmr_pca_outliers_robust}()},
+\code{\link{nmr_pca_outliers}()},
+\code{\link{nmr_ppm_resolution}()},
+\code{\link{plot.nmr_dataset_1D}()},
+\code{\link{plot_webgl}()},
+\code{\link{rdCV_PLS_RF_ML}()},
+\code{\link{rdCV_PLS_RF}()},
+\code{\link{save_files_to_rDolphin}()},
+\code{\link{to_ASICS}()},
+\code{\link{to_ChemoSpec}()},
+\code{\link{to_rDolphin}()},
+\code{\link{validate_nmr_dataset_1D}()}
 }
 \concept{alignment functions}
 \concept{nmr_dataset_1D functions}

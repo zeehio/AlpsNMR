@@ -4,8 +4,11 @@
 \alias{nmr_identify_regions_urine}
 \title{NMR peak identification (urine samples)}
 \usage{
-nmr_identify_regions_urine(ppm_to_assign, num_proposed_compounds = 5,
-  verbose = FALSE)
+nmr_identify_regions_urine(
+  ppm_to_assign,
+  num_proposed_compounds = 5,
+  verbose = FALSE
+)
 }
 \arguments{
 \item{ppm_to_assign}{A vector with the ppm regions to assign}
@@ -23,32 +26,31 @@ in human urine samples. The data frame contains the column "Bouatra_2013" showin
 the proposed metabolite was reported in this publication as regular urinary metabolite.
 }
 \examples{
-\dontrun{
 # We identify regions from from the corresponding ppm storaged in a vector.
-library(AlpsNMR)
 ppm_to_assign <- c(4.060960203, 3.048970634,2.405935596,
 3.24146865,0.990616851,1.002075066,0.955325548)
 identification <- nmr_identify_regions_urine (ppm_to_assign, num_proposed_compounds = 5)
 }
-}
 \seealso{
-Other peak detection functions: \code{\link{nmr_baseline_threshold}},
-  \code{\link{nmr_detect_peaks_plot}},
-  \code{\link{nmr_detect_peaks_tune_snr}},
-  \code{\link{nmr_detect_peaks}},
-  \code{\link{nmr_identify_regions_blood}},
-  \code{\link{nmr_identify_regions_cell}},
-  \code{\link{nmr_integrate_regions}},
-  \code{\link{pipe_peakdet_align}},
-  \code{\link{regions_from_peak_table}}
+Other peak detection functions: 
+\code{\link{nmr_baseline_threshold}()},
+\code{\link{nmr_detect_peaks_plot}()},
+\code{\link{nmr_detect_peaks_tune_snr}()},
+\code{\link{nmr_detect_peaks}()},
+\code{\link{nmr_identify_regions_blood}()},
+\code{\link{nmr_identify_regions_cell}()},
+\code{\link{nmr_integrate_regions}()},
+\code{\link{pipe_peakdet_align}()},
+\code{\link{regions_from_peak_table}()}
 
-Other peak integration functions: \code{\link{computes_peak_width_ppm}},
-  \code{\link{get_integration_with_metadata}},
-  \code{\link{nmr_identify_regions_blood}},
-  \code{\link{nmr_identify_regions_cell}},
-  \code{\link{nmr_integrate_peak_positions}},
-  \code{\link{nmr_integrate_regions}},
-  \code{\link{pipe_peak_integration}}
+Other peak integration functions: 
+\code{\link{computes_peak_width_ppm}()},
+\code{\link{get_integration_with_metadata}()},
+\code{\link{nmr_identify_regions_blood}()},
+\code{\link{nmr_identify_regions_cell}()},
+\code{\link{nmr_integrate_peak_positions}()},
+\code{\link{nmr_integrate_regions}()},
+\code{\link{pipe_peak_integration}()}
 }
 \concept{peak detection functions}
 \concept{peak integration functions}

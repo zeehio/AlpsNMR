@@ -26,24 +26,22 @@ The \link{nmr_dataset} object is essentially a list, so it is easy to access
 its components for further analysis.
 }
 \examples{
-\dontrun{
-library(AlpsNMR)
-sample_names <- c("dataset/10/", "dataset/20/", "dataset/30/")
-my_nmr_dataset <- nmr_read_samples(sample_names) \%>\%
+dir_to_demo_dataset <- system.file("dataset-demo", package = "AlpsNMR")
+dataset <- nmr_read_samples_dir(dir_to_demo_dataset)
+my_nmr_dataset <- dataset \%>\%
   nmr_interpolate_1D(axis = c(0.4, 10)) \%>\%
   nmr_exclude_region(exclude = list(water = c(4.6, 5))) \%>\%
   nmr_normalize(method = "pqn") \%>\%
   plot
 }
-}
 \author{
-\strong{Maintainer}: Luis Fernandez \email{lfernandez@ibecbarcelona.eu} (0000-0001-9790-6287)
+\strong{Maintainer}: Luis Fernandez \email{lfernandez@ibecbarcelona.eu} (\href{https://orcid.org/0000-0001-9790-6287}{ORCID})
 
 Authors:
 \itemize{
   \item Ivan Montoliu Roura \email{Ivan.MontoliuRoura@rd.nestle.com}
-  \item Sergio Oller Moreno \email{soller@ibecbarcelona.eu} (0000-0002-8994-1549)
-  \item Francisco Madrid Gambin \email{fmadrid@ibecbarcelona.eu} (0000-0001-9333-0014)
+  \item Sergio Oller Moreno \email{soller@ibecbarcelona.eu} (\href{https://orcid.org/0000-0002-8994-1549}{ORCID})
+  \item Francisco Madrid Gambin \email{fmadrid@ibecbarcelona.eu} (\href{https://orcid.org/0000-0001-9333-0014}{ORCID})
 }
 
 Other contributors:

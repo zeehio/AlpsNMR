@@ -4,8 +4,7 @@
 \alias{MUVR_model_plot}
 \title{Model plot}
 \usage{
-MUVR_model_plot(MVObj, model = "mid", factCols, sampLabels,
-  ylim = NULL)
+MUVR_model_plot(MVObj, model = "mid", factCols, sampLabels, ylim = NULL)
 }
 \arguments{
 \item{MVObj}{An `MVobject` obtained from the MVWrap function}
@@ -29,7 +28,6 @@ variable selection (MUVR) from the \code{MUVR} package, see Shi et al., 2018 (DO
 }
 \examples{
 \dontrun{
-
 # 1.Build a model with the X data from your nmr object and your class:
 MVObj <- rdCV_PLS_RF(nmr_data(nmr_peak_table),
 Y = nmr_peak_table_completed$Timepoint)
@@ -52,9 +50,8 @@ p.value <- p_value_perm(MVObj$miss[["mid"]], permutations[, "Mid"])
 
 # 7.Significant variables
 VIPs <- model_VIP(MVObj)
- 
+
 # 8.Identification
 results <- nmr_identify_regions_blood(ppm_VIP_vector(VIPs))
 }
-
 }
