@@ -157,7 +157,7 @@ MUVR_model_plot = function (MVObj,
                             sampLabels,
                             ylim = NULL)
 {
-    if (!any(is(MVObj) == "MVObject")) {
+    if (!any(class(MVObj) == "MVObject")) {
         cat("\nWrong object class: Return NULL")
         return(NULL)
     }
@@ -173,7 +173,7 @@ MUVR_model_plot = function (MVObj,
         )
         sampLabels = seq_len(nSamp)
     }
-    if (is(MVObj)[3] == "Regression") {
+    if (class(MVObj)[3] == "Regression") {
         YP = MVObj$yPred[, modNum]
         YPR = MVObj$yPredPerRep[[modNum]]
         if (is.null(ylim))
@@ -201,7 +201,7 @@ MUVR_model_plot = function (MVObj,
                          ),
                          bty = "n")
     }
-    else if (is(MVObj)[3] == "Classification") {
+    else if (class(MVObj)[3] == "Classification") {
         YP = MVObj$yPred[[modNum]]
         YPR = MVObj$yPredPerRep[[modNum]]
         if (is.null(ylim))
