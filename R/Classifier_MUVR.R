@@ -539,7 +539,6 @@ confusion_matrix = function(MVObj, model = "mid") {
 #' @param nmr_peak_table an AlpsNMR integration object (2 classes)
 #' @param label the name of the variable to test (e.g. "Timepoint")
 #' @inheritParams MUVR::MUVR
-#' @importFrom methods is
 #'
 #' @export
 #' @examples
