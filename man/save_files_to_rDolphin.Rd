@@ -59,7 +59,8 @@ Other nmr_dataset_1D functions:
 \code{\link{files_to_rDolphin_blood}()},
 \code{\link{files_to_rDolphin_cell}()},
 \code{\link{files_to_rDolphin_urine}()},
-\code{\link{get_integration_with_metadata}()},
+\code{\link{format_nmr_dataset_1D}},
+\code{\link{get_integration_with_metada}},
 \code{\link{is.nmr_dataset_1D}()},
 \code{\link{load_and_save_functions}},
 \code{\link{new_nmr_dataset_1D}()},
@@ -87,12 +88,13 @@ Other nmr_dataset_1D functions:
 \code{\link{nmr_ppm_resolution}()},
 \code{\link{plot.nmr_dataset_1D}()},
 \code{\link{plot_webgl}()},
+\code{\link{print_nmr_dataset_1D}},
 \code{\link{rdCV_PLS_RF_ML}()},
 \code{\link{rdCV_PLS_RF}()},
 \code{\link{to_ASICS}()},
 \code{\link{to_ChemoSpec}()},
 \code{\link{to_rDolphin}()},
-\code{\link{validate_nmr_dataset_1D}()}
+\code{\link{validate_nmr_dataset}()}
 
 Other to_rDolphin_blood functions: 
 \code{\link{files_to_rDolphin_blood}()},

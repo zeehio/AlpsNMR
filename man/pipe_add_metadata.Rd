@@ -51,14 +51,14 @@ pipe_add_metadata(nmr_dataset_rds = nmr_dataset_rds, output_dir = output_dir,
 }
 \seealso{
 Other pipeline functions: 
+\code{\link{Pipe_normalization}},
 \code{\link{pipe_exclude_regions}()},
 \code{\link{pipe_filter_samples}()},
 \code{\link{pipe_interpolate_1D}()},
 \code{\link{pipe_load_samples}()},
-\code{\link{pipe_normalization}()},
 \code{\link{pipe_outlier_detection}()},
-\code{\link{pipe_peak_integration}()},
-\code{\link{pipe_peakdet_align}()}
+\code{\link{pipe_pakdet_align}},
+\code{\link{pipe_peak_integration}()}
 
 Other metadata functions: 
 \code{\link{nmr_meta_add}()},

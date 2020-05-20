@@ -25,14 +25,14 @@ Other outlier detection functions:
 \code{\link{nmr_pca_outliers}()}
 
 Other pipeline functions: 
+\code{\link{Pipe_normalization}},
 \code{\link{pipe_add_metadata}()},
 \code{\link{pipe_exclude_regions}()},
 \code{\link{pipe_filter_samples}()},
 \code{\link{pipe_interpolate_1D}()},
 \code{\link{pipe_load_samples}()},
-\code{\link{pipe_normalization}()},
-\code{\link{pipe_peak_integration}()},
-\code{\link{pipe_peakdet_align}()}
+\code{\link{pipe_pakdet_align}},
+\code{\link{pipe_peak_integration}()}
 }
 \concept{outlier detection functions}
 \concept{pipeline functions}

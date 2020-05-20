@@ -27,11 +27,14 @@ Other nmr_dataset_peak_table functions:
 \code{\link{validate_nmr_dataset_peak_table}()}
 
 Other class helper functions: 
+\code{\link{format_nmr_dataset_1D}},
+\code{\link{format_nmr_dataset}},
 \code{\link{is.nmr_dataset_1D}()},
 \code{\link{new_nmr_dataset_1D}()},
 \code{\link{new_nmr_dataset_peak_table}()},
 \code{\link{new_nmr_dataset}()},
-\code{\link{validate_nmr_dataset_1D}()},
+\code{\link{print_nmr_dataset_1D}},
+\code{\link{print_nmr_dataset}},
 \code{\link{validate_nmr_dataset_family}()},
 \code{\link{validate_nmr_dataset_peak_table}()},
 \code{\link{validate_nmr_dataset}()}

@@ -21,6 +21,11 @@ Pipeline: Load NMR samples
 }
 \examples{
 \dontrun{
+dir_to_demo_dataset <- system.file("dataset-demo", package = "AlpsNMR")
+pipe_load_samples(dir_to_demo_dataset,
+                  glob = "*0",
+                  output_dir = "./pipe_output")
+
 pipe_load_samples("/dir/with/nmr/samples/",
                   glob = "*0",
                   output_dir = "/dir/to/save/output")
@@ -28,14 +33,14 @@ pipe_load_samples("/dir/with/nmr/samples/",
 }
 \seealso{
 Other pipeline functions: 
+\code{\link{Pipe_normalization}},
 \code{\link{pipe_add_metadata}()},
 \code{\link{pipe_exclude_regions}()},
 \code{\link{pipe_filter_samples}()},
 \code{\link{pipe_interpolate_1D}()},
-\code{\link{pipe_normalization}()},
 \code{\link{pipe_outlier_detection}()},
-\code{\link{pipe_peak_integration}()},
-\code{\link{pipe_peakdet_align}()}
+\code{\link{pipe_pakdet_align}},
+\code{\link{pipe_peak_integration}()}
 
 Other import/export functions: 
 \code{\link{Automatic_targeted_profiling}()},

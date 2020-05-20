@@ -21,13 +21,13 @@ Pipeline: Interpolate 1D samples
 }
 \seealso{
 Other pipeline functions: 
+\code{\link{Pipe_normalization}},
 \code{\link{pipe_add_metadata}()},
 \code{\link{pipe_exclude_regions}()},
 \code{\link{pipe_filter_samples}()},
 \code{\link{pipe_load_samples}()},
-\code{\link{pipe_normalization}()},
 \code{\link{pipe_outlier_detection}()},
-\code{\link{pipe_peak_integration}()},
-\code{\link{pipe_peakdet_align}()}
+\code{\link{pipe_pakdet_align}},
+\code{\link{pipe_peak_integration}()}
 }
 \concept{pipeline functions}

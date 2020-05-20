@@ -15,13 +15,22 @@ is.nmr_dataset_1D(x)
 \description{
 Object is of \link{nmr_dataset_1D} class
 }
+\examples{
+dir_to_demo_dataset <- system.file("dataset-demo", package = "AlpsNMR")
+dataset <- nmr_read_samples_dir(dir_to_demo_dataset)
+dataset_1D <- nmr_interpolate_1D(dataset, axis = c(min = -0.5, max = 10, by = 2.3E-4))
+result <- is(dataset_1D)
+}
 \seealso{
 Other class helper functions: 
+\code{\link{format_nmr_dataset_1D}},
+\code{\link{format_nmr_dataset}},
 \code{\link{is.nmr_dataset_peak_table}()},
 \code{\link{new_nmr_dataset_1D}()},
 \code{\link{new_nmr_dataset_peak_table}()},
 \code{\link{new_nmr_dataset}()},
-\code{\link{validate_nmr_dataset_1D}()},
+\code{\link{print_nmr_dataset_1D}},
+\code{\link{print_nmr_dataset}},
 \code{\link{validate_nmr_dataset_family}()},
 \code{\link{validate_nmr_dataset_peak_table}()},
 \code{\link{validate_nmr_dataset}()}
@@ -34,7 +43,8 @@ Other nmr_dataset_1D functions:
 \code{\link{files_to_rDolphin_blood}()},
 \code{\link{files_to_rDolphin_cell}()},
 \code{\link{files_to_rDolphin_urine}()},
-\code{\link{get_integration_with_metadata}()},
+\code{\link{format_nmr_dataset_1D}},
+\code{\link{get_integration_with_metada}},
 \code{\link{load_and_save_functions}},
 \code{\link{new_nmr_dataset_1D}()},
 \code{\link{nmr_align_find_ref}()},
@@ -61,13 +71,14 @@ Other nmr_dataset_1D functions:
 \code{\link{nmr_ppm_resolution}()},
 \code{\link{plot.nmr_dataset_1D}()},
 \code{\link{plot_webgl}()},
+\code{\link{print_nmr_dataset_1D}},
 \code{\link{rdCV_PLS_RF_ML}()},
 \code{\link{rdCV_PLS_RF}()},
 \code{\link{save_files_to_rDolphin}()},
 \code{\link{to_ASICS}()},
 \code{\link{to_ChemoSpec}()},
 \code{\link{to_rDolphin}()},
-\code{\link{validate_nmr_dataset_1D}()}
+\code{\link{validate_nmr_dataset}()}
 }
 \concept{class helper functions}
 \concept{nmr_dataset_1D functions}

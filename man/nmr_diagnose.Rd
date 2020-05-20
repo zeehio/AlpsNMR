@@ -15,6 +15,10 @@ normalized nmr
 \description{
 Deprecated function
 }
+\examples{
+nmr_dataset <- nmr_dataset_load(system.file("extdata", "nmr_dataset.rds", package = "AlpsNMR"))
+nmr_diagnose(nmr_dataset)
+}
 \seealso{
 nmr_normalize
 }

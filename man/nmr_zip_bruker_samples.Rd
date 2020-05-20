@@ -21,6 +21,9 @@ A character vector of the same length as path, with the zip file names
 \description{
 Create one zip file for each brucker sample path
 }
+\examples{
+outpaths <- nmr_zip_bruker_samples(".", getwd())
+}
 \seealso{
 Other import/export functions: 
 \code{\link{Automatic_targeted_profiling}()},
