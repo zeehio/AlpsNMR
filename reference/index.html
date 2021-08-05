@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -53,7 +57,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-index">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -67,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">AlpsNMR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.3.3.9002</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.3.2</span>
       </span>
     </div>
 
@@ -75,7 +79,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -90,7 +94,12 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/introduction-to-alpsnmr.html">Introduction to AlpsNMR</a>
+      <a href="../articles/introduction-to-alpsnmr.html">AlpsNMR Workflow
+</a>
+    </li>
+    <li>
+      <a href="../articles/tutorial_MTBLS242.html">AlpsNMR tutorial
+</a>
     </li>
   </ul>
 </li>
@@ -99,7 +108,12 @@
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/sipss/AlpsNMR">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -131,24 +145,24 @@
           <p class="section-desc"></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         
         <td>
           <p><code><a href="AUC_model.html">AUC_model()</a></code> </p>
         </td>
-        <td><p>Extracts AUC value</p></td>
+        <td><p>Deprecated function
+Extracts AUC value</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="AlpsNMR-package.html">AlpsNMR-package</a></code> </p>
         </td>
         <td><p>AlpsNMR: Automated spectraL Processing System for NMR</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Automatic_targeted_profiling.html">Automatic_targeted_profiling()</a></code> </p>
-        </td>
-        <td><p>Automatic targeted profiling</p></td>
       </tr><tr>
         
         <td>
@@ -172,13 +186,14 @@
         <td>
           <p><code><a href="MUVR_model_plot.html">MUVR_model_plot()</a></code> </p>
         </td>
-        <td><p>Model plot</p></td>
+        <td><p>Deprecated function
+Model plot</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="Parameters_blood.html">Parameters_blood</a></code> </p>
         </td>
-        <td><p>Parameters for blood (plasma/serum) samples profiling</p></td>
+        <td><p>to rDolphin</p></td>
       </tr><tr>
         
         <td>
@@ -191,6 +206,18 @@
           <p><code><a href="Parameters_urine.html">Parameters_urine</a></code> </p>
         </td>
         <td><p>Parameters for urine samples profiling</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="Peak_detection.html">validate_nmr_dataset_peak_table()</a></code> <code><a href="Peak_detection.html">nmr_detect_peaks()</a></code> <code><a href="Peak_detection.html">nmr_detect_peaks_plot()</a></code> <code><a href="Peak_detection.html">nmr_detect_peaks_tune_snr()</a></code> <code><a href="Peak_detection.html">nmr_align()</a></code> <code><a href="Peak_detection.html">nmr_integrate_peak_positions()</a></code> <code><a href="Peak_detection.html">get_integration_with_metadata()</a></code> </p>
+        </td>
+        <td><p>Validate nmr_dataset_peak_table objects</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="Pipelines.html">pipe_load_samples()</a></code> <code><a href="Pipelines.html">pipe_add_metadata()</a></code> <code><a href="Pipelines.html">pipe_interpolate_1D()</a></code> <code><a href="Pipelines.html">pipe_exclude_regions()</a></code> <code><a href="Pipelines.html">pipe_outlier_detection()</a></code> <code><a href="Pipelines.html">pipe_filter_samples()</a></code> <code><a href="Pipelines.html">pipe_peakdet_align()</a></code> <code><a href="Pipelines.html">pipe_peak_integration()</a></code> <code><a href="Pipelines.html">pipe_normalization()</a></code> </p>
+        </td>
+        <td><p>Pipelines</p></td>
       </tr><tr>
         
         <td>
@@ -212,6 +239,30 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="SummarizedExperiment_to_nmr_data_1r.html">SummarizedExperiment_to_nmr_data_1r()</a></code> </p>
+        </td>
+        <td><p>Import SummarizedExperiment as 1D NMR data</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="SummarizedExperiment_to_nmr_dataset_peak_table.html">SummarizedExperiment_to_nmr_dataset_peak_table()</a></code> </p>
+        </td>
+        <td><p>Import SummarizedExperiment as mr_dataset_peak_table</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="bp_VIP_analysis.html">bp_VIP_analysis()</a></code> </p>
+        </td>
+        <td><p>Bootstrap and permutation over PLS-VIP</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="bp_kfold_VIP_analysis.html">bp_kfold_VIP_analysis()</a></code> </p>
+        </td>
+        <td><p>K-fold bootstrap and permutation over PLS-VIP</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="computes_peak_width_ppm.html">computes_peak_width_ppm()</a></code> </p>
         </td>
         <td><p>Peak width estimation for integration</p></td>
@@ -220,13 +271,8 @@
         <td>
           <p><code><a href="confusion_matrix.html">confusion_matrix()</a></code> </p>
         </td>
-        <td><p>Confusion matrix of the MUVR model</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="download_demo.html">download_demo()</a></code> </p>
-        </td>
-        <td><p>Download the MTBLS242 dataset</p></td>
+        <td><p>Deprecated function
+Confusion matrix of the MUVR model</p></td>
       </tr><tr>
         
         <td>
@@ -236,21 +282,9 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="files_to_rDolphin_blood.html">files_to_rDolphin_blood()</a></code> </p>
+          <p><code><a href="files_to_rDolphin.html">files_to_rDolphin()</a></code> </p>
         </td>
-        <td><p>Files to rDoplhin (blood)</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="files_to_rDolphin_cell.html">files_to_rDolphin_cell()</a></code> </p>
-        </td>
-        <td><p>Files to rDoplhin (cell)</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="files_to_rDolphin_urine.html">files_to_rDolphin_urine()</a></code> </p>
-        </td>
-        <td><p>Files to rDoplhin (urine)</p></td>
+        <td><p>Files to rDoplhin</p></td>
       </tr><tr>
         
         <td>
@@ -260,9 +294,21 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="get_integration_with_metadata.html">get_integration_with_metadata()</a></code> </p>
+          <p><code><a href="format.nmr_dataset.html">format(<i>&lt;nmr_dataset&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Get integrals with metadata from <code>integrate peak positions</code></p></td>
+        <td><p>Format for nmr_dataset</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="format.nmr_dataset_1D.html">format(<i>&lt;nmr_dataset_1D&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>format for nmr_dataset_1D</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="format.nmr_dataset_peak_table.html">format(<i>&lt;nmr_dataset_peak_table&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Format for nmr_dataset_peak_table</p></td>
       </tr><tr>
         
         <td>
@@ -292,13 +338,26 @@
         <td>
           <p><code><a href="load_and_save_functions.html">nmr_dataset_load()</a></code> <code><a href="load_and_save_functions.html">nmr_dataset_save()</a></code> </p>
         </td>
-        <td><p>Functions to load and save nmr_dataset objects</p></td>
+        <td><p>nmr_dataset_load</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="model_VIP.html">model_VIP()</a></code> </p>
         </td>
-        <td><p>Model VIP values</p></td>
+        <td><p>Deprecated function
+Model VIP values</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="models_stability_plot_bootstrap.html">models_stability_plot_bootstrap()</a></code> </p>
+        </td>
+        <td><p>Models stability plot</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="models_stability_plot_plsda.html">models_stability_plot_plsda()</a></code> </p>
+        </td>
+        <td><p>Models stability plot</p></td>
       </tr><tr>
         
         <td>
@@ -317,12 +376,6 @@
           <p><code><a href="new_nmr_dataset_peak_table.html">new_nmr_dataset_peak_table()</a></code> </p>
         </td>
         <td><p>Creates a new nmr_dataset_peak_table object from scratch</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nmr_align.html">nmr_align()</a></code> </p>
-        </td>
-        <td><p>Align NMR spectra</p></td>
       </tr><tr>
         
         <td>
@@ -356,9 +409,15 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="nmr_data.html">nmr_data()</a></code> <code><a href="nmr_data.html">`nmr_data<-`()</a></code> </p>
+          <p><code><a href="nmr_data.html">nmr_data()</a></code> <code><a href="nmr_data.html">`nmr_data&lt;-`()</a></code> </p>
         </td>
         <td><p>Set/Return the full spectra matrix</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="nmr_data_1r_to_SummarizedExperiment.html">nmr_data_1r_to_SummarizedExperiment()</a></code> </p>
+        </td>
+        <td><p>Export 1D NMR data to SummarizedExperiment</p></td>
       </tr><tr>
         
         <td>
@@ -398,27 +457,9 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="nmr_detect_peaks.html">nmr_detect_peaks()</a></code> </p>
+          <p><code><a href="nmr_dataset_peak_table_to_SummarizedExperiment.html">nmr_dataset_peak_table_to_SummarizedExperiment()</a></code> </p>
         </td>
-        <td><p>Peak detection for NMR</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nmr_detect_peaks_plot.html">nmr_detect_peaks_plot()</a></code> </p>
-        </td>
-        <td><p>Plot peak detection results</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nmr_detect_peaks_tune_snr.html">nmr_detect_peaks_tune_snr()</a></code> </p>
-        </td>
-        <td><p>Diagnose SNR threshold in peak detection</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nmr_diagnose.html">nmr_diagnose()</a></code> </p>
-        </td>
-        <td><p>Deprecated function</p></td>
+        <td><p>Export nmr_dataset_peak_table to SummarizedExperiment</p></td>
       </tr><tr>
         
         <td>
@@ -449,12 +490,6 @@
           <p><code><a href="nmr_identify_regions_urine.html">nmr_identify_regions_urine()</a></code> </p>
         </td>
         <td><p>NMR peak identification (urine samples)</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nmr_integrate_peak_positions.html">nmr_integrate_peak_positions()</a></code> </p>
-        </td>
-        <td><p>Integrate peak positions</p></td>
       </tr><tr>
         
         <td>
@@ -562,13 +597,14 @@
         <td>
           <p><code><a href="p_value_perm.html">p_value_perm()</a></code> </p>
         </td>
-        <td><p>p-Value from permutation test</p></td>
+        <td><p>Deprecated function
+p-Value from permutation test</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="permutation_test_model.html">permutation_test_model()</a></code> </p>
         </td>
-        <td><p>Permutation test on MUVR</p></td>
+        <td><p>Permutation test</p></td>
       </tr><tr>
         
         <td>
@@ -578,69 +614,39 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="pipe_add_metadata.html">pipe_add_metadata()</a></code> </p>
-        </td>
-        <td><p>Pipeline: Add Metadata</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="pipe_exclude_regions.html">pipe_exclude_regions()</a></code> </p>
-        </td>
-        <td><p>Pipeline: Exclude regions</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="pipe_filter_samples.html">pipe_filter_samples()</a></code> </p>
-        </td>
-        <td><p>Pipeline: Filter samples according to metadata conditions</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="pipe_interpolate_1D.html">pipe_interpolate_1D()</a></code> </p>
-        </td>
-        <td><p>Pipeline: Interpolate 1D samples</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="pipe_load_samples.html">pipe_load_samples()</a></code> </p>
-        </td>
-        <td><p>Pipeline: Load NMR samples</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="pipe_normalization.html">pipe_normalization()</a></code> </p>
-        </td>
-        <td><p>Pipe: Full spectra normalization</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="pipe_outlier_detection.html">pipe_outlier_detection()</a></code> </p>
-        </td>
-        <td><p>Pipeline: Remove blatant outliers</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="pipe_peak_integration.html">pipe_peak_integration()</a></code> </p>
-        </td>
-        <td><p>Pipeline: Peak integration</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="pipe_peakdet_align.html">pipe_peakdet_align()</a></code> </p>
-        </td>
-        <td><p>Pipeline: Peak detection and Alignment</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="plot.nmr_dataset_1D.html">plot(<i>&lt;nmr_dataset_1D&gt;</i>)</a></code> </p>
         </td>
         <td><p>Plot an nmr_dataset_1D</p></td>
       </tr><tr>
         
         <td>
+          <p><code><a href="plot_bootstrap_multimodel.html">plot_bootstrap_multimodel()</a></code> </p>
+        </td>
+        <td><p>Bootstrap plot predictions</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="plot_interactive.html">plot_interactive()</a></code> </p>
         </td>
         <td><p>Plots in WebGL</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="plot_plsda_multimodel.html">plot_plsda_multimodel()</a></code> </p>
+        </td>
+        <td><p>Multi PLDSA model plot predictions</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="plot_plsda_samples.html">plot_plsda_samples()</a></code> </p>
+        </td>
+        <td><p>Plot PLSDA predictions</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="plot_vip_scores.html">plot_vip_scores()</a></code> </p>
+        </td>
+        <td><p>Plot vip scores of bootstrap</p></td>
       </tr><tr>
         
         <td>
@@ -664,7 +670,7 @@
         <td>
           <p><code><a href="ppm_VIP_vector.html">ppm_VIP_vector()</a></code> </p>
         </td>
-        <td><p>Numeric VIPs vector</p></td>
+        <td><p>Feature selection and validation in multivariate analysis</p></td>
       </tr><tr>
         
         <td>
@@ -674,9 +680,21 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="rDolphin_plot.html">rDolphin_plot()</a></code> </p>
+          <p><code><a href="print.nmr_dataset.html">print(<i>&lt;nmr_dataset&gt;</i>)</a></code> </p>
         </td>
-        <td><p>rDolphin plot</p></td>
+        <td><p>Print for nmr_dataset</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="print.nmr_dataset_1D.html">print(<i>&lt;nmr_dataset_1D&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>print for nmr_dataset_1D</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="print.nmr_dataset_peak_table.html">print(<i>&lt;nmr_dataset_peak_table&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>print for nmr_dataset_peak_table</p></td>
       </tr><tr>
         
         <td>
@@ -688,13 +706,14 @@
         <td>
           <p><code><a href="rdCV_PLS_RF.html">rdCV_PLS_RF()</a></code> </p>
         </td>
-        <td><p>Feature selection and validation in multivariate analysis</p></td>
+        <td><p>Deprecated function</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="rdCV_PLS_RF_ML.html">rdCV_PLS_RF_ML()</a></code> </p>
         </td>
-        <td><p>Feature selection and validation in MULTILEVEL analysis</p></td>
+        <td><p>Deprecated function
+Feature selection and validation in MULTILEVEL analysis</p></td>
       </tr><tr>
         
         <td>
@@ -722,12 +741,6 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="save_profiling_plots.html">save_profiling_plots()</a></code> </p>
-        </td>
-        <td><p>Save rDolphin output and profiling plots</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="sub-.nmr_dataset.html">`[`(<i>&lt;nmr_dataset&gt;</i>)</a></code> </p>
         </td>
         <td><p>Extract parts of an nmr_dataset</p></td>
@@ -746,66 +759,41 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="to_ASICS.html">to_ASICS()</a></code> </p>
-        </td>
-        <td><p>Convert to Spectra class from the ASICS package</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="to_ChemoSpec.html">to_ChemoSpec()</a></code> </p>
         </td>
         <td><p>Convert to ChemoSpec Spectra class</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="to_rDolphin.html">to_rDolphin()</a></code> </p>
-        </td>
-        <td><p>to rDolphin</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="validate_nmr_dataset.html">validate_nmr_dataset()</a></code> </p>
+          <p><code><a href="validate_nmr_dataset.html">validate_nmr_dataset()</a></code> <code><a href="validate_nmr_dataset.html">validate_nmr_dataset_1D()</a></code> </p>
         </td>
         <td><p>Validate nmr_dataset objects</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="validate_nmr_dataset_1D.html">validate_nmr_dataset_1D()</a></code> </p>
-        </td>
-        <td><p>Validate 1D nmr datasets</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="validate_nmr_dataset_family.html">validate_nmr_dataset_family()</a></code> </p>
         </td>
         <td><p>Validate nmr_dataset_family objects</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="validate_nmr_dataset_peak_table.html">validate_nmr_dataset_peak_table()</a></code> </p>
-        </td>
-        <td><p>Validate nmr_dataset_peak_table objects</p></td>
       </tr>
     </tbody>
     </table>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
-    </ul>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
 
       <footer>
       <div class="copyright">
-  <p>Developed by Ivan Montoliu Roura, Sergio Oller Moreno, Francisco Madrid Gambin, Luis Fernandez.</p>
+  <p>Developed by Ivan Montoliu Roura, Sergio Oller Moreno, Francisco Madrid Gambin, Luis Fernandez, Héctor Gracia Cabrera, Santiago Marco Colás.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
