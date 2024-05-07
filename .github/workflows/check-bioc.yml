@@ -55,11 +55,11 @@ jobs:
       matrix:
         config:
           - {
-              os: ubuntu-latest,
-              conf_name: 'ubuntu-latest',
-              r: '4.3',
-              bioc: '3.17',
-              cont: "bioconductor/bioconductor_docker:RELEASE_3_17",
+              os: ubuntu-22.04,
+              conf_name: 'ubuntu',
+              r: '4.4',
+              bioc: '3.19',
+              cont: "bioconductor/bioconductor_docker:RELEASE_3_19",
               rspm: "https://packagemanager.rstudio.com/cran/__linux__/jammy/latest"
             }
           #- {
@@ -139,7 +139,7 @@ jobs:
       - name: Install Linux system dependencies
         if: runner.os == 'Linux'
         run: |
-          sysreqs=$(Rscript -e 'cat("apt-get update -y && apt-get install -y", paste(gsub("apt-get install -y ", "", remotes::system_requirements("ubuntu", "20.04")), collapse = " "))')
+          sysreqs=$(Rscript -e 'cat("apt-get update -y && apt-get install -y", paste(gsub("apt-get install -y ", "", remotes::system_requirements("ubuntu", "22.04")), collapse = " "))')
           echo $sysreqs
           sudo -s eval "$sysreqs"
           sudo apt-get install -y texlive-extra-utils texlive-latex-extra texlive-latex-base texlive-latex-recommended lmodern texlive-luatex texlive-full
@@ -251,13 +251,13 @@ jobs:
         shell: Rscript {0}
 
       - name: Install covr
-        if: github.ref == 'refs/heads/master' && env.run_covr == 'true' && runner.os == 'Linux'
+        if: github.ref == 'refs/heads/devel' && env.run_covr == 'true' && runner.os == 'Linux'
         run: |
           remotes::install_cran("covr")
         shell: Rscript {0}
 
       - name: Install pkgdown
-        if: github.ref == 'refs/heads/master' && env.run_pkgdown == 'true' && runner.os == 'Linux'
+        if: github.ref == 'refs/heads/devel' && env.run_pkgdown == 'true' && runner.os == 'Linux'
         run: |
           remotes::install_cran("pkgdown")
         shell: Rscript {0}
@@ -307,17 +307,17 @@ jobs:
         shell: Rscript {0}
 
       - name: Test coverage
-        if: github.ref == 'refs/heads/master' && env.run_covr == 'true' && runner.os == 'Linux' && env.CONF_NAME == 'ubuntu-latest'
+        if: github.ref == 'refs/heads/devel' && env.run_covr == 'true' && runner.os == 'Linux' && env.CONF_NAME == 'ubuntu'
         run: |
           covr::codecov()
         shell: Rscript {0}
 
       - name: Install package
-        if: github.ref == 'refs/heads/master' && env.run_pkgdown == 'true' && runner.os == 'Linux'
+        if: github.ref == 'refs/heads/devel' && env.run_pkgdown == 'true' && runner.os == 'Linux'
         run: R CMD INSTALL .
 
       - name: Build and deploy pkgdown site
-        if: github.ref == 'refs/heads/master' && env.run_pkgdown == 'true' && runner.os == 'Linux' && github.repository == env.pkgdown_repo  && env.CONF_NAME == 'ubuntu-latest'
+        if: github.ref == 'refs/heads/devel' && env.run_pkgdown == 'true' && runner.os == 'Linux' && github.repository == env.pkgdown_repo  && env.CONF_NAME == 'ubuntu'
         run: |
           git config --global --add safe.directory /__w/AlpsNMR/AlpsNMR
           git config --local user.name "$GITHUB_ACTOR"
@@ -333,7 +333,7 @@ jobs:
         if: failure()
         uses: actions/upload-artifact@master
         with:
-          name: ${{ runner.os }}-biocversion-RELEASE_3_17-r-4.3-results
+          name: ${{ runner.os }}-biocversion-RELEASE_3_19-r-4.4-results
           path: check
 
         ## Note that DOCKER_PASSWORD is really a token for your dockerhub
