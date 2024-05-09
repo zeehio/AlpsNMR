@@ -259,7 +259,8 @@ jobs:
       - name: Install pkgdown
         if: github.ref == 'refs/heads/devel' && env.run_pkgdown == 'true' && runner.os == 'Linux'
         run: |
-          remotes::install_cran("pkgdown")
+          remotes::install_github("zeehio/BiocStyle@fix-biocstyle-with-pkgdown") # Fix BiocStyle - pkgdown interaction
+          remotes::install_github("r-lib/pkgdown") ## We need pkgdown > 2.0.9, for debugging errors properly. See https://github.com/r-lib/pkgdown/pull/2524
         shell: Rscript {0}
 
       - name: Session info
