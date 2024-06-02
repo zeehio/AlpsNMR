@@ -1,9 +1,8 @@
 url: https://sipss.github.io/AlpsNMR/
 destination: docs
 template:
-  params:
-    bootstrap: 5
-    bootswatch: cerulean
+  bootstrap: 5
+  bootswatch: cerulean
 authors:
   Nestlé Institute of Health Sciences:
   Institute for Bioengineering of Catalonia:
