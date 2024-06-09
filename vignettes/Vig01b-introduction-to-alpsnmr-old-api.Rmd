@@ -67,7 +67,7 @@ the `BiocParallel` introduction for further details
 ```{r}
 library(BiocParallel)
 #register(SerialParam(), default = TRUE)  # disable parallellization
-register(SnowParam(workers = 3, exportglobals = FALSE), default = TRUE)  # enable parallellization with 4 workers
+register(SnowParam(workers = 2, exportglobals = FALSE), default = TRUE)  # enable parallellization with 2 workers
 ```
 
 

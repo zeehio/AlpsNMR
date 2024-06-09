@@ -49,7 +49,7 @@ that can control the parallellization registering backends. Please check
 
 ```{r}
 #register(SerialParam(), default = TRUE)  # disable parallellization
-register(SnowParam(workers = 3, exportglobals = FALSE), default = TRUE)  # enable parallellization with 3 workers
+register(SnowParam(workers = 2, exportglobals = FALSE), default = TRUE)  # enable parallellization with 2 workers
 ```
 
 
