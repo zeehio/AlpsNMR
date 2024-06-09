@@ -39,6 +39,6 @@ if (requireNamespace("ASICS", quietly=TRUE)) {
     metadata = metadata
   )
   forAsics <- to_ASICS(dataset)
-  ASICS::ASICS(forAsics)
+  #ASICS::ASICS(forAsics)
 }
 }
