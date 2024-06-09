@@ -176,7 +176,6 @@ nmr_detect_peaks <- function(nmr_dataset,
             )
     }
 
-    warn_future_to_biocparallel()
     peakList <- mymapply(
         FUN = callDetectSpecPeaks,
         X = data_matrix_to_list,
@@ -494,7 +493,6 @@ nmr_detect_peaks_tune_snr <- function(ds,
     ds1 <- filter(ds, NMRExperiment == !!NMRExperiment)
     names(SNR_thresholds) <- SNR_thresholds
 
-    warn_future_to_biocparallel()
     peaks_detected_list <- BiocParallel::bplapply(
         X = SNR_thresholds,
         FUN = function(SNR.Th, nmr_dataset, ...) {
