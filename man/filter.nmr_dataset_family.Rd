@@ -30,9 +30,9 @@ sample_10 <- filter(dataset_1D, NMRExperiment == "10")
 }
 \seealso{
 Other subsetting functions: 
+\code{\link{[.nmr_dataset}()},
 \code{\link{[.nmr_dataset_1D}()},
 \code{\link{[.nmr_dataset_peak_table}()},
-\code{\link{[.nmr_dataset}()},
 \code{\link{nmr_pca_outliers_filter}()}
 }
 \concept{subsetting functions}

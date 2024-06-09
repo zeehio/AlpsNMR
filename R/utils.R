@@ -228,26 +228,6 @@ progress_bar_end <- function(pb) {
     }
 }
 
-#' @importFrom future plan
-warn_future_to_biocparallel <- function() {
-    # REMOVE THIS WARNING >ONE YEAR AFTER IT'S BEEN RELEASED to BIOCONDUCTOR
-    current_plan <- future::plan()
-    if (inherits(current_plan, "sequential")) {
-        return()
-    }
-    rlang::warn(
-        message = c(
-            "AlpsNMR now uses BiocParallel instead of future for parallellization",
-            "i" = "If you used plan(multisession) or any other plan(), consider removing all plan() calls and use:\n    library(BiocParallel)\n    register(SnowParam(workers = 3), default = TRUE)",
-            "i" = "You just need to place that code once, typically at the beginning of your script"
-        ),
-        class = "AlpsNMR-future-to-biocparallel-warning",
-        .frequency = "once",
-        .frequency_id = "future-to-biocparallel"
-    )
-    return()
-}
-
 
 #' Convert to ChemoSpec Spectra class
 #' @param nmr_dataset An [nmr_dataset_1D] object
@@ -286,6 +266,36 @@ to_ChemoSpec <- function(nmr_dataset, desc = "A nmr_dataset", group = NULL) {
     names(Spectra) <- c("freq", "data", "names", "groups", "colors", "sym", "alt.sym", "unit", "desc")
     ChemoSpec::chkSpectra(Spectra)
     return(Spectra)
+}
+
+#' @title Export data for the ASICS spectral quantification library  
+#' @description
+#' Exports the spectra matrix, sample names and chemical shift axis into
+#' an ASICS Spectra object.
+#' 
+#' @param dataset An [nmr_dataset_1D] object 
+#' @inheritDotParams ASICS::createSpectra -spectra
+#' @return An [ASICS::Spectra-class] object 
+#' @examples
+#' if (requireNamespace("ASICS", quietly=TRUE)) {
+#'   nsamp <- 3
+#'   npoints <- 300
+#'   metadata <- list(external = data.frame(
+#'     NMRExperiment = paste0("Sample", seq_len(nsamp))
+#'   ))
+#'   dataset <- new_nmr_dataset_1D(
+#'     ppm_axis = seq(from = 0.2, to = 10, length.out = npoints),
+#'     data_1r = matrix(runif(nsamp * npoints), nrow = nsamp, ncol = npoints),
+#'     metadata = metadata
+#'   )
+#'   forAsics <- to_ASICS(dataset)
+#'   #ASICS::ASICS(forAsics)
+#' }
+#' @export 
+to_ASICS <- function(dataset, ...) {
+    require_pkgs("ASICS")
+    spectra_matrix <- t(nmr_data(dataset))
+    ASICS::createSpectra(spectra_matrix, ...)
 }
 
 

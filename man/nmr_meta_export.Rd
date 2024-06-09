@@ -34,14 +34,14 @@ dataset <- nmr_read_samples_dir(dir_to_demo_dataset)
 Other metadata functions: 
 \code{\link{Pipelines}},
 \code{\link{nmr_meta_add}()},
-\code{\link{nmr_meta_get_column}()},
 \code{\link{nmr_meta_get}()},
+\code{\link{nmr_meta_get_column}()},
 \code{\link{nmr_meta_groups}()}
 
 Other nmr_dataset functions: 
 \code{\link{nmr_meta_add}()},
-\code{\link{nmr_meta_get_column}()},
-\code{\link{nmr_meta_get}()}
+\code{\link{nmr_meta_get}()},
+\code{\link{nmr_meta_get_column}()}
 
 Other nmr_dataset_1D functions: 
 \code{\link{[.nmr_dataset_1D}()},
@@ -51,15 +51,15 @@ Other nmr_dataset_1D functions:
 \code{\link{nmr_integrate_peak_positions}()},
 \code{\link{nmr_integrate_regions}()},
 \code{\link{nmr_meta_add}()},
-\code{\link{nmr_meta_get_column}()},
 \code{\link{nmr_meta_get}()},
+\code{\link{nmr_meta_get_column}()},
 \code{\link{nmr_ppm_resolution}()},
 \code{\link{print.nmr_dataset_1D}()}
 
 Other nmr_dataset_peak_table functions: 
 \code{\link{nmr_meta_add}()},
-\code{\link{nmr_meta_get_column}()},
-\code{\link{nmr_meta_get}()}
+\code{\link{nmr_meta_get}()},
+\code{\link{nmr_meta_get_column}()}
 
 Other import/export functions: 
 \code{\link{Pipelines}},

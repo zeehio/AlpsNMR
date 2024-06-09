@@ -1,3 +1,8 @@
+# AlpsNMR 4.7.1 (2024-06-02)
+
+- Added `nmr_autophase()` for automated phase correction using the NMRphasing package (#68).
+- Added `to_ASICS` function to export dataset for ASICS quantification (#68).
+
 # AlpsNMR 4.1.6 (2023-02-16)
 
 - Download improvements:

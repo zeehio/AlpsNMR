@@ -231,7 +231,6 @@ nmr_read_samples_bruker <-
         if (length(sample_names) == 0) {
             stop("No samples to load")
         }
-        warn_future_to_biocparallel()
         list_of_samples <- BiocParallel::bplapply(
             X = sample_names,
             FUN = function(sampl, pulse_sequence, metadata_only, ...) {

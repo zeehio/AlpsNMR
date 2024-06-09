@@ -250,7 +250,6 @@ process_block <- function(lines, metadata_only = FALSE) {
 #' @keywords internal
 #' @noRd
 read_jdx <- function(file_names, metadata_only = FALSE) {
-    warn_future_to_biocparallel()
     output <- BiocParallel::bplapply(
         X = file_names,
         FUN = function(file_name) {

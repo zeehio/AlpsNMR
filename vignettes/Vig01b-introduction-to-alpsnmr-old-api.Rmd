@@ -67,7 +67,7 @@ the `BiocParallel` introduction for further details
 ```{r}
 library(BiocParallel)
 #register(SerialParam(), default = TRUE)  # disable parallellization
-register(SnowParam(workers = 3, exportglobals = FALSE), default = TRUE)  # enable parallellization with 4 workers
+register(SnowParam(workers = 2, exportglobals = FALSE), default = TRUE)  # enable parallellization with 2 workers
 ```
 
 
@@ -443,7 +443,7 @@ dplyr::bind_rows(
 
 After applying any feature selection or machine learning, Alps allows the 
 identification of features of interest through `nmr_identify_regions_blood`. 
-The function gives 3 posibilities sorted by the most probable metabolite 
+The function gives 3 possibilities sorted by the most probable metabolite 
 (see `nmr_identify_regions_blood` for details).
 
 ```{r}

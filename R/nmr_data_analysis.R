@@ -270,8 +270,7 @@ split_build_perform <- function(train_test_subset,
 do_cv <- function(dataset, y_column, identity_column, train_evaluate_model,
     train_test_subsets, train_evaluate_model_args_iter = NULL, ..., .enable_parallel = TRUE) {
     if (.enable_parallel) {
-        warn_future_to_biocparallel()
-        fun <- mymapply
+        fun <- BiocParallel::bpmapply
     } else {
         fun <- mapply
     }

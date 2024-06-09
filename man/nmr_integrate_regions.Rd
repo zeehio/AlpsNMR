@@ -87,10 +87,10 @@ peak_table_integration <- nmr_integrate_regions(
 Other peak detection functions: 
 \code{\link{Pipelines}},
 \code{\link{nmr_baseline_threshold}()},
-\code{\link{nmr_detect_peaks_plot_overview}()},
-\code{\link{nmr_detect_peaks_plot}()},
-\code{\link{nmr_detect_peaks_tune_snr}()},
 \code{\link{nmr_detect_peaks}()},
+\code{\link{nmr_detect_peaks_plot}()},
+\code{\link{nmr_detect_peaks_plot_overview}()},
+\code{\link{nmr_detect_peaks_tune_snr}()},
 \code{\link{nmr_identify_regions_blood}()},
 \code{\link{nmr_identify_regions_cell}()},
 \code{\link{nmr_identify_regions_urine}()}
@@ -111,8 +111,8 @@ Other nmr_dataset_1D functions:
 \code{\link{nmr_integrate_peak_positions}()},
 \code{\link{nmr_meta_add}()},
 \code{\link{nmr_meta_export}()},
-\code{\link{nmr_meta_get_column}()},
 \code{\link{nmr_meta_get}()},
+\code{\link{nmr_meta_get_column}()},
 \code{\link{nmr_ppm_resolution}()},
 \code{\link{print.nmr_dataset_1D}()}
 }

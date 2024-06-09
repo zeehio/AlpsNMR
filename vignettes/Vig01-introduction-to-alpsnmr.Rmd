@@ -49,7 +49,7 @@ that can control the parallellization registering backends. Please check
 
 ```{r}
 #register(SerialParam(), default = TRUE)  # disable parallellization
-register(SnowParam(workers = 3, exportglobals = FALSE), default = TRUE)  # enable parallellization with 3 workers
+register(SnowParam(workers = 2, exportglobals = FALSE), default = TRUE)  # enable parallellization with 2 workers
 ```
 
 
@@ -142,6 +142,17 @@ nmr_meta_get(dataset, groups = "external")
 If you want to learn more about sample metadata (including acquisition and FID 
 processing parameters), as well as more complex ways of adding annotations,
 check out the `vignette("Vig02-handling-metadata-and-annotations", package = "AlpsNMR")`.
+
+# Phasing 
+
+It might be the case that automatically reconstructed metabolite NMR spectra have 
+a first-order phase error. AlpsNMR provides a convenient wrapper function 
+the `NMRphasing` package, offering a variety of algorithms to estimate 
+and correct for phase errors, which arise on physical grounds.
+
+```{r}
+#dataset <- nmr_autophase(dataset, method="MPC_DANM")
+```
 
 
 # Interpolation

@@ -73,10 +73,10 @@ model <- nmr_pca_build_model(dataset_1D)
 }
 \seealso{
 Other PCA related functions: 
+\code{\link{nmr_pca_outliers}()},
 \code{\link{nmr_pca_outliers_filter}()},
 \code{\link{nmr_pca_outliers_plot}()},
 \code{\link{nmr_pca_outliers_robust}()},
-\code{\link{nmr_pca_outliers}()},
 \code{\link{nmr_pca_plots}}
 }
 \concept{PCA related functions}

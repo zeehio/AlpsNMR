@@ -28,7 +28,8 @@ for peaks.}
 \itemize{
 \item A numeric vector of length the number of samples. Each number is a threshold for that sample
 \item A single number. All samples use this number as baseline threshold.
-\item \code{NULL}. If that's the case, a default function is used (\code{\link[=nmr_baseline_threshold]{nmr_baseline_threshold()}})
+\item \code{NULL}. If that's the case, a default function is used (\code{\link[=nmr_baseline_threshold]{nmr_baseline_threshold()}}), which assumes
+that there is no signal in the region 9.5-10 ppm.
 }}
     \item{\code{range_without_peaks}}{A numeric vector of length two with a region without peaks, only used when \code{baselineThresh = NULL}}
     \item{\code{fit_lorentzians}}{If \code{TRUE}, fit a lorentzian to each detected peak, to infer its inflection points. For now disabled for backwards compatibility.}
@@ -58,9 +59,9 @@ nmr_detect_peaks
 Other peak detection functions: 
 \code{\link{Pipelines}},
 \code{\link{nmr_baseline_threshold}()},
-\code{\link{nmr_detect_peaks_plot_overview}()},
-\code{\link{nmr_detect_peaks_plot}()},
 \code{\link{nmr_detect_peaks}()},
+\code{\link{nmr_detect_peaks_plot}()},
+\code{\link{nmr_detect_peaks_plot_overview}()},
 \code{\link{nmr_identify_regions_blood}()},
 \code{\link{nmr_identify_regions_cell}()},
 \code{\link{nmr_identify_regions_urine}()},
