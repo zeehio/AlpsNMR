@@ -36,9 +36,9 @@ Peak_detection
 Other peak detection functions: 
 \code{\link{Pipelines}},
 \code{\link{nmr_baseline_threshold}()},
+\code{\link{nmr_detect_peaks}()},
 \code{\link{nmr_detect_peaks_plot}()},
 \code{\link{nmr_detect_peaks_tune_snr}()},
-\code{\link{nmr_detect_peaks}()},
 \code{\link{nmr_identify_regions_blood}()},
 \code{\link{nmr_identify_regions_cell}()},
 \code{\link{nmr_identify_regions_urine}()},

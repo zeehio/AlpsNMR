@@ -25,7 +25,7 @@ Other metadata functions:
 \code{\link{Pipelines}},
 \code{\link{nmr_meta_add}()},
 \code{\link{nmr_meta_export}()},
-\code{\link{nmr_meta_get_column}()},
-\code{\link{nmr_meta_get}()}
+\code{\link{nmr_meta_get}()},
+\code{\link{nmr_meta_get_column}()}
 }
 \concept{metadata functions}

@@ -31,8 +31,8 @@ new[0]
 }
 \seealso{
 Other subsetting functions: 
-\code{\link{[.nmr_dataset_1D}()},
 \code{\link{[.nmr_dataset}()},
+\code{\link{[.nmr_dataset_1D}()},
 \code{\link{filter.nmr_dataset_family}()},
 \code{\link{nmr_pca_outliers_filter}()}
 }

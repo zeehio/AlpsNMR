@@ -31,16 +31,16 @@ Plot for outlier detection diagnostic
 \seealso{
 Other PCA related functions: 
 \code{\link{nmr_pca_build_model}()},
+\code{\link{nmr_pca_outliers}()},
 \code{\link{nmr_pca_outliers_filter}()},
 \code{\link{nmr_pca_outliers_robust}()},
-\code{\link{nmr_pca_outliers}()},
 \code{\link{nmr_pca_plots}}
 
 Other outlier detection functions: 
 \code{\link{Pipelines}},
+\code{\link{nmr_pca_outliers}()},
 \code{\link{nmr_pca_outliers_filter}()},
-\code{\link{nmr_pca_outliers_robust}()},
-\code{\link{nmr_pca_outliers}()}
+\code{\link{nmr_pca_outliers_robust}()}
 }
 \concept{PCA related functions}
 \concept{outlier detection functions}

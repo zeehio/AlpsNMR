@@ -25,8 +25,8 @@ dataset_1D[0]
 }
 \seealso{
 Other subsetting functions: 
-\code{\link{[.nmr_dataset_peak_table}()},
 \code{\link{[.nmr_dataset}()},
+\code{\link{[.nmr_dataset_peak_table}()},
 \code{\link{filter.nmr_dataset_family}()},
 \code{\link{nmr_pca_outliers_filter}()}
 
@@ -38,8 +38,8 @@ Other nmr_dataset_1D functions:
 \code{\link{nmr_integrate_regions}()},
 \code{\link{nmr_meta_add}()},
 \code{\link{nmr_meta_export}()},
-\code{\link{nmr_meta_get_column}()},
 \code{\link{nmr_meta_get}()},
+\code{\link{nmr_meta_get_column}()},
 \code{\link{nmr_ppm_resolution}()},
 \code{\link{print.nmr_dataset_1D}()}
 }

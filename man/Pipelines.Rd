@@ -222,30 +222,30 @@ Other import/export functions:
 Other metadata functions: 
 \code{\link{nmr_meta_add}()},
 \code{\link{nmr_meta_export}()},
-\code{\link{nmr_meta_get_column}()},
 \code{\link{nmr_meta_get}()},
+\code{\link{nmr_meta_get_column}()},
 \code{\link{nmr_meta_groups}()}
 
 Other outlier detection functions: 
+\code{\link{nmr_pca_outliers}()},
 \code{\link{nmr_pca_outliers_filter}()},
 \code{\link{nmr_pca_outliers_plot}()},
-\code{\link{nmr_pca_outliers_robust}()},
-\code{\link{nmr_pca_outliers}()}
+\code{\link{nmr_pca_outliers_robust}()}
 
 Other peak detection functions: 
 \code{\link{nmr_baseline_threshold}()},
-\code{\link{nmr_detect_peaks_plot_overview}()},
-\code{\link{nmr_detect_peaks_plot}()},
-\code{\link{nmr_detect_peaks_tune_snr}()},
 \code{\link{nmr_detect_peaks}()},
+\code{\link{nmr_detect_peaks_plot}()},
+\code{\link{nmr_detect_peaks_plot_overview}()},
+\code{\link{nmr_detect_peaks_tune_snr}()},
 \code{\link{nmr_identify_regions_blood}()},
 \code{\link{nmr_identify_regions_cell}()},
 \code{\link{nmr_identify_regions_urine}()},
 \code{\link{nmr_integrate_regions}()}
 
 Other alignment functions: 
-\code{\link{nmr_align_find_ref}()},
-\code{\link{nmr_align}()}
+\code{\link{nmr_align}()},
+\code{\link{nmr_align_find_ref}()}
 
 Other peak integration functions: 
 \code{\link{get_integration_with_metadata}()},

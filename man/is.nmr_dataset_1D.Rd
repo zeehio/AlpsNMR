@@ -23,19 +23,19 @@ result <- is(dataset_1D)
 }
 \seealso{
 Other class helper functions: 
+\code{\link{format.nmr_dataset}()},
 \code{\link{format.nmr_dataset_1D}()},
 \code{\link{format.nmr_dataset_peak_table}()},
-\code{\link{format.nmr_dataset}()},
 \code{\link{is.nmr_dataset_peak_table}()},
+\code{\link{new_nmr_dataset}()},
 \code{\link{new_nmr_dataset_1D}()},
 \code{\link{new_nmr_dataset_peak_table}()},
-\code{\link{new_nmr_dataset}()},
+\code{\link{print.nmr_dataset}()},
 \code{\link{print.nmr_dataset_1D}()},
 \code{\link{print.nmr_dataset_peak_table}()},
-\code{\link{print.nmr_dataset}()},
+\code{\link{validate_nmr_dataset}()},
 \code{\link{validate_nmr_dataset_family}()},
-\code{\link{validate_nmr_dataset_peak_table}()},
-\code{\link{validate_nmr_dataset}()}
+\code{\link{validate_nmr_dataset_peak_table}()}
 
 Other nmr_dataset_1D functions: 
 \code{\link{[.nmr_dataset_1D}()},
@@ -45,8 +45,8 @@ Other nmr_dataset_1D functions:
 \code{\link{nmr_integrate_regions}()},
 \code{\link{nmr_meta_add}()},
 \code{\link{nmr_meta_export}()},
-\code{\link{nmr_meta_get_column}()},
 \code{\link{nmr_meta_get}()},
+\code{\link{nmr_meta_get_column}()},
 \code{\link{nmr_ppm_resolution}()},
 \code{\link{print.nmr_dataset_1D}()}
 }
