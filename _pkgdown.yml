@@ -51,6 +51,7 @@ reference:
   - SummarizedExperiment_to_nmr_data_1r
   - SummarizedExperiment_to_nmr_dataset_peak_table
   - to_ChemoSpec
+  - to_ASICS
   - nmr_batman_options
   - nmr_batman
   - nmr_dataset_peak_table_to_SummarizedExperiment
@@ -182,3 +183,4 @@ reference:
   - Pipelines
   - nmr_ppm_resolution
   - ppm_resolution
+  - nmr_autophase
