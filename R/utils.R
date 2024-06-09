@@ -289,7 +289,7 @@ to_ChemoSpec <- function(nmr_dataset, desc = "A nmr_dataset", group = NULL) {
 #'     metadata = metadata
 #'   )
 #'   forAsics <- to_ASICS(dataset)
-#'   ASICS::ASICS(forAsics)
+#'   #ASICS::ASICS(forAsics)
 #' }
 #' @export 
 to_ASICS <- function(dataset, ...) {
