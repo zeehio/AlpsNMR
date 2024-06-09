@@ -40,11 +40,11 @@ Authors@R: c(
            role = "cph"),
     person(given = "Institute for Bioengineering of Catalonia",
            role = "cph"),
-    person(given = "Miller", 
-           family = "Jack", 
+    person(given = "Miller",
+           family = "Jack",
            email = "jack.miller@physics.org", 
            role=c("ctb"),
-           comment = c(ORCID = "0000-0002-6258-1299"))
+           comment = c(ORCID = "0000-0002-6258-1299", "Autophase wrapper, ASICS export"))
     )
 Description: Reads Bruker NMR data directories both zipped and unzipped.
  It provides automated and efficient signal processing for untargeted 
