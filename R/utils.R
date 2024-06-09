@@ -288,30 +288,27 @@ to_ChemoSpec <- function(nmr_dataset, desc = "A nmr_dataset", group = NULL) {
     return(Spectra)
 }
 
-#' @title Export data for the spectral quantification library ASICS  
+#' @title Export data for the ASICS spectral quantification library  
 #' @description
-#' A simple helper function for mangling data in the right format for the 
-#' spectral quantification library ASICS. 
+#' Exports the spectra matrix, sample names and chemical shift axis into
+#' an ASICS Spectra object.
 #' 
-#' @param samples An `nmr_dataset_family` 1D object 
-#' @param ... Additional arguments are passed 
-#'            directly to `ASICS::createSpectra`, which (in theory) provide an 
-#'            opportunity to use distinct normalisation methods. 
-#' 
-#' @return An `ASICS::Spectra` object 
+#' @param dataset An [nmr_dataset_1D] object 
+#' @inheritDotParams ASICS::createSpectra -spectra
+#' @return An [ASICS::Spectra-class] object 
 #' @examples
-#' # forAsics <- alps_asics(dataset)
-#' # ASICS(forAsics)
-#' 
+#' library(ASICS)
+#' dir_to_demo_dataset <- system.file("dataset-demo", package = "AlpsNMR")
+#' dataset <- nmr_read_samples_dir(dir_to_demo_dataset)
+#' dataset <- nmr_interpolate_1D(dataset, axis = c(min = 1, max = 2, by = 0.002))
+#' forAsics <- to_ASICS(dataset)
+#' ASICS(forAsics)
 #' @export 
-
-alps_asics <- function(samples, ...) {
-    forAsics <- t(nmr_data(samples))
-    forAsics <- ASICS::createSpectra(forAsics, ...)
-    forAsics@sample.name <-samples$metadata$external$NMRExperiment
-    return(forAsics)
+to_ASICS <- function(dataset, ...) {
+    require_pkgs("ASICS")
+    spectra_matrix <- t(nmr_data(dataset))
+    ASICS::createSpectra(spectra_matrix, ...)
 }
-
 
 
 abort_if_not <- function(condition, ...) {
