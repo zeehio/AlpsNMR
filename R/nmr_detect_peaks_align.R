@@ -176,7 +176,7 @@ nmr_detect_peaks <- function(nmr_dataset,
             )
     }
 
-    peakList <- mymapply(
+    peakList <- BiocParallel::bpmapply(
         FUN = callDetectSpecPeaks,
         X = data_matrix_to_list,
         baselineThresh = baselineThresh,
