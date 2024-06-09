@@ -30,6 +30,7 @@
 nmr_autophase <- function(dataset,
                           method = c("NLS", "MPC_DANM", "MPC_EMP", "SPC_DANM", "SPC_EMP", "SPC_AAM", "SPC_DSM"),
                           withBC = FALSE, ...) {
+    require_pkgs("NMRphasing")
     if (!"data_1i" %in% names(c(dataset))) {
         cli::cli_warn(c(
             "!" = "nmr_autophase() performs better with access to the whole complex NMR spectra",
