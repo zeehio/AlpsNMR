@@ -39,10 +39,21 @@ Please use the \code{all_components = TRUE} when calling \code{\link[=nmr_read_s
 to load the complex spectra and fix NMR phasing correctly.
 }
 \examples{
-dir_to_demo_dataset <- system.file("dataset-demo", package = "AlpsNMR")
-dataset <- nmr_read_samples_dir(dir_to_demo_dataset, all_components=TRUE)
-dataset <- nmr_autophase(dataset, method = "NLS")
-dataset <- nmr_interpolate_1D(dataset, axis = c(min = 1, max = 2, by = 0.002))
-plot(dataset)
-
+if (requireNamespace("NMRphasing", quietly=TRUE)) {
+  # Helpers to create a dataset:
+  lorentzian <- function(x, x0, gamma, A) {
+    A * (1 / (pi * gamma)) * ((gamma^2) / ((x - x0)^2 + gamma^2))
+  }
+  x <- seq(from=1, to=2, length.out = 300)
+  y <- lorentzian(x, 1.3, 0.01, 1) + lorentzian(x, 1.6, 0.01, 1)
+  dataset <- new_nmr_dataset(
+    metadata = list(external = data.frame(NMRExperiment = "10")),
+    data_fields = list(data_1r = list(y)),
+    axis = list(list(x))
+  )
+  # Autophase, interpolate and plot:
+  dataset <- nmr_autophase(dataset, method = "NLS")
+  dataset <- nmr_interpolate_1D(dataset, axis = c(min = 1, max = 2, by = 0.01))
+  plot(dataset)
+}
 }

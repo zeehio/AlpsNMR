@@ -20,12 +20,23 @@
 #' @param ... Other parameters passed on to [NMRphasing::NMRphasing()].
 #' @return A (hopefully better phased) [nmr_dataset] object, with updated real and imaginary parts. 
 #' @examples
-#' dir_to_demo_dataset <- system.file("dataset-demo", package = "AlpsNMR")
-#' dataset <- nmr_read_samples_dir(dir_to_demo_dataset, all_components=TRUE)
-#' dataset <- nmr_autophase(dataset, method = "NLS")
-#' dataset <- nmr_interpolate_1D(dataset, axis = c(min = 1, max = 2, by = 0.002))
-#' plot(dataset)
-#' 
+#' if (requireNamespace("NMRphasing", quietly=TRUE)) {
+#'   # Helpers to create a dataset:
+#'   lorentzian <- function(x, x0, gamma, A) {
+#'     A * (1 / (pi * gamma)) * ((gamma^2) / ((x - x0)^2 + gamma^2))
+#'   }
+#'   x <- seq(from=1, to=2, length.out = 300)
+#'   y <- lorentzian(x, 1.3, 0.01, 1) + lorentzian(x, 1.6, 0.01, 1)
+#'   dataset <- new_nmr_dataset(
+#'     metadata = list(external = data.frame(NMRExperiment = "10")),
+#'     data_fields = list(data_1r = list(y)),
+#'     axis = list(list(x))
+#'   )
+#'   # Autophase, interpolate and plot:
+#'   dataset <- nmr_autophase(dataset, method = "NLS")
+#'   dataset <- nmr_interpolate_1D(dataset, axis = c(min = 1, max = 2, by = 0.01))
+#'   plot(dataset)
+#' }
 #' @export 
 nmr_autophase <- function(dataset,
                           method = c("NLS", "MPC_DANM", "MPC_EMP", "SPC_DANM", "SPC_EMP", "SPC_AAM", "SPC_DSM"),
@@ -62,7 +73,7 @@ nmr_autophase <- function(dataset,
                 miss_sample_names <- paste0(names(any_imag_missing), collapse = ", ")
                 msg <- "Samples without imaginary component: {miss_sample_names}"
             } else {
-                miss_sample_names <- paste0(names(head(any_imag_missing, n=5)), collapse = ", ")
+                miss_sample_names <- paste0(names(utils::head(any_imag_missing, n=5)), collapse = ", ")
                 msg <- "Samples without imaginary component: {miss_sample_names} and {length(any_imag_missing)-5} more"
             }
             cli::cli_warn(c(

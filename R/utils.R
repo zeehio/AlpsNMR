@@ -297,12 +297,20 @@ to_ChemoSpec <- function(nmr_dataset, desc = "A nmr_dataset", group = NULL) {
 #' @inheritDotParams ASICS::createSpectra -spectra
 #' @return An [ASICS::Spectra-class] object 
 #' @examples
-#' library(ASICS)
-#' dir_to_demo_dataset <- system.file("dataset-demo", package = "AlpsNMR")
-#' dataset <- nmr_read_samples_dir(dir_to_demo_dataset)
-#' dataset <- nmr_interpolate_1D(dataset, axis = c(min = 1, max = 2, by = 0.002))
-#' forAsics <- to_ASICS(dataset)
-#' ASICS(forAsics)
+#' if (requireNamespace("ASICS", quietly=TRUE)) {
+#'   nsamp <- 3
+#'   npoints <- 300
+#'   metadata <- list(external = data.frame(
+#'     NMRExperiment = paste0("Sample", seq_len(nsamp))
+#'   ))
+#'   dataset <- new_nmr_dataset_1D(
+#'     ppm_axis = seq(from = 0.2, to = 10, length.out = npoints),
+#'     data_1r = matrix(runif(nsamp * npoints), nrow = nsamp, ncol = npoints),
+#'     metadata = metadata
+#'   )
+#'   forAsics <- to_ASICS(dataset)
+#'   ASICS::ASICS(forAsics)
+#' }
 #' @export 
 to_ASICS <- function(dataset, ...) {
     require_pkgs("ASICS")
