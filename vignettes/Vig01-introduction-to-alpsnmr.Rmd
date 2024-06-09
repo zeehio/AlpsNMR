@@ -146,13 +146,12 @@ check out the `vignette("Vig02-handling-metadata-and-annotations", package = "Al
 # Phasing 
 
 It might be the case that automatically reconstructed metabolite NMR spectra have 
-a first-order phase error. A convenient wrapper function is provided to link to 
-the package `NMRphasing` that provides a variety of algorithms to try to estimate 
-and correct for phase errors, which arise on physical grounds. `NMRphasing`
-performs an optional baseline correction, which here is disabled. 
+a first-order phase error. AlpsNMR provides a convenient wrapper function 
+the `NMRphasing` package, offering a variety of algorithms to estimate 
+and correct for phase errors, which arise on physical grounds.
 
 ```{r}
-#dataset <- nmr_dataset_autophase(dataset, method="MPC_DANM", withBC=F)
+#dataset <- nmr_autophase(dataset, method="MPC_DANM")
 ```
 
 
