@@ -443,7 +443,7 @@ dplyr::bind_rows(
 
 After applying any feature selection or machine learning, Alps allows the 
 identification of features of interest through `nmr_identify_regions_blood`. 
-The function gives 3 posibilities sorted by the most probable metabolite 
+The function gives 3 possibilities sorted by the most probable metabolite 
 (see `nmr_identify_regions_blood` for details).
 
 ```{r}
