@@ -1,56 +1,105 @@
-#' @title Perform an automatic 1D NMR phasing
+#' @title Rephase 1D NMR data
 #' @description
-#' It is quite often the case that (e.g. Bruker's) 1D autophase isn't quite right.
-#' This uses `NMRphasing::NMRphasing` to automatically rephase data in the spectral domain. 
-#' A number of algorithms are available (see NMRphasing's documentation),
-#' of which NLS, MPC_DANM and SPC_DANM are the most recent. 
+#' Use phasing algorithms to rephase data in the spectral domain.
 #' 
-#' Perhaps obviously, you are likely to get better results loading the complex data 
-#' than having real-only spectra (i.e. pass `all_components = T` to `nmr_read_samples`). 
+#' This function may improve autophasing processing from instrument vendors. It
+#' wraps the [NMRphasing::NMRphasing()] function, to automatically rephase spectra,
+#' allowing you to choose from a number of algorithms
+#' of which `NLS`, `MPC_DANM` and `SPC_DANM` are the most recent.
 #' 
-#' Run this before spectral interpolation. 
+#' Rephasing should happen before any spectra interpolation.
 #' 
-#' @param samples An `nmr_dataset_family` 1D object 
-#' @param method The autophasing method -- see `NMRphasing::NMRphasing` for details. 
-#' @param withBC `NMRphasing::NMRphasing` performs an integrated baseline correction -- this parameter enables or disables it. 
-#' @return A (hopefully better phased) `nmr_dataset_family` 1D object, with updated real and imaginary parts. 
+#' Please use the `all_components = TRUE` when calling [nmr_read_samples()] in order
+#' to load the complex spectra and fix NMR phasing correctly.
+#' 
+#' @param dataset An [nmr_dataset] object 
+#' @param method The autophasing method. See [NMRphasing::NMRphasing()] for details. 
+#' @param withBC `NMRphasing::NMRphasing` may perform a baseline correction using modified polynomial fitting. By default
+#' AlpsNMR offers other baseline estimation methods and better visualization of its effect, so AlpsNMR by default
+#' disables the baseline correction offered by NMRphasing.
+#' @param ... Other parameters passed on to [NMRphasing::NMRphasing()].
+#' @return A (hopefully better phased) [nmr_dataset] object, with updated real and imaginary parts. 
 #' @examples
 #' dir_to_demo_dataset <- system.file("dataset-demo", package = "AlpsNMR")
-#' dataset <- nmr_read_samples_dir(dir_to_demo_dataset)
-#' dataset <- nmr_dataset_autophase(dataset,method="MPC_DANM")
+#' dataset <- nmr_read_samples_dir(dir_to_demo_dataset, all_components=TRUE)
+#' dataset <- nmr_autophase(dataset, method = "NLS")
 #' dataset <- nmr_interpolate_1D(dataset, axis = c(min = 1, max = 2, by = 0.002))
 #' plot(dataset)
 #' 
 #' @export 
-nmr_dataset_autophase <- function(samples, method= c("NLS", "MPC_DANM", "MPC_EMP", "SPC_DANM", "SPC_EMP", "SPC_AAM", "SPC_DSM"), withBC=F) {
+nmr_autophase <- function(dataset,
+                          method = c("NLS", "MPC_DANM", "MPC_EMP", "SPC_DANM", "SPC_EMP", "SPC_AAM", "SPC_DSM"),
+                          withBC = FALSE, ...) {
+    if (!"data_1i" %in% names(c(dataset))) {
+        cli::cli_warn(c(
+            "!" = "nmr_autophase() performs better with access to the whole complex NMR spectra",
+            "i" = "Please read the dataset using {.code all_components=TRUE}.",
+            "i" = "See {.fun AlpsNMR::nmr_autophase} for a full example"
+        ))
+    }
+
+    if (inherits(dataset, "nmr_dataset_1D")) {
+        cli::cli_abort(c(
+            "x" = "nmr_autophase() expects non-interpolated spectra",
+            "i" = "Please use nmr_autophase() before calling nmr_interpolate_1D()",
+            "i" = "See {.fun AlpsNMR::nmr_autophase} for a full example"
+        ))
+    }
     
     method <- match.arg(method)
-    BiocParallel::bplapply(seq_len(length(samples[["data_1r"]])), function(i) {
-        
-        data_to_phase <- if("data_1i" %in% objects(samples)) {
-            complex(real = samples[["data_1r"]][[i]], 
-                    imaginary = samples[["data_1i"]][[i]], 
-                    length.out = length(samples[["data_1r"]][[i]]
-                                        ))
-        } else {
-            samples[["data_1r"]][[i]]
-        }
-        
-        phased_data <- NMRphasing::NMRphasing(data_to_phase, method = method, 
-                                              absorptionOnly = !"data_1i" %in% objects(samples), 
-                                              withBC = F)
-        
-        if("data_1i" %in% objects(samples)) {
-            samples[["data_1r"]][[i]] <- Re(phased_data)
-            samples[["data_1i"]][[i]] <- Im(phased_data)
-        } else {
-            samples[["data_1r"]][[i]] <- phased_data
-        }
-        
-    })
     
-    return(samples)
+    real_list_of_spectra <- dataset$data_1r
+    imag_list_of_spectra <- dataset$data_1i
+    absorptionOnly <- FALSE
+    if (is.null(imag_list_of_spectra)) {
+        imag_list_of_spectra <- vector(mode="list", length=dataset$num_samples)
+    } else {
+        any_imag_missing <- purrr::map_lgl(imag_list_of_spectra, is.null)
+        any_imag_missing <- any_imag_missing[any_imag_missing]
+        if (length(any_imag_missing) > 0) {
+            if (length(any_imag_missing < 7)) {
+                miss_sample_names <- paste0(names(any_imag_missing), collapse = ", ")
+                msg <- "Samples without imaginary component: {miss_sample_names}"
+            } else {
+                miss_sample_names <- paste0(names(head(any_imag_missing, n=5)), collapse = ", ")
+                msg <- "Samples without imaginary component: {miss_sample_names} and {length(any_imag_missing)-5} more"
+            }
+            cli::cli_warn(c(
+                "!" = "{length(any_imag_missing)}/{dataset$num_samples} samples have a missing imaginary spectrum",
+                "i" = msg,
+                "i" = "Estimating autophase using only the absorption"
+            ))
+        }
+    }
+
+    real_imag_lists <- BiocParallel::bpmapply(
+        FUN = function(real, imag, ...) {
+            if (!is.null(imag)) {
+                absorptionOnly <- FALSE
+                to_phase <- complex(
+                    real = real, 
+                    imaginary = imag
+                )
+            } else {
+                absorptionOnly <- TRUE
+                to_phase <- real
+            }
+            phased <- NMRphasing::NMRphasing(to_phase, absorptionOnly = TRUE, ...)
+            list(real = Re(phased), imag = Im(phased))
+        },
+        real_list_of_spectra, imag_list_of_spectra,
+        MoreArgs = list(method = method, withBC = withBC, ...),
+        SIMPLIFY = FALSE
+    )
+    dataset[["data_1r"]] <- purrr::map(real_imag_lists, "real")
+    if ("data_1i" %in% c(dataset)) {
+        dataset[["data_1i"]] <- purrr::map(real_imag_lists, "imag")
+    }
+    dataset
 }
+
+
+
 
 #' @title Export data for the spectral quantification library ASICS  
 #' @description
